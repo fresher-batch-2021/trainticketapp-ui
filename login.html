@@ -13,9 +13,9 @@
     <h3>User Login Page</h3>
     <form onsubmit="loginPage()">
 
-        <label for="name">UserName: <span style="color:red">*</span></label>
+        <label for="name">User Name: <span style="color:red">*</span></label>
         <input type="text" name="name" id="name" placeholder="Enter user name" required>
-        <a href="#">Forgot user Name?</a> <br />
+         <br />
         <label for="password">Password: <span style="color:red">*</span></label>
         <input type="password" name="password" id="password" placeholder="Enter Password" required>
         <a href="#">Forgot Password?</a> <br />
@@ -23,7 +23,7 @@
         <button>Submit</button>
         <button><a href="index.html" style="text-decoration:none;">Home</a></button>
         
-        <p>Don't Have an Account? <a href="create_acc.html">Sign-Up</a></p> <br /><br /> <br />
+        <p>Don't Have an Account? <a href="register.html">Sign-Up</a></p> <br /><br /> <br />
     </form>
 
     <script src="js/jquery.min.js"></script>
@@ -44,8 +44,20 @@
                 "Password": password1
             };
             console.log(formvalues);
-            alert("Form submission completed");
-            window.location.href = "register.html";
+            if(name == "" || name == null || name.trim() == ""){
+                alert("Invalid User Name");
+            }
+            else{
+                
+            if(password1.length >= 4){
+                alert("Form submission completed");
+            window.location.href = "list_train.html";
+            }
+            else{
+                alert("Invalid Password");
+            }
+        }
+
 
 
         }

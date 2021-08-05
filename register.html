@@ -14,7 +14,7 @@
 
     <form onsubmit="checkConf();">
         <label for="name">UserName: <span style="color:red">*</span></label>
-        <input type="text" name="name" id="name" placeholder="Enter user name" required><br />
+        <input type="text" name="name" id="name" placeholder="Enter user name" required autofocus><br />
         <label for="password">Password: <span style="color:red">*</span></label>
         <input type="password" name="password" id="password" placeholder="Enter Password" required><br />
         <label for="con_password">Confirm Password: <span style="color:red">*</span></label>
@@ -76,9 +76,20 @@
                 "email": email
             };
             console.log(formvalues);
+
+
+            if(name == "" || name == null || name.trim() == ""){
+                alert("Invalid User Name");
+            }
+            else if(password1.length < 4 || confirm_password < 4 || password1 != confirm_password){
+                alert("Invalid Password");
+            }
+        
+            else{
             alert("Form submission completed");
-            window.location.href = "list_train.html";
+            window.location.href = "login.html";
         }
+    }
     </script>
 
 </body>
