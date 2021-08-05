@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/table.css">
+</head>
+
+<body>
+
+    <header id="header">
+        <!--append-->
+    </header>
+    <main>
+        <h3>List Trains</h3>
+        <div>
+            <label for="srch_sour_name"><b>Soruce Station</b></label>
+            <input type="text" name="srch_sour_name" id="srch_sour_name" autofocus>
+
+            <label for="srch_des_name"><b>Destination Station</b></label>
+            <input type="text" name="srch_des_name" id="srch_des_name">
+
+            <button>Search</button>
+
+        </div>
+        <br><br>
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Train No</th>
+                        <th>Train Name</th>
+                        <th>No of passengers Allowed</th>
+                        <th>Source Station</th>
+                        <th>Destination Station</th>
+                        <th>Arrival</th>
+                        <th>Depart</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>12345</td>
+                        <td><a href="booking.html" style="text-decoration:none"
+                                value="Purl City Super Fast Express">Purl City Super Fast Express</a></td>
+                        <td>1500</td>
+                        <td>Tuticorin</td>
+                        <td>Chennai</td>
+                        <td>02:30</td>
+                        <td>02:40</td>
+                        <td>Started</td>
+                        <td><a href="booking.html" style="text-decoration:none" value="Kanyakumari Express">Book</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>98765</td>
+                        <td><a href="booking.html" style="text-decoration:none" value="Kanyakumari Express">Kanyakumari
+                                Express</a></td>
+                        <td>500</td>
+                        <td>Madurai</td>
+                        <td>Thiruchendur</td>
+                        <td>14:15</td>
+                        <td>14:30</td>
+                        <td>Hold</td>
+                        <td><a href="booking.html" style="text-decoration:none" value="Kanyakumari Express">Book</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td>05021</td>
+                        <td><a href="booking.html" style="text-decoration:none" value="Pallavan Express">Pallavan
+                                Express</a></td>
+                        <td>700</td>
+                        <td>Nagercoil</td>
+                        <td>Tirunelveli</td>
+                        <td>00:00</td>
+                        <td>00:20</td>
+                        <td>Waiting</td>
+                        <td><a href="booking.html" style="text-decoration:none" value="Kanyakumari Express">Book</a>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <br>
+            <br>
+            <button><a href="add_train_adm.html" style="text-decoration:none;" data-toggle="modal"
+                    data-target="#modelId">Add Trains</a></button>
+            <button><a href="index.html" style="text-decoration:none;">Home</a></button>
+
+        </section>
+    </main>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $("#header").load("_header.html");
+
+    </script>
+</body>
+
+</html>

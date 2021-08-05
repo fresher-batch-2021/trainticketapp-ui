@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User login</title>
+</head>
+
+<body>
+    <header id="header"></header>
+    <h3>User Login Page</h3>
+    <form onsubmit="createAcc()">
+
+        <label for="name">UserName: <span style="color:red">*</span></label>
+        <input type="text" name="name" id="name" placeholder="Enter user name" required>
+        <a href="#">Forgot user Name?</a> <br />
+        <label for="password">Password: <span style="color:red">*</span></label>
+        <input type="password" name="password" id="password" placeholder="Enter Password" required>
+        <a href="#">Forgot Password?</a> <br />
+        <label for="con_password">Confirm Password: <span style="color:red">*</span></label>
+        <input type="password" name="con_password" id="con_password" placeholder="Enter confirm Password" required>
+        <br />
+        <br /> <br />
+        <button>Submit</button>
+        <button><a href="index.html" style="text-decoration:none;">Home</a></button>
+    </form>
+
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $("#header").load("_header.html");
+
+        function createAcc() {
+            event.preventDefault();
+            const name = document.querySelector("#name").value;
+            console.log(name);
+            const password1 = document.querySelector("#password").value;
+            console.log(password1);
+            const confirm_password = document.querySelector("#con_password").value;
+            console.log(confirm_password);
+
+            console.log(name + "+" + password1 + "+" + confirm_password);
+
+            let formvalues = {
+                "Firstname": name,
+                "Password": password1,
+                "confirmPassword": confirm_password
+            };
+            console.log(formvalues);
+            alert("Form submission completed");
+            window.location.href = "login.html";
+
+
+        }
+    </script>
+
+</body>
+</html>

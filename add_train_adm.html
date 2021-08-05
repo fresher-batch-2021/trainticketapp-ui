@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Trains</title>
+</head>
+
+<body>
+    <header id="header"></header>
+    <main>
+        <h3>Add Trains</h3>
+        <form onsubmit="addTrain();">
+            <div class="row">
+                <label for="train_no">Train No</label>
+                <input type="text" name="train_no" id="train_no" required autofocus>
+                <br />
+                <br />
+                <label for="train_name">Train Name</label>
+                <input type="text" name="train_name" id="train_name" required>
+                <br />
+                <br />
+                <label for="no_passenger">No of Passengers Allowed</label>
+                <input type="text" name="no_passenger" id="no_passenger" required>
+                <br />
+                <br />
+                <button>Submit</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form><br><br>
+        <button><a href="list_train_adm.html" style="text-decoration:none;">List Trains</a> </button>&nbsp;
+        <button><a href="index.html" style="text-decoration:none;">Home</a></button>
+
+        <script src="js/jquery.min.js"></script>
+        <script>
+            $("#header").load("_header.html");
+
+            function addTrain() {
+            event.preventDefault();
+            const train_no = document.querySelector("#train_no").value;
+            const train_name = document.querySelector("#train_name").value;
+            const no_passenger = document.querySelector("#no_passenger").value;
+
+            console.log(train_no + "+" + train_name + "+" + no_passenger);
+
+            let formvalues = {
+                "train_no": train_no,
+                "train_name": train_name,
+                "no_passenger": no_passenger
+            };
+            console.log(formvalues);
+            alert("Form submission completed");
+            window.location.href = "list_train_adm.html";
+
+
+        }
+
+        </script>
+
+    </main>
+</body>
+
+</html>

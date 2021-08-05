@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Details</title>
+    <link rel="stylesheet" href="assets/css/table.css">
+</head>
+
+<body>
+
+    <header id="header">
+        <!--append-->
+    </header>
+    <main>
+        <h3>Booking Details</h3>
+        <!-- <div>
+            <label for="srch_sour_name"><b>Soruce Station</b></label>
+            <input type="text" name="srch_sour_name" id="srch_sour_name" autofocus>
+            
+            <label for="srch_des_name"><b>Destination Station</b></label>
+            <input type="text" name="srch_des_name" id="srch_des_name">
+
+            <button>Search</button>
+
+        </div> -->
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Train No</th>
+                        <th>Train Name</th>
+                        <th>From Station</th>
+                        <th>To Station</th>
+                        <th>No of Tickets</th>
+                        <th>Journey Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>12345</td>
+                        <td>Purl City Super Fast Express</td>
+                        <td>Tuticorin</td>
+                        <td>Chennai</td>
+                        <td>5</td>
+                        <td>08-08-2021</td>
+                        <td>Waiting List</td>
+                        <td><a href="#">Cancel</a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <br>
+            <br>
+            <button><a href="add_train_adm.html" style="text-decoration:none;" data-toggle="modal"
+                    data-target="#modelId">Add Trains</a></button>
+            <button><a href="index.html" style="text-decoration:none;">Home</a></button>
+
+        </section>
+    </main>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $("#header").load("_header.html");
+
+    </script>
+</body>
+
+</html>

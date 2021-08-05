@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Trains</title>
+</head>
+
+<body>
+    <header id="header"></header>
+    <main>
+        <h3>Update Trains</h3>
+        <form onsubmit="editTrain();">
+            <label for="train_no">Enter Train Name</label>
+            <input type="text" name="train_no" id="train_no" value="12345" required autofocus>
+            <br />
+
+            <label for="train_name">Enter Train Name</label>
+            <input type="text" name="train_name" id="train_name" value="Pallavan Express" required>
+            <br />
+
+            <label for="no_passenger">No of Passengers Allowed</label>
+            <input type="text" name="no_passenger" id="no_passenger" value="100" required>
+            <br />
+
+            <button>Submit</button>
+            <button type="button">Delete</button>
+            <br />
+        </form>
+        <a href="list_task.html">List Tasks</a> <br />
+        <a href="index.html">Home</a>
+    </main>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $("#header").load("_header.html");
+
+        
+        function editTrain() {
+            event.preventDefault();
+            const train_no = document.querySelector("#train_no").value;
+            const train_name = document.querySelector("#train_name").value;
+            const no_passenger = document.querySelector("#no_passenger").value;
+
+            console.log(train_no + "+" + train_name + "+" + no_passenger);
+
+            let formvalues = {
+                "train_no": train_no,
+                "train_name": train_name,
+                "no_passenger": no_passenger
+            };
+            console.log(formvalues);
+            alert("Form submission completed");
+            window.location.href = "list_train_adm.html";
+
+
+        }
+
+    </script>
+
+</body>
+
+</html>
