@@ -11,7 +11,7 @@
 <body>
     <header id="header"></header>
     <main>
-        <h3>Add Trains</h3>
+        <h2>Add Trains</h2>
         <form onsubmit="addTrain();">
             <div class="row">
                 <label for="train_no">Train No</label>
@@ -26,12 +26,12 @@
                 <input type="text" name="no_passenger" id="no_passenger" required>
                 <br />
                 <br />
-                <button>Submit</button>
+                <button type="submit">Submit</button>
                 <button type="reset">Reset</button>
+                <button><a href="list_train_adm.html" style="text-decoration:none;">List Trains</a> </button>&nbsp;
+                <button><a href="index.html" style="text-decoration:none;">Home</a></button>
             </div>
         </form><br><br>
-        <button><a href="list_train_adm.html" style="text-decoration:none;">List Trains</a> </button>&nbsp;
-        <button><a href="index.html" style="text-decoration:none;">Home</a></button>
 
         <script src="js/jquery.min.js"></script>
         <script>
@@ -51,8 +51,14 @@
                 "no_passenger": no_passenger
             };
             console.log(formvalues);
+
+            if(train_no.length != 5){
+                alert("Invalid Train no");
+            }
+            else{
             alert("Form submission completed");
             window.location.href = "list_train_adm.html";
+            }
 
 
         }

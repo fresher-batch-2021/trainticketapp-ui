@@ -6,6 +6,7 @@
     --menuLinkColor: white;
 }
 
+
 body {
   font-family: Roboto, sans-serif;
   /* background-color: lightyellow; */
@@ -59,11 +60,18 @@ main {
 }
 .row{
   border: 2px solid black;
-  width: 50%;
+  margin: 0 30% 0 30%;
   padding: 30px;
-  text-align:center;
-  background-color: darkgray;
+  border-radius: 5px;
+  /* align-items: center; */
+  /* justify-content: center; */
+  background-color: rgb(212, 206, 206);
 }
+
+h2 {
+  text-align: center;
+}
+
 
 .form-group {
   display: block;

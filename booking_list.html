@@ -28,7 +28,7 @@
         </div> -->
         <section>
             <table class="booking_list">                
-                <caption>Train List</caption>
+                <caption><strong> Train List</strong></caption>
                 <thead>
                     <tr>
                         <th id="sno">#</th>
@@ -42,8 +42,8 @@
                         <th id="action">Actions</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
+                <tbody id="abc">
+                    <!-- <tr>
                         <td>1</td>
                         <td>12345</td>
                         <td>Purl City Super Fast Express</td>
@@ -53,7 +53,7 @@
                         <td>08-08-2021</td>
                         <td>Waiting List</td>
                         <td><a href="#">Cancel</a></td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
 
@@ -68,6 +68,24 @@
     <script src="js/jquery.min.js"></script>
     <script>
         $("#header").load("_header.html");
+
+        const book_list = [
+            { sno : "1", tra_no : "12345" , tra_name : "pallavan" , from_stat : "madurai" , to_stat : "chennai" , no_tick : 5 , jour_date : "10-08-2021" , status : "waiting"  }, {sno : "1", tra_no : "12345" , tra_name : "pallavan" , from_stat : "madurai" , to_stat : "chennai" , no_tick : 5 , jour_date : "10-08-2021" , status : "waiting"  }, {sno : "1", tra_no : "12345" , tra_name : "pallavan" , from_stat : "madurai" , to_stat : "chennai" , no_tick : 5 , jour_date : "10-08-2021" , status : "waiting"  }
+        ];
+
+        for (let booklistObj of book_list)
+        {
+            console.log(booklistObj);
+        }
+
+        let content="";
+        for (let booklistObj of book_list)
+        {
+            content= content + "<tr><td>" + booklistObj.sno + "</td>" + "<td>" + booklistObj.tra_no + "</td>" + "<td>" + booklistObj.tra_name + "</td>" + "<td>" + booklistObj.from_stat + "</td>" + "<td>" + booklistObj.to_stat + "</td>" + "<td>" + booklistObj.no_tick + "</td>" + "<td>" + booklistObj.jour_date + "</td>" + "<td>" + booklistObj.status + "</td>" + "<td>" + booklistObj.tra_name + "</td>";
+        }
+        console.log(content);
+        
+        document.querySelector("#abc").innerHTML=content;
 
     </script>
 </body>

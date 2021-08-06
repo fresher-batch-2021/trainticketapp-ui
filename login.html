@@ -10,20 +10,21 @@
 
 <body>
     <header id="header"></header>
-    <h3>User Login Page</h3>
+    <h2>User Login Page</h2>
     <form onsubmit="loginPage()">
 
+        <div class="row">
         <label for="name">User Name: <span style="color:red">*</span></label>
         <input type="text" name="name" id="name" placeholder="Enter user name" required>
-         <br />
+         <br /><br />
         <label for="password">Password: <span style="color:red">*</span></label>
         <input type="password" name="password" id="password" placeholder="Enter Password" required>
-        <a href="#">Forgot Password?</a> <br />
         <br /> <br />
         <button>Submit</button>
         <button><a href="index.html" style="text-decoration:none;">Home</a></button>
+        </div>
         
-        <p>Don't Have an Account? <a href="register.html">Sign-Up</a></p> <br /><br /> <br />
+        <p style="text-align: center;">Don't Have an Account? <a href="register.html">Sign-Up</a></p> <br /><br /> <br />
     </form>
 
     <script src="js/jquery.min.js"></script>
@@ -44,17 +45,18 @@
                 "Password": password1
             };
             console.log(formvalues);
-            if(name == "" || name == null || name.trim() == ""){
+            if(name == "" || name == null || name.trim() == "" || name != "admin123"){
                 alert("Invalid User Name");
             }
             else{
                 
-            if(password1.length >= 4){
-                alert("Form submission completed");
-            window.location.href = "list_train.html";
+            if(password1.length < 4 || password1 != "1234"){
+                alert("Invalid Password");
             }
             else{
-                alert("Invalid Password");
+               
+                alert("Form submission completed");
+            window.location.href = "list_train.html";
             }
         }
 

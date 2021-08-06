@@ -10,9 +10,11 @@
 
 <body>
     <header id="header"></header>
-    <h3>Registration with User Details</h3>
+    <h2>Registration with User Details</h2>
 
     <form onsubmit="checkConf();">
+        
+        <div class="row">
         <label for="name">UserName: <span style="color:red">*</span></label>
         <input type="text" name="name" id="name" placeholder="Enter user name" required autofocus><br />
         <label for="password">Password: <span style="color:red">*</span></label>
@@ -38,9 +40,12 @@
 
         <label for="email">Email<span style="color:red">*</span></label>
         <input type="email" name="email" id="email" placeholder="Enter your email ID" required> <br />
+        <label for="mobile">Mobile No<span style="color:red">*</span></label>
+        <input type="number" name="mobile" id="mobile" placeholder="Enter your Mobile No" required> <br />
         <br />
         <button><a href="index.html" style="text-decoration:none;">Home</a></button>
         <button>Submit</button>
+        </div>
     </form>
 
     <script src="js/jquery.min.js"></script>
@@ -60,8 +65,9 @@
             const male = document.querySelector("#male").value;
             const dob = document.querySelector("#dob").value;
             const email = document.querySelector("#email").value;
+            const mobile = document.querySelector("#mobile").value;
 
-            console.log(name + "+" + password1 + "+" + confirm_password + "+" + fir_name + "+" + mid_name + "+" + las_name + "+" + female + "+" + male + "+" + dob +"+" + email);
+            console.log(name + "+" + password1 + "+" + confirm_password + "+" + fir_name + "+" + mid_name + "+" + las_name + "+" + female + "+" + male + "+" + dob +"+" + email + "+" + mobile);
 
             let formvalues = {
                 "Name": name,
@@ -73,7 +79,8 @@
                 "female": female,
                 "male": male,
                 "dob": dob,
-                "email": email
+                "email": email,
+                "mobile": mobile
             };
             console.log(formvalues);
 
@@ -83,6 +90,9 @@
             }
             else if(password1.length < 4 || confirm_password < 4 || password1 != confirm_password){
                 alert("Invalid Password");
+            }
+            else if(mobile.length != 10){
+                alert("Invalid Mobile Number");
             }
         
             else{
