@@ -33,19 +33,19 @@
                 <thead>
                     <tr>
                         <th id="sno">#</th>
-                        <th id="tra_no">Train No</th>
-                        <th id="tra_name">Train Name</th>
-                        <th id="no_pass">No of passengers Allowed</th>
-                        <th id="sour_stat">Source Station</th>
-                        <th id="dest_stat">Destination Station</th>
+                        <th id="trainNo">Train No</th>
+                        <th id="trainName">Train Name</th>
+                        <th id="noPassenger">No of passengers Allowed</th>
+                        <th id="sourceStation">Source Station</th>
+                        <th id="destnationStation">Destination Station</th>
                         <th id="arrival">Arrival</th>
                         <th id="depart">Depart</th>
                         <th id="status">Status</th>
                         <th id="action">Actions</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
+                <tbody id="listTrainData">
+                    <!-- <tr>
                         <td>1</td>
                         <td>12345</td>
                         <td><a href="booking.html" style="text-decoration:none"
@@ -88,7 +88,7 @@
                         <td>Waiting</td>
                         <td><a href="booking.html" style="text-decoration:none" value="Kanyakumari Express">Book</a>
                         </td>
-                    </tr>
+                    </tr> -->
 
                 </tbody>
             </table>
@@ -104,6 +104,27 @@
     <script>
         $("#header").load("_header.html");
 
+        const train_list = [
+            { sno : "1", trainNo : "12345" , trainName : "Purl City Super Fast Express" , noPassenger : 1500 , sourceStation : "Tuticorin" , destnationStation : "Chennai" , arrival : "02:30" , depart : "02:40" , status : "Started" ,action : "Pallavan" },{ sno : "2", trainNo : "98765" , trainName : "Kanyakumari Express" , noPassenger : 500 , sourceStation : "madurai" , destnationStation : "Thiruchendur" , arrival : "14:15" , depart : "14:30" , status : "Hold" ,action : "Kanyakumari" },{ sno : "3", trainNo : "05021" , trainName : "Pallavan Express" , noPassenger : 700 , sourceStation : "Nagercoil" , destnationStation : "Tirunelveli" , arrival : "00:00" , depart : "00:20" , status : "Waiting" ,action : "Pallavan" }
+        ];
+
+        for (let trainlistObj of train_list)
+        {
+            console.log(trainlistObj);
+        }
+
+        let content="";
+        for (let trainlistObj of train_list)
+        {
+            let trainLink =`<a href='booking.html?trainName=${trainlistObj.trainName}'>${trainlistObj.trainName}</a>`;
+            
+            let trainview =`<a href='booking.html?trainName=${trainlistObj.trainName}'>Book</a>`;
+
+            content= content + "<tr><td>" + trainlistObj.sno + "</td>" + "<td>" + trainlistObj.trainNo + "</td>" + "<td>" + trainLink + "</td>" + "<td>" + trainlistObj.noPassenger + "</td>" + "<td>" + trainlistObj.sourceStation + "</td>" + "<td>" + trainlistObj.destnationStation + "</td>" + "<td>" + trainlistObj.arrival + "</td>" + "<td>" + trainlistObj.depart + "</td>" + "<td>" + trainlistObj.status + "</td>" + "<td>" + trainview + "</td></tr>";
+        }
+        console.log(content);
+        
+        document.querySelector("#listTrainData").innerHTML=content;
     </script>
 </body>
 

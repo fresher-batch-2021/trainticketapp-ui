@@ -14,16 +14,16 @@
         <h2>Add Trains</h2>
         <form onsubmit="addTrain();">
             <div class="row">
-                <label for="train_no">Train No</label>
-                <input type="text" name="train_no" id="train_no" required autofocus>
+                <label for="trainNo">Train No</label>
+                <input type="text" name="trainNo" id="trainNo" required autofocus>
                 <br />
                 <br />
-                <label for="train_name">Train Name</label>
-                <input type="text" name="train_name" id="train_name" required>
+                <label for="trainName">Train Name</label>
+                <input type="text" name="trainName" id="trainName" required>
                 <br />
                 <br />
-                <label for="no_passenger">No of Passengers Allowed</label>
-                <input type="text" name="no_passenger" id="no_passenger" required>
+                <label for="noPassenger">No of Passengers Allowed</label>
+                <input type="text" name="noPassenger" id="noPassenger" required>
                 <br />
                 <br />
                 <button type="submit">Submit</button>
@@ -39,20 +39,20 @@
 
             function addTrain() {
             event.preventDefault();
-            const train_no = document.querySelector("#train_no").value;
-            const train_name = document.querySelector("#train_name").value;
-            const no_passenger = document.querySelector("#no_passenger").value;
+            const trainNo = document.querySelector("#trainNo").value;
+            const trainName = document.querySelector("#trainName").value;
+            const noPassenger = document.querySelector("#noPassenger").value;
 
-            console.log(train_no + "+" + train_name + "+" + no_passenger);
+            console.log(trainNo + "+" + trainName + "+" + noPassenger);
 
             let formvalues = {
-                "train_no": train_no,
-                "train_name": train_name,
-                "no_passenger": no_passenger
+                "trainNo": trainNo,
+                "trainName": trainName,
+                "noPassenger": noPassenger
             };
             console.log(formvalues);
 
-            if(train_no.length != 5){
+            if(trainNo.length != 5){
                 alert("Invalid Train no");
             }
             else{

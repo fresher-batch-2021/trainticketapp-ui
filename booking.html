@@ -14,28 +14,28 @@
         <h3>Bookings</h3>
         <form onsubmit="bookingForm();">
             <div class="row">
-                <label for="train_no">Train No</label>
-                <input type="text" name="train_no" id="train_no" required autofocus>
+                <label for="trainNo">Train No: </label>
+                <input type="text" name="trainNo" id="trainNo" required autofocus>
                 <br />
                 <br />
-                <label for="train_name">Train Name</label>
-                <input type="text" name="train_name" id="train_name" required>
+                <label for="trainName">Train Name: </label>
+                <input type="text" name="trainName" id="trainName" required>
                 <br />
                 <br />
-                <label for="from_station">From Station</label>
-                <input type="text" name="from_station" id="from_station" required>
+                <label for="fromStation">From Station: </label>
+                <input type="text" name="fromStation" id="fromStation" required>
                 <br />
                 <br />
-                <label for="to_station">To Station</label>
-                <input type="text" name="to_station" id="to_station" required>
+                <label for="toStation">To Station: </label>
+                <input type="text" name="toStation" id="toStation" required>
                 <br />
                 <br />
-                <label for="no_ticket">No of Tickets</label>
-                <input type="text" name="no_ticket" id="no_ticket" required>
+                <label for="noTicket">No of Tickets: </label>
+                <input type="text" name="noTicket" id="noTicket" required>
                 <br />
                 <br />
-                <label for="jour_date">Journey Date</label>
-                <input type="date" name="jour_date" id="jour_date" required>
+                <label for="journeyDate">Journey Date: </label>
+                <input type="date" name="journeyDate" id="journeyDate" required>
                 <br />
                 <br />
                 <button>Submit</button>
@@ -52,29 +52,40 @@
             
         function bookingForm() {
             event.preventDefault();
-            const train_no = document.querySelector("#train_no").value;
-            const train_name = document.querySelector("#train_name").value;
-            const from_station = document.querySelector("#from_station").value;
-            const to_station = document.querySelector("#to_station").value;
-            const no_ticket = document.querySelector("#no_ticket").value;
-            const jour_date = document.querySelector("#jour_date").value;
+            const trainNo = document.querySelector("#trainNo").value;
+            const trainName = document.querySelector("#trainName").value;
+            const fromStation = document.querySelector("#fromStation").value;
+            const toStation = document.querySelector("#toStation").value;
+            const noTicket = document.querySelector("#noTicket").value;
+            const journeyDate = document.querySelector("#journeyDate").value;
 
-            console.log(train_no + "+" + train_name + "+" + from_station + "+" + to_station + "+" + no_ticket + "+" +jour_date);
+            console.log(trainNo + "+" + trainName + "+" + fromStation + "+" + toStation + "+" + noTicket + "+" +journeyDate);
 
             let formvalues = {
-                "train_no": train_no,
-                "train_name": train_name,
-                "from_station": from_station,
-                "to_station": to_station,
-                "no_ticket": no_ticket, 
-                "jour_date": jour_date
+                "trainNo": trainNo,
+                "trainName": trainName,
+                "fromStation": fromStation,
+                "toStation": toStation,
+                "noTicket": noTicket, 
+                "journeyDate": journeyDate
             };
             console.log(formvalues);
-            alert("Form submission completed");
-            window.location.href = "booking_list.html";
 
+            if(trainNo.length != 5){
+                alert("Invalid Train no");
+            }
+            else if(noTicket <= 0 ){
+                alert("Ticket counts Must be more than zero");
+                }
+                else
+                {
+                 alert("Form submission completed");
+                    window.location.href = "booking_list.html";
+                }
 
-        }
+            
+
+    }
 
         </script>
 

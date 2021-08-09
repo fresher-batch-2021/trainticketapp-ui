@@ -16,7 +16,7 @@
     </header>
     <main>
         <h3>Booking Details</h3>
-        <!-- <div>
+        <div>
             <label for="srch_sour_name"><b>Soruce Station</b></label>
             <input type="text" name="srch_sour_name" id="srch_sour_name" autofocus>
             
@@ -25,19 +25,19 @@
 
             <button>Search</button>
 
-        </div> -->
+        </div>
         <section>
             <table class="booking_list">                
                 <caption><strong> Train List</strong></caption>
                 <thead>
                     <tr>
                         <th id="sno">#</th>
-                        <th id="tra_no">Train No</th>
-                        <th id="tra_name">Train Name</th>
-                        <th id="from_stat">From Station</th>
-                        <th id="to_stat">To Station</th>
-                        <th id="no_tick">No of Tickets</th>
-                        <th id="jour_date">Journey Date</th>
+                        <th id="trainNo">Train No</th>
+                        <th id="trainName">Train Name</th>
+                        <th id="fromStation">From Station</th>
+                        <th id="toStation">To Station</th>
+                        <th id="noTicket">No of Tickets</th>
+                        <th id="journeyDate">Journey Date</th>
                         <th id="status">Status</th>
                         <th id="action">Actions</th>
                     </tr>
@@ -70,7 +70,7 @@
         $("#header").load("_header.html");
 
         const book_list = [
-            { sno : "1", tra_no : "12345" , tra_name : "pallavan" , from_stat : "madurai" , to_stat : "chennai" , no_tick : 5 , jour_date : "10-08-2021" , status : "waiting"  }, {sno : "2", tra_no : "54321" , tra_name : "Purl city" , from_stat : "madurai" , to_stat : "Trichy" , no_tick : 2 , jour_date : "12-08-2021" , status : "hold"  }
+            { sno : "1", trainNo : "12345" , trainName : "pallavan" , fromStation : "madurai" , toStation : "chennai" , noTicket : 5 , journeyDate : "10-08-2021" , status : "waiting"  }, {sno : "2", trainNo : "54321" , trainName : "Purl city" , fromStation : "madurai" , toStation : "Trichy" , noTicket : 2 , journeyDate : "12-08-2021" , status : "hold"  }
         ];
 
         for (let booklistObj of book_list)
@@ -81,7 +81,7 @@
         let content="";
         for (let booklistObj of book_list)
         {
-            content= content + "<tr><td>" + booklistObj.sno + "</td>" + "<td>" + booklistObj.tra_no + "</td>" + "<td>" + booklistObj.tra_name + "</td>" + "<td>" + booklistObj.from_stat + "</td>" + "<td>" + booklistObj.to_stat + "</td>" + "<td>" + booklistObj.no_tick + "</td>" + "<td>" + booklistObj.jour_date + "</td>" + "<td>" + booklistObj.status + "</td>" + "<td>" + booklistObj.tra_name + "</td>";
+            content= content + "<tr><td>" + booklistObj.sno + "</td>" + "<td>" + booklistObj.trainNo + "</td>" + "<td>" + booklistObj.trainName + "</td>" + "<td>" + booklistObj.fromStation + "</td>" + "<td>" + booklistObj.toStation + "</td>" + "<td>" + booklistObj.noTicket + "</td>" + "<td>" + booklistObj.journeyDate + "</td>" + "<td>" + booklistObj.status + "</td>" + "<td>" + booklistObj.trainName + "</td>";
         }
         console.log(content);
         

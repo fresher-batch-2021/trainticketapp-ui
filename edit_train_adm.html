@@ -13,16 +13,16 @@
     <main>
         <h3>Update Trains</h3>
         <form onsubmit="editTrain();">
-            <label for="train_no">Enter Train Name</label>
-            <input type="text" name="train_no" id="train_no" value="12345" required autofocus>
+            <label for="trainNo">Enter Train Name</label>
+            <input type="text" name="trainNo" id="trainNo" value="12345" required autofocus>
             <br />
 
-            <label for="train_name">Enter Train Name</label>
-            <input type="text" name="train_name" id="train_name" value="Pallavan Express" required>
+            <label for="trainName">Enter Train Name</label>
+            <input type="text" name="trainName" id="trainName" value="Pallavan Express" required>
             <br />
 
-            <label for="no_passenger">No of Passengers Allowed</label>
-            <input type="text" name="no_passenger" id="no_passenger" value="100" required>
+            <label for="noPassenger">No of Passengers Allowed</label>
+            <input type="text" name="noPassenger" id="noPassenger" value="100" required>
             <br />
 
             <button>Submit</button>
@@ -39,16 +39,16 @@
         
         function editTrain() {
             event.preventDefault();
-            const train_no = document.querySelector("#train_no").value;
-            const train_name = document.querySelector("#train_name").value;
-            const no_passenger = document.querySelector("#no_passenger").value;
+            const trainNo = document.querySelector("#trainNo").value;
+            const trainName = document.querySelector("#trainName").value;
+            const noPassenger = document.querySelector("#noPassenger").value;
 
-            console.log(train_no + "+" + train_name + "+" + no_passenger);
+            console.log(trainNo + "+" + trainName + "+" + noPassenger);
 
             let formvalues = {
-                "train_no": train_no,
-                "train_name": train_name,
-                "no_passenger": no_passenger
+                "trainNo": trainNo,
+                "trainName": trainName,
+                "noPassenger": noPassenger
             };
             console.log(formvalues);
             alert("Form submission completed");

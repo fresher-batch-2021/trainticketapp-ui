@@ -15,32 +15,32 @@
     <form onsubmit="checkConf();">
         
         <div class="row">
-        <label for="name">UserName: <span style="color:red">*</span></label>
-        <input type="text" name="name" id="name" placeholder="Enter user name" required autofocus><br />
+        <label for="userName">UserName: <span style="color:red">*</span></label>
+        <input type="text" name="userName" id="userName" placeholder="Enter User Name" required autofocus><br />
         <label for="password">Password: <span style="color:red">*</span></label>
         <input type="password" name="password" id="password" placeholder="Enter Password" required><br />
-        <label for="con_password">Confirm Password: <span style="color:red">*</span></label>
-        <input type="password" name="con_password" id="con_password" placeholder="Enter confirm Password" required>
+        <label for="confirmPassword">Confirm Password: <span style="color:red">*</span></label>
+        <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Enter confirm Password" required>
         <br />
         <br />
 
         <label><strong>Personal Details:</strong></label><br>
 
-        <label for="fir_name">First Name<span style="color:rgb(155, 44, 44)">*</span></label>
-        <input type="text" name="fir_name" id="fir_name" placeholder="Enter your Name" required><br />
-        <label for="mid_name">Middle Name</label>
-        <input type="text" name="mid_name" id="mid_name" placeholder="Enter your Name"> (Optional)<br />
-        <label for="las_name">Last Name<span style="color:red">*</span></label>
-        <input type="text" name="las_name" id="las_name" placeholder="Enter your Name" required><br />
-        <label for="gender">Gender<span style="color:red">*</span></label>
+        <label for="firstName">First Name: <span style="color:rgb(155, 44, 44)">*</span></label>
+        <input type="text" name="firstName" id="firstName" placeholder="Enter your Name" required><br />
+        <label for="middleName">Middle Name: </label>
+        <input type="text" name="middleName" id="middleName" placeholder="Enter your Name"> (Optional)<br />
+        <label for="lastName">Last Name: <span style="color:red">*</span></label>
+        <input type="text" name="lastName" id="lastName" placeholder="Enter your Name" required><br />
+        <label for="gender">Gender: <span style="color:red">*</span></label>
         <input type="radio" name="gender" id="female" value="Female" required checked>Female
         <input type="radio" name="gender" id="male" value="Male">Male<br />
-        <label for="dob">DOB<span style="color:red">*</span></label>
+        <label for="dob">DOB: <span style="color:red">*</span></label>
         <input type="date" name="dob" id="dob" required> <br />
 
-        <label for="email">Email<span style="color:red">*</span></label>
+        <label for="email">Email: <span style="color:red">*</span></label>
         <input type="email" name="email" id="email" placeholder="Enter your email ID" required> <br />
-        <label for="mobile">Mobile No<span style="color:red">*</span></label>
+        <label for="mobile">Mobile No: <span style="color:red">*</span></label>
         <input type="number" name="mobile" id="mobile" placeholder="Enter your Mobile No" required> <br />
         <br />
         <button><a href="index.html" style="text-decoration:none;">Home</a></button>
@@ -55,27 +55,27 @@
         function checkConf(){
 
             event.preventDefault();
-            const name = document.querySelector("#name").value;
+            const userName = document.querySelector("#userName").value;
             const password1 = document.querySelector("#password").value;
-            const confirm_password = document.querySelector("#con_password").value;
-            const fir_name = document.querySelector("#fir_name").value;
-            const mid_name = document.querySelector("#mid_name").value;
-            const las_name = document.querySelector("#las_name").value;
+            const confirmPassword = document.querySelector("#confirmPassword").value;
+            const firstName = document.querySelector("#firstName").value;
+            const middleName = document.querySelector("#middleName").value;
+            const lastName = document.querySelector("#lastName").value;
             const female = document.querySelector("#female").value;
             const male = document.querySelector("#male").value;
             const dob = document.querySelector("#dob").value;
             const email = document.querySelector("#email").value;
             const mobile = document.querySelector("#mobile").value;
 
-            console.log(name + "+" + password1 + "+" + confirm_password + "+" + fir_name + "+" + mid_name + "+" + las_name + "+" + female + "+" + male + "+" + dob +"+" + email + "+" + mobile);
+            console.log(userName + "+" + password1 + "+" + confirmPassword + "+" + firstName + "+" + middleName + "+" + lastName + "+" + female + "+" + male + "+" + dob +"+" + email + "+" + mobile);
 
             let formvalues = {
-                "Name": name,
+                "Name": userName,
                 "Password": password1,
-                "confirmPassword": confirm_password,
-                "Firstname": fir_name,
-                "Middlename": mid_name,
-                "Lastname": las_name,
+                "confirmPassword": confirmPassword,
+                "firstName": firstName,
+                "middleName": middleName,
+                "lastName": lastName,
                 "female": female,
                 "male": male,
                 "dob": dob,
@@ -85,10 +85,10 @@
             console.log(formvalues);
 
 
-            if(name == "" || name == null || name.trim() == ""){
+            if(userName == "" || userName == null || userName.trim() == ""){
                 alert("Invalid User Name");
             }
-            else if(password1.length < 4 || confirm_password < 4 || password1 != confirm_password){
+            else if(password1.length < 4 || confirmPassword < 4 || password1 != confirmPassword){
                 alert("Invalid Password");
             }
             else if(mobile.length != 10){
