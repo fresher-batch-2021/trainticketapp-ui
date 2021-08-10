@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User login</title>
+    <!-- axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
@@ -14,8 +16,8 @@
     <form onsubmit="loginPage()">
 
         <div class="row">
-        <label for="userName">User Name: <span style="color:red">*</span></label>
-        <input type="text" name="userName" id="userName" placeholder="Enter user name" required>
+        <label for="email">Email: <span style="color:red">*</span></label>
+        <input type="email" name="email" id="email" placeholder="Enter email" required>
          <br /><br />
         <label for="password">Password: <span style="color:red">*</span></label>
         <input type="password" name="password" id="password" placeholder="Enter Password" required>
@@ -33,30 +35,36 @@
 
         function loginPage() {
             event.preventDefault();
-            const userName = document.querySelector("#userName").value;
-            console.log(userName);
+            const email = document.querySelector("#email").value;
+            console.log(email);
             const password1 = document.querySelector("#password").value;
             console.log(password1);
 
-            console.log(userName + "+" + password1);
+            console.log(email + "+" + password1);
 
             let formvalues = {
-                "Firstname": userName,
-                "Password": password1
+                "email": email,
+                "password": password1
             };
             console.log(formvalues);
-            if(userName == "" || userName == null || userName.trim() == "" || userName != "admin123"){
-                alert("Invalid User Name");
+            if(email == "" || email == null || email.trim() == ""){
+                alert("Invalid email");
             }
             else{
                 
-            if(password1.length < 4 || password1 != "1234"){
+            if(password1.length < 4){
                 alert("Invalid Password");
             }
             else{
+                const url="https://product-mock-api.herokuapp.com/trainapp/api/v1/auth/login";
+                axios.post(url,formvalues).then(res=>{
+                    alert("login succesful");
+                    window.location.href="list_train.html";
+                }).catch(err=>{
+                    alert("login failed");
+                });
                
-                alert("Form submission completed");
-            window.location.href = "list_train.html";
+              
             }
         }
 

@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Page</title>
+    
+    <!-- axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </head>
 
 <body>
@@ -15,8 +19,8 @@
     <form onsubmit="checkConf();">
         
         <div class="row">
-        <label for="userName">UserName: <span style="color:red">*</span></label>
-        <input type="text" name="userName" id="userName" placeholder="Enter User Name" required autofocus><br />
+        <label for="email">Email: <span style="color:red">*</span></label>
+        <input type="email" name="email" id="email" placeholder="Enter Email" required autofocus><br />
         <label for="password">Password: <span style="color:red">*</span></label>
         <input type="password" name="password" id="password" placeholder="Enter Password" required><br />
         <label for="confirmPassword">Confirm Password: <span style="color:red">*</span></label>
@@ -38,8 +42,6 @@
         <label for="dob">DOB: <span style="color:red">*</span></label>
         <input type="date" name="dob" id="dob" required> <br />
 
-        <label for="email">Email: <span style="color:red">*</span></label>
-        <input type="email" name="email" id="email" placeholder="Enter your email ID" required> <br />
         <label for="mobile">Mobile No: <span style="color:red">*</span></label>
         <input type="number" name="mobile" id="mobile" placeholder="Enter your Mobile No" required> <br />
         <br />
@@ -55,7 +57,7 @@
         function checkConf(){
 
             event.preventDefault();
-            const userName = document.querySelector("#userName").value;
+            const email = document.querySelector("#email").value;
             const password1 = document.querySelector("#password").value;
             const confirmPassword = document.querySelector("#confirmPassword").value;
             const firstName = document.querySelector("#firstName").value;
@@ -64,29 +66,27 @@
             const female = document.querySelector("#female").value;
             const male = document.querySelector("#male").value;
             const dob = document.querySelector("#dob").value;
-            const email = document.querySelector("#email").value;
             const mobile = document.querySelector("#mobile").value;
 
-            console.log(userName + "+" + password1 + "+" + confirmPassword + "+" + firstName + "+" + middleName + "+" + lastName + "+" + female + "+" + male + "+" + dob +"+" + email + "+" + mobile);
+            console.log(email + "+" + password1 + "+" + confirmPassword + "+" + firstName + "+" + middleName + "+" + lastName + "+" + female + "+" + male + "+" + dob +"+" + mobile);
 
             let formvalues = {
-                "Name": userName,
-                "Password": password1,
+                "email": email,
+                "password": password1,
                 "confirmPassword": confirmPassword,
-                "firstName": firstName,
+                "name": firstName,
                 "middleName": middleName,
                 "lastName": lastName,
                 "female": female,
                 "male": male,
                 "dob": dob,
-                "email": email,
                 "mobile": mobile
             };
             console.log(formvalues);
 
 
-            if(userName == "" || userName == null || userName.trim() == ""){
-                alert("Invalid User Name");
+            if(email == "" || email == null || email.trim() == ""){
+                alert("Invalid Email");
             }
             else if(password1.length < 4 || confirmPassword < 4 || password1 != confirmPassword){
                 alert("Invalid Password");
@@ -96,8 +96,16 @@
             }
         
             else{
-            alert("Form submission completed");
-            window.location.href = "login.html";
+                
+                const url="https://product-mock-api.herokuapp.com/trainapp/api/v1/auth/register";
+                axios.post(url,formvalues).then(res=>{
+                    alert("Register succesful");
+                    window.location.href="login.html";
+                }).catch(err=>{
+                    alert("Register failed");
+                });
+               
+
         }
     }
     </script>

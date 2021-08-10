@@ -120,10 +120,13 @@
         for (let trainlistObj of train_list)
         {
             let trainLink =`<a href='booking.html?trainName=${trainlistObj.trainName}'>${trainlistObj.trainName}</a>`;
-            
-            let trainview =`<a href='booking.html?trainName=${trainlistObj.trainName}'>Book</a>`;
 
-            content= content + "<tr><td>" + trainlistObj.sno + "</td>" + "<td>" + trainlistObj.trainNo + "</td>" + "<td>" + trainLink + "</td>" + "<td>" + trainlistObj.noPassenger + "</td>" + "<td>" + trainlistObj.sourceStation + "</td>" + "<td>" + trainlistObj.destnationStation + "</td>" + "<td>" + trainlistObj.arrival + "</td>" + "<td>" + trainlistObj.depart + "</td>" + "<td>" + trainlistObj.status + "</td>" + "<td>" + trainview + "</td></tr>";
+            
+            let trainEdit =`<a href='edit_train_adm.html?trainName=${trainlistObj.trainName}'>Edit</a>`;
+            
+            let trainview =`<a href='add_train_adm.html?trainName=${trainlistObj.trainName}'>Delete</a>`;
+
+            content= content + "<tr><td>" + trainlistObj.sno + "</td>" + "<td>" + trainlistObj.trainNo + "</td>" + "<td>" + trainLink + "</td>" + "<td>" + trainlistObj.noPassenger + "</td>" + "<td>" + trainlistObj.sourceStation + "</td>" + "<td>" + trainlistObj.destnationStation + "</td>" + "<td>" + trainlistObj.arrival + "</td>" + "<td>" + trainlistObj.depart + "</td>" + "<td>" + trainlistObj.status + "</td>" + "<td>" + trainEdit + " " + trainview + "</td></tr>";
         }
         console.log(content);
         

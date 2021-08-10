@@ -11,7 +11,7 @@
 <body>
     <header id="header"></header>
     <main>
-        <h3>Bookings</h3>
+        <h2>Bookings</h2>
         <form onsubmit="bookingForm();">
             <div class="row">
                 <label for="trainNo">Train No: </label>
@@ -38,6 +38,10 @@
                 <input type="date" name="journeyDate" id="journeyDate" required>
                 <br />
                 <br />
+                <label for="ticketAmount">Ticket Amount: </label>
+                <input type="text" name="ticketAmount" id="ticketAmount" value="Rs. 560" required readonly>
+                <br />
+                <br />
                 <button>Submit</button>
                 <button type="reset">Reset</button>
             </div>
@@ -58,8 +62,9 @@
             const toStation = document.querySelector("#toStation").value;
             const noTicket = document.querySelector("#noTicket").value;
             const journeyDate = document.querySelector("#journeyDate").value;
+            const ticketAmount = document.querySelector("#ticketAmount").value;
 
-            console.log(trainNo + "+" + trainName + "+" + fromStation + "+" + toStation + "+" + noTicket + "+" +journeyDate);
+            console.log(trainNo + "+" + trainName + "+" + fromStation + "+" + toStation + "+" + noTicket + "+" +journeyDate + "+" + ticketAmount);
 
             let formvalues = {
                 "trainNo": trainNo,
@@ -67,7 +72,8 @@
                 "fromStation": fromStation,
                 "toStation": toStation,
                 "noTicket": noTicket, 
-                "journeyDate": journeyDate
+                "journeyDate": journeyDate,
+                "ticketAmount": ticketAmount
             };
             console.log(formvalues);
 
