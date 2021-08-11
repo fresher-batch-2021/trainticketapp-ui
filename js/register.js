@@ -45,7 +45,7 @@ function checkConf(){
         
         const url="https://product-mock-api.herokuapp.com/trainapp/api/v1/auth/register";
         axios.post(url,formvalues).then(res=>{
-            alert("Register succesful");
+            alert("Register successful");
             window.location.href="login.html";
         }).catch(err=>{
             alert("Register failed");
