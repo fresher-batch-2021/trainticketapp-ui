@@ -17,18 +17,18 @@
     <main>
         <h2>List Trains</h2>
         <div>
-            <label for="srch_sour_name"><strong>Source Station</strong></label>
-            <input type="text" name="srch_sour_name" id="srch_sour_name" autofocus>
+            <label for="sourceStationSearch"><strong>Source Station</strong></label>
+            <input type="text" name="sourceStationSearch" id="sourceStationSearch" autofocus>
 
-            <label for="srch_des_name"><strong>Destination Station</strong></label>
-            <input type="text" name="srch_des_name" id="srch_des_name">
+            <label for="destinationStationSearch"><strong>Destination Station</strong></label>
+            <input type="text" name="destinationStationSearch" id="destinationStationSearch">
 
             <button>Search</button>
 
         </div>
         <br><br>
         <section>
-            <table class="list_train_adm">
+            <table class="listTrainAdm">
                 <caption><strong> Train List</strong></caption>
                 <thead>
                     <tr>
@@ -40,6 +40,8 @@
                         <th id="destnationStation">Destination Station</th>
                         <th id="arrival">Arrival</th>
                         <th id="depart">Depart</th>
+                        <th id="availableTickets">Available Tickets</th>
+                        <th id="ticketPrice">Ticket Price</th>
                         <th id="status">Status</th>
                         <th id="action">Actions</th>
                     </tr>
