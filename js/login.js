@@ -54,6 +54,7 @@
                         const user = data[0];
                         localStorage.setItem("Logged_in_users",JSON.stringify(user));
                         alert("successfully login");
+                        window.location.href="list_train.html";
                     }
 
                     // // localStorage.setItem("Logged_in_users",JSON.stringify(users));
