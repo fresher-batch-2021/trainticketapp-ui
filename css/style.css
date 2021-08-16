@@ -54,7 +54,10 @@ a.brand {
   text-decoration: none;
   padding: 25px;
 }
-
+.logout{
+  float: right;
+  color: whitesmoke;
+}
 main {
   margin: 10px;
 }

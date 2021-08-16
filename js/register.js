@@ -6,6 +6,8 @@ function checkConf(){
     const email = document.querySelector("#email").value;
     const password1 = document.querySelector("#password").value;
     const confirmPassword = document.querySelector("#confirmPassword").value;
+    // const role = document.querySelector("#role").value;
+
     const firstName = document.querySelector("#firstName").value;
     const middleName = document.querySelector("#middleName").value;
     const lastName = document.querySelector("#lastName").value;
@@ -20,6 +22,7 @@ function checkConf(){
         "email": email,
         "password": password1,
         "confirmPassword": confirmPassword,
+        // "role": role,
         "name": firstName,
         "middleName": middleName,
         "lastName": lastName,
@@ -43,8 +46,14 @@ function checkConf(){
 
     else{
         
-        const url="https://product-mock-api.herokuapp.com/trainapp/api/v1/auth/register";
-        axios.post(url,formvalues).then(res=>{
+        const dbUsername = "apikey-v2-15a2mog1stn0kv0gjnidlq2eoth4psp58f8ov9zs42i6";
+        const dbPassword = "aabcfd48d07fe38f4760f6cd11b83b4a";
+        const basicAuth = 'Basic ' + btoa(dbUsername + ':' + dbPassword);
+
+        const url="https://b4af4ef2-55e1-4a9b-9b02-8168e5964652-bluemix.cloudantnosqldb.appdomain.cloud/trainticketapp_users";
+        axios.post(url,formvalues,{ headers: { 'Authorization': basicAuth } }).then(res=>{
+            let users=res.data;
+            // localStorage.setItem("register_in_users",JSON.stringify(users));
             alert("Register successful");
             window.location.href="login.html";
         }).catch(err=>{

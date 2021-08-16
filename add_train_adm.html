@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Trains</title>
+
+     <!-- axios -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
@@ -18,32 +21,40 @@
                 <input type="text" name="trainNo" id="trainNo" required autofocus>
                 <br />
                 <br />
-                <label for="trainName">Train Name</label>
-                <input type="text" name="trainName" id="trainName" required>
+                <label for="name">Train Name</label>
+                <input type="text" name="name" id="name" required>
                 <br />
                 <br />
                 <label for="noPassenger">No of Passengers Allowed</label>
                 <input type="text" name="noPassenger" id="noPassenger" required>
                 <br />
                 <br />
-                <label for="sourceStation">Source Station</label>
-                <input type="text" name="sourceStation" id="sourceStation" required>
+                <label for="source">Source Station</label>
+                <input type="text" name="source" id="source" required>
                 <br />
                 <br />
-                <label for="destinationStation">Destination Station</label>
-                <input type="text" name="destinationStation" id="destinationStation" required>
+                <label for="destination">Destination Station</label>
+                <input type="text" name="destination" id="destination" required>
                 <br />
                 <br />
-                <label for="ticketPrice">Ticket Price</label>
-                <input type="text" name="ticketPrice" id="ticketPrice" required>
+                <label for="stations">Stations</label>
+                <input type="text" name="stations" id="stations" required>
                 <br />
                 <br />
-                <label for="arrival">Arrival</label>
-                <input type="time" name="arrival" id="arrival" required>
+                <label for="price">Ticket Price</label>
+                <input type="text" name="price" id="price" required>
                 <br />
                 <br />
-                <label for="depart">Depart</label>
-                <input type="time" name="depart" id="depart" required>
+                <label for="startTime">Start Time</label>
+                <input type="time" name="startTime" id="startTime" required>
+                <br />
+                <br />
+                <label for="endTime">End Time</label>
+                <input type="time" name="endTime" id="endTime" required>
+                <br />
+                <br />
+                <label for="duration">Duration</label>
+                <input type="time" name="duration" id="duration" required>
                 <br />
                 <br />
                 <button type="submit">Submit</button>

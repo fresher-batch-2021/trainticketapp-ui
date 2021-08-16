@@ -7,6 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="assets/css/table.css">
+
+     <!-- axios -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
 </head>
 
 <body>
@@ -19,10 +24,36 @@
         <div>
            
             <label for="sourceStationSearch"><strong>Source Station</strong></label>
-            <input type="text" name="sourceStationSearch" id="sourceStationSearch" autofocus>
+            <select name='sourceStationSearch' class="sourceStationSearch">
+                <option value="">Select a location...</option>
+                <option value="chengalpattu">Chengalpattu</option>
+                <option value="chennai">Chennai</option>
+                <option value="kanyakumari">Kanyakumari</option>
+                <option value="madurai">Madurai</option>
+                <option value="ramanathapuram">Ramanathapuram</option>
+                <option value="selam">Selam</option>
+                <option value="thiruchendur">Thiruchendur</option>
+                <option value="thirupathi">Thirupathi</option>
+                <option value="trichy">Trichy</option>
+                <option value="tuticorin">Tuticorin</option>
+            </select>
 
             <label for="destinationStationSearch"><strong>Destination Station</strong></label>
-            <input type="text" name="destinationStationSearch" id="destinationStationSearch">
+            <select name='destinationStationSearch' class="destinationStationSearch">
+                <option value="">Select a location...</option>
+                <option value="chengalpattu">Chengalpattu</option>
+                <option value="chennai">Chennai</option>
+                <option value="kanyakumari">Kanyakumari</option>
+                <option value="madurai">Madurai</option>
+                <option value="ramanathapuram">Ramanathapuram</option>
+                <option value="selam">Selam</option>
+                <option value="thiruchendur">Thiruchendur</option>
+                <option value="thirupathi">Thirupathi</option>
+                <option value="trichy">Trichy</option>
+                <option value="tuticorin">Tuticorin</option>
+                <option value="mumbai">Mumbai</option>
+                <option value="kerala">Kerala</option>
+            </select>
             <button>Search</button>
 
         </div>
