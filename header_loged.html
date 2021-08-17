@@ -11,18 +11,18 @@
         <a class="nav-item" href="edit_task.html" style="text-decoration:none;">Task-Edit</a> -->
         <a class="nav-item" href="aboutus.html" style="text-decoration:none;"> About Us</a>
        
-        <a class="username" href="#" id="loggedIn" style="text-decoration:none;text-align: right;" ></a>
-        <a class="logout" href="login.html" style="text-decoration:none;text-align: right;"> Log Out</a>
+        <a class="logout" href="#" style="text-decoration:none;text-align: right;" onclick="logout()"> LogOut</a>
         
+        <a class="welcome" id="loggedIn"></a>
     </nav>
     
     <script src="js/_header.js"></script>
     <script>
              function checkLogin() {
-                        let userStr = localStorage.getItem("register_in_users");
+                        let userStr = localStorage.getItem("Logged_in_users");
                         let user = userStr != null ? JSON.parse(userStr):null;
                         if (user != null){
-                           document.querySelector("#loggedIn").innerHTML = "Welcome <a href = 'profile.html'>" + user.name + "</a>  &nbsp;<a href='#' onclick='logout()'> Logout</a>";
+                           document.querySelector("#loggedIn").innerHTML = "Welcome <a href = 'profile.html'>" + user.name + "</a> &nbsp;";
                         }
                         // else{
                                                
@@ -30,6 +30,11 @@
 
                         }
                         checkLogin();
+                        function logout(){
+
+                            localStorage.removeItem("Logged_in_users");
+                            window.location.href="login.html"
+                        }
 
     </script>
     </header>

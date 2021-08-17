@@ -58,6 +58,13 @@ a.brand {
   float: right;
   color: whitesmoke;
 }
+
+.welcome{
+  
+  float: right;
+  color: whitesmoke;
+}
+
 main {
   margin: 10px;
 }

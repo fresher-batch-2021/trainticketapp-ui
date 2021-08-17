@@ -57,6 +57,7 @@ function checkConf(){
             alert("Register successful");
             window.location.href="login.html";
         }).catch(err=>{
+            console.log(err.response.data);
             alert("Register failed");
         });
        

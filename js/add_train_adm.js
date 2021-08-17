@@ -36,41 +36,22 @@ if(trainNo.length != 5){
 else{
 
     
+    const dbUsername = "apikey-v2-15a2mog1stn0kv0gjnidlq2eoth4psp58f8ov9zs42i6";
+    const dbPassword = "aabcfd48d07fe38f4760f6cd11b83b4a";
+    const basicAuth = 'Basic ' + btoa(dbUsername + ':' + dbPassword);
+
     
     
-    const url="https://product-mock-api.herokuapp.com/trainapp/api/v1/trains";
-    axios.post(url,formvalues).then(res=>{
+    const url="https://b4af4ef2-55e1-4a9b-9b02-8168e5964652-bluemix.cloudantnosqldb.appdomain.cloud/trainticketapp_train";
+    axios.post(url,formvalues,{ headers: { 'Authorization': basicAuth } }).then(res=>{
         let train_list = res.data;
         alert("Train Added successful");
-        console.log(train_list);
-        alert("yes");
-        localStorage.setItem("Added_Train",JSON.stringify(res.data));
-        alert("added in local storage");
         window.location.href="list_train_adm.html";
     }).catch(err=>{
+        console.log(err.response.data);
         alert("Failed to add Train");
     });
    
-
-    // const url="https://product-mock-api.herokuapp.com/trainapp/api/v1/trains";
-    // axios.get(url,formvalues).then(res=>{
-    //     let train_list = res.data;
-    //     alert("Train Added successful");
-    //     console.log(train_list);
-    //     alert("yes");
-    //     localStorage.setItem("Added_Train",JSON.stringify(res.data));
-    //     alert("added in local storage");
-    //     // window.location.href="list.html";
-    // }).catch(err=>{
-    //     alert("Register failed");
-    // });
-   
-
-
-
-
-// alert("Form submission completed");
-// // window.location.href = "list_train_adm.html";
 }
 
 
