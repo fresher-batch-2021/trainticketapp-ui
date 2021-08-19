@@ -29,7 +29,7 @@ function bookList() {
         let content="";
         for (let booklistObj of book_list)
         {
-            i=i+1;
+            i++;
 
             let cancelBook =`<button type='submit'  onclick = "cancel_booking('${booklistObj._id}','${booklistObj._rev}');"> Cancel </button>`;
 
