@@ -21,7 +21,7 @@
             let userStr = localStorage.getItem("Logged_in_users");
             let user = userStr != null ? JSON.parse(userStr) : null;
             if (user != null) {
-                document.querySelector("#loggedIn").innerHTML = "Welcome <a href = 'profile.html' class='user'>" + user.name + "</a> &nbsp;";
+                document.querySelector("#loggedIn").innerHTML = "Welcome <a href = 'profile_user.html' class='user'>" + user.name + "</a> &nbsp;";
             }
             // else{
 
