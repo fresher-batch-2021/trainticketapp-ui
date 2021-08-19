@@ -1,5 +1,17 @@
-            $("#header").load("_header.html");
+            $("#header").load("header_loged.html");
 
+            let params = new URLSearchParams(window.location.search.substr(1));
+            let trainNumber = params.get("trainNo");
+            document.querySelector("#trainNo").value=trainNumber;
+            let Nametrain = params.get("name");
+            document.querySelector("#trainName").value=Nametrain;
+            let sourceStation = params.get("source");
+            document.querySelector("#fromStation").value=sourceStation;
+            destinationStation = params.get("destination");
+            document.querySelector("#toStation").value=destinationStation;
+            ticketPrice = params.get("price");
+            let journeyDate = document.querySelector("#journeyDate").value;
+            document.querySelector("#ticketAmount").value=ticketPrice;
             
         function bookingForm() {
             event.preventDefault();
@@ -59,3 +71,11 @@
             
 
     }
+
+    
+function setDate(){
+    let today = new Date().toJSON().substr(0,10);
+    document.querySelector("#journeyDate").setAttribute("min", today);
+
+}
+setDate();

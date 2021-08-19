@@ -1,4 +1,4 @@
-$("#header").load("_header.html");
+$("#header").load("header_loged.html");
 
 function bookList() {
 
@@ -31,11 +31,11 @@ function bookList() {
         {
             i=i+1;
 
-            let cancelTrain =`<a href='booking.html?trainName=${booklistObj.trainName}'>Cancel</a>`;
+            let cancelBook =`<button type='submit'  onclick = "cancel_booking('${booklistObj._id}','${booklistObj._rev}');"> Cancel </button>`;
 
             const abc = (booklistObj.noTicket)*(booklistObj.individualPrice);
 
-            content= content + "<tr><td>" + i + "</td>" + "<td>" + booklistObj.trainNo + "</td>" + "<td>" + booklistObj.name + "</td>" + "<td>" + booklistObj.source + "</td>" + "<td>" + booklistObj.destination + "</td>" + "<td>" + booklistObj.noTicket + "</td>" + "<td>" + booklistObj.journeyDate + "</td>" + "<td>" + "Rs." + booklistObj.individualPrice + "</td>" + "<td>" + "Rs." + abc + "</td>" + "<td>" + cancelTrain + "</td>";
+            content= content + "<tr><td>" + i + "</td>" + "<td>" + booklistObj.trainNo + "</td>" + "<td>" + booklistObj.name + "</td>" + "<td>" + booklistObj.source + "</td>" + "<td>" + booklistObj.destination + "</td>" + "<td>" + booklistObj.noTicket + "</td>" + "<td>" + booklistObj.journeyDate + "</td>" + "<td>" + "Rs." + booklistObj.individualPrice + "</td>" + "<td>" + "Rs." + abc + "</td>" + "<td>" + cancelBook + "</td>";
         
         console.log(content);
         
@@ -48,3 +48,24 @@ function bookList() {
     });
 }
 bookList();
+
+function cancel_booking(id,rev){
+    alert("Do you want to delete this data?");
+    console.log(id);
+    console.log(rev);
+    let url ="https://b4af4ef2-55e1-4a9b-9b02-8168e5964652-bluemix.cloudantnosqldb.appdomain.cloud/trainticketapp_book/";
+        const dbusername = "apikey-v2-15a2mog1stn0kv0gjnidlq2eoth4psp58f8ov9zs42i6";
+        const dbpassword = "aabcfd48d07fe38f4760f6cd11b83b4a";
+    const basicAuth = 'Basic '  + btoa(dbusername+ ":" +dbpassword);
+
+    axios.delete(url+id+"?rev="+rev, { headers: {'Authorization': basicAuth}}).then(res => {
+    alert("Deleted succesfully");
+
+    bookList();
+    }).catch(err =>{
+        alert("error in deleting");
+
+    })
+    
+}
+

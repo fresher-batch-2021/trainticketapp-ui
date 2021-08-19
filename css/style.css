@@ -32,6 +32,16 @@ header {
   color: var(--headerColor);
   padding: 10px;
 }
+
+
+footer {
+  /* background-color: #364150; */
+  background-color: var(--headerBackgroundColor);
+  color: whitesmoke;
+  text-decoration: none;
+  padding: 25px;
+}
+
 .login_form{
     margin: 20px;
     padding: 20px;
@@ -49,11 +59,27 @@ a.brand {
   margin: 10px;
 }
 
+a.user{
+  color: whitesmoke;
+
+}
+a.admin{  
+  color: whitesmoke;
+}
+
 .nav-item {
   color: var(--menuLinkColor);
   text-decoration: none;
   padding: 25px;
 }
+
+
+.dev-item {
+  color: var(--menuLinkColor);
+  text-decoration: none;
+  padding: 25px;
+}
+
 .logout{
   float: right;
   color: whitesmoke;
@@ -108,4 +134,6 @@ h2 {
 table, th, td{
   border:2px solid black;
   border-collapse: collapse;
+  font-size: 15px;
+  
 }

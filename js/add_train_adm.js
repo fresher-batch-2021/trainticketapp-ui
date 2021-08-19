@@ -1,5 +1,5 @@
 
-$("#header").load("_header.html");
+$("#header").load("headerAdminLogged.html");
 
 function addTrain() {
 event.preventDefault();
@@ -42,7 +42,7 @@ else{
 
     
     
-    const url="https://b4af4ef2-55e1-4a9b-9b02-8168e5964652-bluemix.cloudantnosqldb.appdomain.cloud/trainticketapp_train";
+    const url="https://b4af4ef2-55e1-4a9b-9b02-8168e5964652-bluemix.cloudantnosqldb.appdomain.cloud/trainticketapp_trains";
     axios.post(url,formvalues,{ headers: { 'Authorization': basicAuth } }).then(res=>{
         let train_list = res.data;
         alert("Train Added successful");

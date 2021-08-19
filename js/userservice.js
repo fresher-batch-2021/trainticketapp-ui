@@ -7,7 +7,7 @@ const basicAuth = 'Basic ' + btoa(dbUsername + ':' + dbPassword);
 
 class UserService {
 
-    static login(email, password1) {
+    static login(email, password1,role) {
 
 
         const url = "https://b4af4ef2-55e1-4a9b-9b02-8168e5964652-bluemix.cloudantnosqldb.appdomain.cloud/trainticketapp_users/_find";
@@ -15,12 +15,24 @@ class UserService {
         const requestData = {
             selector: {
                 email: email,
-                password: password1
+                password: password1,
+                role: role
             },
             fields: ["_id", "name", "email", "role"],
         };
 
         return axios.post(url, requestData, { headers: { Authorization: basicAuth } });
     }
+    
+    static register(formValues) {
+
+
+
+        const url="https://b4af4ef2-55e1-4a9b-9b02-8168e5964652-bluemix.cloudantnosqldb.appdomain.cloud/trainticketapp_users";
+
+        return   axios.post(url,formValues,{ headers: { 'Authorization': basicAuth } });
+
+    }
+
 
 }

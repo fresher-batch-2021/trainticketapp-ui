@@ -18,23 +18,23 @@
         <form onsubmit="bookingForm();">
             <div class="row">
                 <label for="trainNo">Train No: </label>
-                <input type="text" name="trainNo" id="trainNo" required autofocus>
+                <input type="number" name="trainNo" id="trainNo" pattern="[0-9]{5}" required autofocus>
                 <br />
                 <br />
                 <label for="trainName">Train Name: </label>
-                <input type="text" name="trainName" id="trainName" required>
+                <input type="text" name="trainName" id="trainName" pattern="[A-Za-z ]{1,50}" required>
                 <br />
                 <br />
                 <label for="fromStation">From Station: </label>
-                <input type="text" name="fromStation" id="fromStation" required>
+                <input type="text" name="fromStation" id="fromStation" pattern="[A-Za-z ]{1,50}" required>
                 <br />
                 <br />
                 <label for="toStation">To Station: </label>
-                <input type="text" name="toStation" id="toStation" required>
+                <input type="text" name="toStation" id="toStation" pattern="[A-Za-z ]{1,50}" required>
                 <br />
                 <br />
                 <label for="noTicket">No of Tickets: </label>
-                <input type="text" name="noTicket" id="noTicket" required>
+                <input type="number" name="noTicket" id="noTicket" required>
                 <br />
                 <br />
                 <label for="journeyDate">Journey Date: </label>
@@ -42,7 +42,7 @@
                 <br />
                 <br />
                 <label for="ticketAmount">Ticket Amount: </label>
-                <input type="text" name="ticketAmount" id="ticketAmount" required>
+                <input type="number" name="ticketAmount" id="ticketAmount" required>
                 <br />
                 <br />
                 <button>Submit</button>
@@ -55,6 +55,7 @@
         <script src="js/jquery.min.js"></script>
         
         <script src="js/booking.js"></script>
+        <script src="js/validator.js"></script>
 
     </main>
 </body>

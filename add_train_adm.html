@@ -18,31 +18,31 @@
         <form onsubmit="addTrain();">
             <div class="row">
                 <label for="trainNo">Train No</label>
-                <input type="text" name="trainNo" id="trainNo" required autofocus>
+                <input type="number" name="trainNo" id="trainNo" pattern="[0-9]{5}" autocomplete="off" required autofocus>
                 <br />
                 <br />
                 <label for="name">Train Name</label>
-                <input type="text" name="name" id="name" required>
+                <input type="text" name="name" id="name" pattern="[A-Za-z ]{1,50}" required>
                 <br />
                 <br />
                 <label for="noPassenger">No of Passengers Allowed</label>
-                <input type="text" name="noPassenger" id="noPassenger" required>
+                <input type="number" name="noPassenger" id="noPassenger" required>
                 <br />
                 <br />
                 <label for="source">Source Station</label>
-                <input type="text" name="source" id="source" required>
+                <input type="text" name="source" id="source" pattern="[A-Za-z ]{1,50}" required>
                 <br />
                 <br />
                 <label for="destination">Destination Station</label>
-                <input type="text" name="destination" id="destination" required>
+                <input type="text" name="destination" id="destination" pattern="[A-Za-z ]{1,50}" required>
                 <br />
                 <br />
                 <label for="stations">Stations</label>
-                <input type="text" name="stations" id="stations" required>
+                <input type="text" name="stations" id="stations" pattern="[A-Za-z, ]{1,200}" required>
                 <br />
                 <br />
                 <label for="price">Ticket Price</label>
-                <input type="text" name="price" id="price" required>
+                <input type="number" name="price" id="price" required>
                 <br />
                 <br />
                 <label for="startTime">Start Time</label>

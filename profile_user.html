@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header id="header"> </header>
+
+    <section id="profile">
+        <button type="submit" onclick="abc();" style="float: right;">Back</button>
+        <h1>My Profile </h1>
+        <table class="profile-table">
+            <tbody>
+                <tr>
+                    <td>Name</td>
+                    <td id="name"></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td id="email"></td>
+                </tr>
+                <tr>
+                    <td>Role</td>
+                    <td id="role"></td>
+                </tr>
+            </tbody>
+            
+        </table>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script src= "index.js"></script>
+    
+    <script>
+$("#header").load("header_loged.html");
+
+        let userStr = localStorage.getItem("Logged_in_users");
+                        let user = userStr != null ? JSON.parse(userStr):null;
+                        if (user != null){
+                           document.querySelector("#name").innerHTML = user.name;
+                           document.querySelector("#email").innerHTML = user.email;
+                           document.querySelector("#role").innerHTML = user.role;
+                        }
+                        // else{
+                                               
+                        // }
+    </script>
+</body>
+</html>

@@ -1,4 +1,5 @@
 $("#header").load("_header.html")
+$("#footer").load("footer.html")
 
 function checkConf(){
 
@@ -6,32 +7,54 @@ function checkConf(){
     const email = document.querySelector("#email").value;
     const password1 = document.querySelector("#password").value;
     const confirmPassword = document.querySelector("#confirmPassword").value;
-    // const role = document.querySelector("#role").value;
+    const roles = document.querySelectorAll("#role");
+
+    let role ;
+    
+    roles.forEach(roleRadio=>{
+      if (roleRadio.checked){
+          role = roleRadio.value;
+      }
+    });
+    console.log(role);
 
     const firstName = document.querySelector("#firstName").value;
     const middleName = document.querySelector("#middleName").value;
     const lastName = document.querySelector("#lastName").value;
-    const female = document.querySelector("#female").value;
-    const male = document.querySelector("#male").value;
     const dob = document.querySelector("#dob").value;
+
+
     const mobile = document.querySelector("#mobile").value;
+    
+    const genders = document.querySelectorAll("#gender");
+    
+    let gender ;
+    
+    genders.forEach(genderRadio=>{
+      if (genderRadio.checked){
+        gender = genderRadio.value;
+      }
+    });
+    console.log(gender);
 
-    console.log(email + "+" + password1 + "+" + confirmPassword + "+" + firstName + "+" + middleName + "+" + lastName + "+" + female + "+" + male + "+" + dob +"+" + mobile);
 
-    let formvalues = {
+    console.log(email + "+" + password1 + "+" + confirmPassword + "+" + role + "+" + firstName + "+" + middleName + "+" + lastName + "+" + gender + "+" + dob +"+" + mobile);
+
+    let formValues = {
         "email": email,
         "password": password1,
         "confirmPassword": confirmPassword,
-        // "role": role,
+        "role": role,
         "name": firstName,
         "middleName": middleName,
         "lastName": lastName,
-        "female": female,
-        "male": male,
+        "gender": gender,
         "dob": dob,
         "mobile": mobile
     };
-    console.log(formvalues);
+    console.log(formValues);
+
+
 
 
     if(email == "" || email == null || email.trim() == ""){
@@ -46,12 +69,7 @@ function checkConf(){
 
     else{
         
-        const dbUsername = "apikey-v2-15a2mog1stn0kv0gjnidlq2eoth4psp58f8ov9zs42i6";
-        const dbPassword = "aabcfd48d07fe38f4760f6cd11b83b4a";
-        const basicAuth = 'Basic ' + btoa(dbUsername + ':' + dbPassword);
-
-        const url="https://b4af4ef2-55e1-4a9b-9b02-8168e5964652-bluemix.cloudantnosqldb.appdomain.cloud/trainticketapp_users";
-        axios.post(url,formvalues,{ headers: { 'Authorization': basicAuth } }).then(res=>{
+        UserService.register(formValues).then(res=>{
             let users=res.data;
             // localStorage.setItem("register_in_users",JSON.stringify(users));
             alert("Register successful");
@@ -64,3 +82,20 @@ function checkConf(){
 
 }
 }
+
+function setDate(){
+    let today = new Date().toJSON().substr(0,10);
+    document.querySelector("#dob").setAttribute("max", today);
+
+}
+setDate();
+
+// <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.6/dayjs.min.js" integrity="sha512-bwD3VD/j6ypSSnyjuaURidZksoVx3L1RPvTkleC48SbHCZsemT3VKMD39KknPnH728LLXVMTisESIBOAb5/W0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+// function setDate() {
+//     let todayObj = new Date();
+//     let previousDay = dayjs().subtract(1, 'day').toDate();
+//     let today = previousDay.toJSON().substr(0, 10);
+//     document.querySelector("#dob").setAttribute("max", today);
+
+// }
+// setDate();

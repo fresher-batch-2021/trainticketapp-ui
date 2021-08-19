@@ -22,27 +22,15 @@
     <main>
         <h3>List Trains</h3>
         <div>
+
+            <form onsubmit="abc()">
            
             <label for="sourceStationSearch"><strong>Source Station</strong></label>
-            <select name='sourceStationSearch' class="sourceStationSearch">
-                <option value="">Select a location...</option>
+            <!-- <input type="text" name="sourceStationSearch" id="sourceStationSearch" autofocus required value='kerala'> -->
+            <select name="sourceStationSearch" id="sourceStationSearch" class="sourceStationSearch">
+                <!-- <option value="">Select a location...</option>
                 <option value="chengalpattu">Chengalpattu</option>
-                <option value="chennai">Chennai</option>
-                <option value="kanyakumari">Kanyakumari</option>
-                <option value="madurai">Madurai</option>
-                <option value="ramanathapuram">Ramanathapuram</option>
-                <option value="selam">Selam</option>
-                <option value="thiruchendur">Thiruchendur</option>
-                <option value="thirupathi">Thirupathi</option>
-                <option value="trichy">Trichy</option>
-                <option value="tuticorin">Tuticorin</option>
-            </select>
-
-            <label for="destinationStationSearch"><strong>Destination Station</strong></label>
-            <select name='destinationStationSearch' class="destinationStationSearch">
-                <option value="">Select a location...</option>
-                <option value="chengalpattu">Chengalpattu</option>
-                <option value="chennai">Chennai</option>
+                <option value="Chennai">Chennai</option>
                 <option value="kanyakumari">Kanyakumari</option>
                 <option value="madurai">Madurai</option>
                 <option value="ramanathapuram">Ramanathapuram</option>
@@ -52,9 +40,28 @@
                 <option value="trichy">Trichy</option>
                 <option value="tuticorin">Tuticorin</option>
                 <option value="mumbai">Mumbai</option>
+                <option value="kerala">Kerala</option> -->
+            </select>
+
+            <label for="destinationStationSearch"><strong>Destination Station</strong></label>
+            <!-- <input type="text" name="destinationStationSearch" id="destinationStationSearch" value="chennai" required> -->
+            <select name="destinationStationSearch" id="destinationStationSearch" class="destinationStationSearch">
+                <option value="">Select a location...</option>
+                <option value="chengalpattu">Chengalpattu</option>
+                <option value="chennai">Chennai</option>
+                <option value="kanyakumari">Kanyakumari</option>
+                <option value="Madurai">Madurai</option>
+                <option value="ramanathapuram">Ramanathapuram</option>
+                <option value="selam">Selam</option>
+                <option value="thiruchendur">Thiruchendur</option>
+                <option value="thirupathi">Thirupathi</option>
+                <option value="trichy">Trichy</option>
+                <option value="tuticorin">Tuticorin</option>
+                <option value="mumbai">Mumbai</option>
                 <option value="kerala">Kerala</option>
             </select>
-            <button onclick="abc();">Search</button>
+            <button type="submit">Search</button>
+            </form>
 
         </div>
         <br><br>
@@ -63,7 +70,7 @@
                 <caption><strong> Train List</strong></caption>
                 <thead>
                     <tr>
-                        <th id="sno">#</th>
+                        <th id="sno">S.No</th>
                         <th id="trainNo">Train No</th>
                         <th id="name">Train Name</th>
                         <th id="noPassengers">No of passengers Allowed</th>
@@ -78,51 +85,8 @@
                     </tr>
                 </thead>
                 <tbody id="listTrainData">
-                    <!-- <tr>
-                        <td>1</td>
-                        <td>12345</td>
-                        <td><a href="booking.html" style="text-decoration:none"
-                                value="Purl City Super Fast Express">Purl City Super Fast Express</a></td>
-                        <td>1500</td>
-                        <td>Tuticorin</td>
-                        <td>Chennai</td>
-                        <td>02:30</td>
-                        <td>02:40</td>
-                        <td>Started</td>
-                        <td><a href="booking.html" style="text-decoration:none" value="Kanyakumari Express">Book</a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>2</td>
-                        <td>98765</td>
-                        <td><a href="booking.html" style="text-decoration:none" value="Kanyakumari Express">Kanyakumari
-                                Express</a></td>
-                        <td>500</td>
-                        <td>Madurai</td>
-                        <td>Thiruchendur</td>
-                        <td>14:15</td>
-                        <td>14:30</td>
-                        <td>Hold</td>
-                        <td><a href="booking.html" style="text-decoration:none" value="Kanyakumari Express">Book</a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>3</td>
-                        <td>05021</td>
-                        <td><a href="booking.html" style="text-decoration:none" value="Pallavan Express">Pallavan
-                                Express</a></td>
-                        <td>700</td>
-                        <td>Nagercoil</td>
-                        <td>Tirunelveli</td>
-                        <td>00:00</td>
-                        <td>00:20</td>
-                        <td>Waiting</td>
-                        <td><a href="booking.html" style="text-decoration:none" value="Kanyakumari Express">Book</a>
-                        </td>
-                    </tr> -->
-
+                   
+                    
                 </tbody>
             </table>
             <br>
