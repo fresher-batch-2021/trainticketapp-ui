@@ -31,6 +31,7 @@ function listData() {
 
         for (let listTrain of train_list) {
             i = i + 1;
+            
             let trainLink = `<a href='booking.html?name=${listTrain.name}&trainNo=${listTrain.trainNo}&source=${listTrain.source}&destination=${listTrain.destination}&price=${listTrain.price}'>${listTrain.name}</a>`;
 
             // let trainview = `<input type="button" id="bookButton" value="Book" onclick="bookTrain()" />`;
