@@ -15,13 +15,11 @@ function getTrains(){
 }
 
 function listData() {
-    //alert("Train Listed successful 11");
     var content = "";
 
     getTrains().then(res => {
         let data = res.data.rows;
         let train_list = data.map(obj => obj.doc);
-        //alert("Train Listed successful");
         console.log(JSON.stringify(train_list));
 
         // localStorage.setItem("Added_Train",JSON.stringify(res.data));
