@@ -1,4 +1,4 @@
-$("#header").load("header_loged.html");
+$("#header").load("headerAdminLogged.html");
 
 function bookList() {
 
@@ -10,20 +10,14 @@ function bookList() {
     //     const url="https://b4af4ef2-55e1-4a9b-9b02-8168e5964652-bluemix.cloudantnosqldb.appdomain.cloud/trainticketapp_book/_all_docs?include_docs=true";
     
     //     axios.get(url, { headers: { Authorization: basicAuth } }).then(res=>{
-        let userData = localStorage.getItem("Logged_in_users");
-            let user = JSON.parse(userData);
-            const userid = user._id;
-            console.log("USer Id:" , userid);
+        
     BookService.listBooking().then(res=>{
                 let data = res.data.rows;
                 let book_list = data.map(obj=>obj.doc);
-                console.table(book_list);
 
-                let myBookings = book_list.filter(obj=>obj.user._id == userid);
 
                 
-                console.log(JSON.stringify(myBookings));
-                console.table(myBookings);
+                console.log(book_list);
         
                 // localStorage.setItem("Added_Train",JSON.stringify(res.data));
                 // alert("added in local storage");
@@ -31,8 +25,13 @@ function bookList() {
                 let i=0;
         
 
+        for (let booklistObj of book_list)
+        {
+            console.log(booklistObj);
+        }
+
         let content="";
-        for (let booklistObj of myBookings)
+        for (let booklistObj of book_list)
         {
             i++;
 
@@ -42,7 +41,7 @@ function bookList() {
 
             content= content + "<tr><td>" + i + "</td>" + "<td>" + booklistObj.trainNo + "</td>" + "<td>" + booklistObj.name + "</td>" + "<td>" + booklistObj.source + "</td>" + "<td>" + booklistObj.destination + "</td>" + "<td>" + booklistObj.noTicket + "</td>" + "<td>" + booklistObj.journeyDate + "</td>" + "<td>" + "Rs." + booklistObj.individualPrice + "</td>" + "<td>" + "Rs." + abc + "</td>" + "<td>" + booklistObj.user.name + "</td>" + "<td>" + booklistObj.user.email + "</td>" + "<td>" + cancelBook + "</td></tr>";
         
-       
+        console.log(content);
         
         document.querySelector("#abc").innerHTML=content;
         }

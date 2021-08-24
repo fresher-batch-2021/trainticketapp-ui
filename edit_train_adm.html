@@ -6,49 +6,69 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Trains</title>
+
+    <!-- axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </head>
 
 <body>
     <header id="header"></header>
     <main>
-        <h3>Update Trains</h3>
+        <h2>Update Trains</h2>
         <form onsubmit="editTrain();">
-            <label for="trainNo">Enter Train Name</label>
-            <input type="text" name="trainNo" id="trainNo" value="12345" required autofocus>
-            <br />
+            <div class="row">
+                <label for="trainNo">Train No</label>
+                <input type="number" name="trainNo" id="trainNo" pattern="[0-9]{5}" autocomplete="off" required autofocus>
+                <br />
+                <br />
+                <label for="name">Train Name</label>
+                <input type="text" name="name" id="name" pattern="[A-Za-z ]{1,50}" required>
+                <input type="hidden" name="_id" id="_id" required>
+                <input type="hidden" name="_rev" id="_rev" required>
+                <br />
+                <br />
+                <label for="noPassenger">No of Passengers Allowed</label>
+                <input type="number" name="noPassenger" id="noPassenger" required>
+                <br />
+                <br />
+                <label for="source">Source Station</label>
+                <input type="text" name="source" id="source" pattern="[A-Za-z ]{1,50}" required>
+                <br />
+                <br />
+                <label for="destination">Destination Station</label>
+                <input type="text" name="destination" id="destination" pattern="[A-Za-z ]{1,50}" required>
+                <br />
+                <br />
+                <label for="stations">Stations</label>
+                <input type="text" name="stations" id="stations" pattern="[A-Za-z, ]{1,200}" required>
+                <br />
+                <br />
+                <label for="price">Ticket Price</label>
+                <input type="number" name="price" id="price" required>
+                <br />
+                <br />
+                <label for="startTime">Start Time</label>
+                <input type="time" name="startTime" id="startTime" required>
+                <br />
+                <br />
+                <label for="endTime">End Time</label>
+                <input type="time" name="endTime" id="endTime" required>
+                <br />
+                <br />
+                <label for="duration">Duration</label>
+                <input type="time" name="duration" id="duration" required>
+                <br />
+                <br />
+                <button type="submit">Update</button>
+                <button><a href="list_train_adm.html" style="text-decoration:none;">List Trains</a> </button>
+            </div>
 
-            <label for="trainName">Enter Train Name</label>
-            <input type="text" name="trainName" id="trainName" value="Pallavan Express" required>
             <br />
-
-            <label for="noPassenger">No of Passengers Allowed</label>
-            <input type="text" name="noPassenger" id="noPassenger" value="100" required>
-            <br />
-            
-            <label for="sourceStation">Source Station</label>
-            <input type="text" name="sourceStation" id="sourceStation" required>
-            <br />
-            
-            <label for="destinationStation">Destination Station</label>
-            <input type="text" name="destinationStation" id="destinationStation" required>
-            <br />
-            
-            <label for="availableTickets">Available Tickets</label>
-            <input type="text" name="availableTickets" id="availableTickets" required>
-            <br />
-            
-            <label for="ticketPrice">Ticket Price</label>
-            <input type="text" name="ticketPrice" id="ticketPrice" required>
-            <br />
-
-            <button>Submit</button>
-            <button type="button">Delete</button>
-            <br />
-        </form>
-        <a href="list_task.html">List Tasks</a> <br />
-        <a href="index.html">Home</a>
+        </form> 
     </main>
     <script src="js/jquery.min.js"></script>
+    <script src="js/trainservice.js"></script>
     <script src="js/edit_train_adm.js"></script>
    
 

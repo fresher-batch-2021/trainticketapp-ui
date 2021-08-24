@@ -16,7 +16,7 @@ const stations = document.querySelector("#stations").value;
 
 console.log(trainNo + "+" + name + "+" + noPassenger + "+" + source + "+" + destination + "+" + price + "+" + startTime + "+" + endTime + "+" + duration + "+" + stations);
 
-let formvalues = {
+let formValues = {
     "trainNo": trainNo,
     "name": name,
     "noPassenger": noPassenger,
@@ -28,22 +28,28 @@ let formvalues = {
     "duration": duration,
     "stations": stations
 };
-console.log(formvalues);
+console.log(formValues);
+
+
+let userData = localStorage.getItem("Logged_in_users");
+let user = JSON.parse(userData);
+console.log(user);
+if (user == null) {
+  console.log("user : ", user);
+  alert("please login");
+  window.location.href = "login.html";
+}
+else {
+  console.log("user : ", user);
+  alert("done");
+     
 
 if(trainNo.length != 5){
     alert("Invalid Train no");
 }
 else{
 
-    
-    const dbUsername = "apikey-v2-15a2mog1stn0kv0gjnidlq2eoth4psp58f8ov9zs42i6";
-    const dbPassword = "aabcfd48d07fe38f4760f6cd11b83b4a";
-    const basicAuth = 'Basic ' + btoa(dbUsername + ':' + dbPassword);
-
-    
-    
-    const url="https://b4af4ef2-55e1-4a9b-9b02-8168e5964652-bluemix.cloudantnosqldb.appdomain.cloud/trainticketapp_trains";
-    axios.post(url,formvalues,{ headers: { 'Authorization': basicAuth } }).then(res=>{
+    TrainService.addTrains(formValues).then(res=>{
         let train_list = res.data;
         alert("Train Added successful");
         window.location.href="list_train_adm.html";
@@ -54,5 +60,7 @@ else{
    
 }
 
+
+}
 
 }
