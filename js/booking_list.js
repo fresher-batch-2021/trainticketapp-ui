@@ -14,12 +14,16 @@ function bookList() {
             let user = JSON.parse(userData);
             const userid = user._id;
             console.log("USer Id:" , userid);
-    BookService.listBooking().then(res=>{
+
+
+             BookService.listBooking().then(res=>{
                 let data = res.data.rows;
                 let book_list = data.map(obj=>obj.doc);
                 console.table(book_list);
 
-                let myBookings = book_list.filter(obj=>obj.user._id == userid);
+                let myBookings1 = book_list.filter(obj=>obj.user._id == userid);
+                
+        let myBookings = myBookings1.filter(obj=>obj.status!=='INACTIVE');
 
                 
                 console.log(JSON.stringify(myBookings));
@@ -58,12 +62,22 @@ function cancel_booking(id,rev){
     alert("Do you want to delete this data?");
     console.log(id);
     console.log(rev);
-    let url ="https://b4af4ef2-55e1-4a9b-9b02-8168e5964652-bluemix.cloudantnosqldb.appdomain.cloud/trainticketapp_book/";
+    let url ="https://b4af4ef2-55e1-4a9b-9b02-8168e5964652-bluemix.cloudantnosqldb.appdomain.cloud/trainticketapp_book/"+id ;
         const dbusername = "apikey-v2-15a2mog1stn0kv0gjnidlq2eoth4psp58f8ov9zs42i6";
         const dbpassword = "aabcfd48d07fe38f4760f6cd11b83b4a";
     const basicAuth = 'Basic '  + btoa(dbusername+ ":" +dbpassword);
 
-    axios.delete(url+id+"?rev="+rev, { headers: {'Authorization': basicAuth}}).then(res => {
+    // axios.delete(url+id+"?rev="+rev, { headers: {'Authorization': basicAuth}}).then(res => {
+
+    
+   axios.get(url, { headers: {'Authorization': basicAuth}}).then(res=>{
+
+    let product  = res.data;
+    console.log(product);
+    product.status ="INACTIVE";
+
+    axios.put(url, product,  { headers: {'Authorization': basicAuth}}).then(res => {
+
     alert("Deleted succesfully");
 
     bookList();
@@ -71,6 +85,7 @@ function cancel_booking(id,rev){
         alert("error in deleting");
 
     })
+})
     
 }
 

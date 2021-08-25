@@ -21,4 +21,12 @@ class BookService {
         
         return axios.get(url, { headers: { Authorization: basicAuth } });
     }
+
+    
+    static cancelBooking(id, obj){
+
+        const url="https://b4af4ef2-55e1-4a9b-9b02-8168e5964652-bluemix.cloudantnosqldb.appdomain.cloud/trainticketapp_book/"+ id;
+        
+        return axios.put(url,obj, { headers: { Authorization: basicAuth } });
+    }
 }

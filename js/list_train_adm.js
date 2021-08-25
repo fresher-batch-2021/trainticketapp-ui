@@ -7,20 +7,22 @@ var content="";
     TrainService.getTrains().then(res=>{
         let data = res.data.rows;
         let train_list = data.map(obj=>obj.doc);
+        let trains = train_list.filter(obj=>obj.status!=='INACTIVE');
+
         // alert("Train Listed successful");
         console.log(train_list);
        // alert("yes");
         //localStorage.setItem("Added_Train",JSON.stringify(res.data));
         //alert("added in local storage");
 let i=0;
-        for(let listTrain of train_list)
+        for(let listTrain of trains)
         {
             i=i+1;
             let trainLink =`<a href='booking.html?name=${listTrain.name}'>${listTrain.name}</a>`;
 
             let trainEdit =`<button><a href='edit_train_adm.html?id=${listTrain._id}' style="text-decoration:none;">Edit</a></button>`;
 
-            let trainDelete =`<button type='submit'  onclick = "cancel_train('${listTrain._id}','${listTrain._rev}');"> Cancel </button>`;
+            let trainDelete =`<button type='button'  onclick = "cancel_train('${listTrain._id}','${listTrain._rev}');"> Cancel </button>`;
 
             content= content + "<tr><td>" + i + "</td>" + "<td>" + listTrain.trainNo + "</td>" + "<td>" + trainLink + "</td>" + "<td>" + listTrain.noPassenger + "</td>" + "<td>" + listTrain.source + "</td>" + "<td>" + listTrain.destination + "</td>" + "<td>" + listTrain.startTime + "</td>" + "<td>" + listTrain.endTime + "</td>" + "<td>" + listTrain.duration + "</td>" + "<td>" + listTrain.price + "</td>"  + "<td>" + listTrain.stations + "</td>" + "<td>" + trainEdit + trainDelete + "</td></tr>";
 
@@ -40,18 +42,29 @@ function cancel_train(id,rev){
     alert("Do you want to delete this data?");
     console.log(id);
     console.log(rev);
-    let url ="https://b4af4ef2-55e1-4a9b-9b02-8168e5964652-bluemix.cloudantnosqldb.appdomain.cloud/trainticketapp_trains/";
+    let url ="https://b4af4ef2-55e1-4a9b-9b02-8168e5964652-bluemix.cloudantnosqldb.appdomain.cloud/trainticketapp_trains/"+id ;
         const dbusername = "apikey-v2-15a2mog1stn0kv0gjnidlq2eoth4psp58f8ov9zs42i6";
         const dbpassword = "aabcfd48d07fe38f4760f6cd11b83b4a";
     const basicAuth = 'Basic '  + btoa(dbusername+ ":" +dbpassword);
 
-    axios.delete(url+id+"?rev="+rev, { headers: {'Authorization': basicAuth}}).then(res => {
-    alert("Deleted succesfully");
+   // axios.delete(url+id+"?rev="+rev, { headers: {'Authorization': basicAuth}})
+   
+   axios.get(url, { headers: {'Authorization': basicAuth}}).then(res=>{
 
-    }).catch(err =>{
-        alert("error in deleting");
+    let product  = res.data;
+    console.log(product);
+    product.status ="INACTIVE";
 
-    })
+    axios.put(url, product,  { headers: {'Authorization': basicAuth}}).then(res => {
+        alert("Deleted succesfully");
+        listData();
+    
+        }).catch(err =>{
+            alert("error in deleting");
+    
+        })
+      
+   })
     
 }
 

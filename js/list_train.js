@@ -9,12 +9,15 @@ function listData() {
         let train_list = data.map(obj => obj.doc);
         console.log(JSON.stringify(train_list));
 
+        
+        let trainsList = train_list.filter(obj=>obj.status!=='INACTIVE');
+
         // localStorage.setItem("Added_Train",JSON.stringify(res.data));
         // //alert("added in local storage");
 
         let i = 0;
 
-        for (let listTrain of train_list) {
+        for (let listTrain of trainsList) {
             i++;
 
             let trainLink = `<a href='booking.html?name=${listTrain.name}&trainNo=${listTrain.trainNo}&source=${listTrain.source}&destination=${listTrain.destination}&price=${listTrain.price}'>${listTrain.name}</a>`;
@@ -55,13 +58,15 @@ function isStationContains(trains, stationName) {
 function displaysearchTrains(results) {
     let i = 0;
 
+        
+        let trainsList = results.filter(obj=>obj.status!=='INACTIVE');
     
     const sourceSearch = document.querySelector("#sourceStationSearch").value;
     const destinationSearch = document.querySelector("#destinationStationSearch").value;
 
     let content1 = `<table>
    `;
-    for (let result of results) {
+    for (let result of trainsList) {
         i = i + 1;
         trainLink = `<a href='booking.html?name=${result.name}&trainNo=${result.trainNo}&source=${sourceSearch}&destination=${destinationSearch}&price=${result.price}'>${result.name}</a>`;
 
