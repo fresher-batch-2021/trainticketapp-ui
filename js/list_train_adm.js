@@ -1,4 +1,4 @@
-  $("#header").load("headerAdminLogged.html");
+  $("#header").load("_header.html");
 
   function listData() {
     // alert("Train Listed successful 11");
@@ -18,13 +18,13 @@ let i=0;
         for(let listTrain of trains)
         {
             i=i+1;
-            let trainLink =`<a href='booking.html?name=${listTrain.name}'>${listTrain.name}</a>`;
+            // let trainLink =`<a href='booking.html?name=${listTrain.name}'>${listTrain.name}</a>`;
 
             let trainEdit =`<button><a href='edit_train_adm.html?id=${listTrain._id}' style="text-decoration:none;">Edit</a></button>`;
 
             let trainDelete =`<button type='button'  onclick = "cancel_train('${listTrain._id}','${listTrain._rev}');"> Cancel </button>`;
 
-            content= content + "<tr><td>" + i + "</td>" + "<td>" + listTrain.trainNo + "</td>" + "<td>" + trainLink + "</td>" + "<td>" + listTrain.noPassenger + "</td>" + "<td>" + listTrain.source + "</td>" + "<td>" + listTrain.destination + "</td>" + "<td>" + listTrain.startTime + "</td>" + "<td>" + listTrain.endTime + "</td>" + "<td>" + listTrain.duration + "</td>" + "<td>" + listTrain.price + "</td>"  + "<td>" + listTrain.stations + "</td>" + "<td>" + trainEdit + trainDelete + "</td></tr>";
+            content= content + "<tr><td>" + i + "</td>" + "<td>" + listTrain.trainNo + "</td>" + "<td>" + listTrain.name + "</td>" + "<td>" + listTrain.noPassenger + "</td>" + "<td>" + listTrain.source + "</td>" + "<td>" + listTrain.destination + "</td>" + "<td>" + listTrain.startTime + "</td>" + "<td>" + listTrain.endTime + "</td>" + "<td>" + listTrain.duration + "</td>" + "<td>" + listTrain.price + "</td>"  + "<td>" + listTrain.stations + "</td>" + "<td>" + trainEdit + trainDelete + "</td></tr>";
 
             
         document.querySelector("#listTrainDataAdm").innerHTML=content;

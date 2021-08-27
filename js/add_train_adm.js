@@ -1,5 +1,5 @@
 
-$("#header").load("headerAdminLogged.html");
+$("#header").load("_header.html");
 
 function addTrain() {
 event.preventDefault();
@@ -44,10 +44,9 @@ else {
   alert("done");
      
 
-if(trainNo.length != 5){
-    alert("Invalid Train no");
-}
-else{
+try{
+    Validator.isValidTrainNo(trainNo, "Invalid Train no");
+            
 
     TrainService.addTrains(formValues).then(res=>{
         let train_list = res.data;
@@ -58,6 +57,11 @@ else{
         alert("Failed to add Train");
     });
    
+}
+
+catch(err){
+    console.error(err.message);
+    alert("Error: " + err.message);
 }
 
 

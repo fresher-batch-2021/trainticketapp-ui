@@ -1,4 +1,4 @@
-$("#header").load("headerAdminLogged.html");
+$("#header").load("_header.html");
 
 let params = new URLSearchParams(window.location.search.substr(1));
 

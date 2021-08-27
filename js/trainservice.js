@@ -6,7 +6,7 @@ const basicAuth = 'Basic ' + btoa(dbUsername + ':' + dbPassword);
 
 class TrainService {
 
-    static addTrain(formValues){
+    static addTrains(formValues){
 
         const url="https://b4af4ef2-55e1-4a9b-9b02-8168e5964652-bluemix.cloudantnosqldb.appdomain.cloud/trainticketapp_trains";
 

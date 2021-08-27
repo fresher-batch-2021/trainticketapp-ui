@@ -1,4 +1,4 @@
-            $("#header").load("header_loged.html");
+            $("#header").load("_header.html");
 
             let params = new URLSearchParams(window.location.search.substr(1));
             let trainNumber = params.get("trainNo");
@@ -61,22 +61,15 @@
               console.log("user : ", user);
               alert("done");
 
-
-            if(trainNo.length != 5){
-                alert("Invalid Train no");
-            }
-            else if(noTicket <= 0 ){
-                alert("Ticket counts Must be more than zero");
-             }
-            else
-            {
+        try{
+        Validator.isValidTrainTicket(noTicket, "Tickets Must be more than zero");
 
                 
-    BookService.addBooking(formValues).then(res=>{
+        BookService.addBooking(formValues).then(res=>{
             let users=res.data;
             // localStorage.setItem("register_in_users",JSON.stringify(users));
             alert("book successful");
-            // window.location.href="booking_list.html";
+            window.location.href="booking_list.html";
         }).catch(err=>{
             console.log(err.response.data);
             alert("Booking failed");
@@ -85,11 +78,15 @@
 
 
             }
-
-        }
-            
+              
+            catch(err){
+                console.error(err.message);
+                alert("Error: " + err.message);
+            }
+                }
 
     }
+
 
     
 function setDate(){

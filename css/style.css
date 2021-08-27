@@ -55,8 +55,9 @@ footer {
 a.brand {
   color: var(--brandColor);
   text-decoration: none;
-  padding-right: 30px;
+  /* padding-right: 30px; */
   margin: 10px;
+  margin-right: 30px;
 }
 
 a.user{
@@ -70,9 +71,11 @@ a.admin{
 .nav-item {
   color: var(--menuLinkColor);
   text-decoration: none;
-  padding: 25px;
+  margin-right: 3%;
 }
+.nav-bar .welcome {
 
+}
 
 .dev-item {
   color: var(--menuLinkColor);
@@ -80,15 +83,11 @@ a.admin{
   padding: 25px;
 }
 
-.logout{
-  float: right;
-  color: whitesmoke;
-}
 
 .welcome{
   
-  float: right;
-  color: whitesmoke;
+  margin-left: 40%;
+  margin-right: 0;
 }
 
 main {

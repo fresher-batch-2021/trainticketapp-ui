@@ -54,33 +54,65 @@ function checkConf(){
     };
     console.log(formValues);
 
+    
+    bussinessValidation(email).then(res => {
+            console.table(res.data);
+            let data = res.data.docs;
+            
+            if (data != "") {
+                alert("email already exist enter different email")
+                //window.location.reload();
+                return;
+                // throw new Error("email already exist")
+            }
+
+            try{
+
+     
+                Validator.isValidString(email, "Email is Mandatory");
+                Validator.isValidPassword(password1, confirmPassword, "Invalid Password");
+                Validator.isValidMobile(mobile, "Invalid Mobile Number");
+                
+                // if(email == "" || email == null || email.trim() == ""){
+                //     alert("Invalid Email");
+                // }
+                // else if(password1.length < 4 || confirmPassword.length < 4 || password1 != confirmPassword){
+                //     alert("Invalid Password");
+                // }
+                // else if(mobile.length != 10){
+                //     alert("Invalid Mobile Number");
+                // }
+            
+                // else{
+                    
+                    UserService.register(formValues).then(res=>{
+                        let users=res.data;
+                        // localStorage.setItem("register_in_users",JSON.stringify(users));
+                        alert("Register successful");
+                        window.location.href="login.html";
+                    }).catch(err=>{
+                        console.log(err.response.data);
+                        alert("Register failed");
+                    });
+                   
+            
+            
+            }
+            catch(err){
+                console.error(err.message);
+                alert("Error: " + err.message);
+            }
 
 
-
-    if(email == "" || email == null || email.trim() == ""){
-        alert("Invalid Email");
-    }
-    else if(password1.length < 4 || confirmPassword < 4 || password1 != confirmPassword){
-        alert("Invalid Password");
-    }
-    else if(mobile.length != 10){
-        alert("Invalid Mobile Number");
-    }
-
-    else{
-        
-        UserService.register(formValues).then(res=>{
-            let users=res.data;
-            // localStorage.setItem("register_in_users",JSON.stringify(users));
-            alert("Register successful");
-            window.location.href="login.html";
-        }).catch(err=>{
-            console.log(err.response.data);
-            alert("Register failed");
+        }).catch(err => {
+            console.log(err.response.data)
         });
-       
+        
+           
 
-}
+
+
+
 }
 
 function setDate(){
@@ -98,4 +130,4 @@ setDate();
 //     document.querySelector("#dob").setAttribute("max", today);
 
 // }
-// setDate();
+

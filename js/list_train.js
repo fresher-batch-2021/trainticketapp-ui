@@ -1,4 +1,4 @@
-$("#header").load("header_loged.html");
+$("#header").load("_header.html");
 
 
 function listData() {

@@ -57,14 +57,9 @@
     let userData = localStorage.getItem("Logged_in_users");
     let user = JSON.parse(userData);
     console.log(user);
-    if (user == null) {
-
+    
     $("#header").load("_header.html")
-    }
-    else{
-    $("#header").load("header_loged.html")
-
-    }
+   
 </script>
 </body>
 
