@@ -3,6 +3,7 @@ const routes = [
     { path: 'product.html' },
     { path: 'add_train_adm.html', role: ["admin"] },
     { path: 'list_train_adm.html', role: ["admin"] },
+    { path: 'list_users_adm.html', role: ["admin"] },
     { path: 'booking_list_adm.html', role: ["admin"] },
     { path: 'edit_train_adm.html', role: ["admin"] },
     { path: 'aboutus.html' },
