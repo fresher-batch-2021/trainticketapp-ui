@@ -21,35 +21,35 @@
     </header>
     <main>
         <section class="list-train-admin-section">
-            <div class="form-container">
-                <div class="form-title">
+            <!-- <div class="form-container"> -->
+                <!-- <div class="form-title"> -->
         <h2>List Trains</h2>
-    </div>
+    <!-- </div> -->
         <div>
 
             <form onsubmit="abc()">
 
             <label for="sourceStationSearch"><strong>Source Station</strong></label>
-            <select class="form-control" name="sourceStationSearch" id="sourceStationSearch" class="sourceStationSearch">
+            <select class="list-train-form" name="sourceStationSearch" id="sourceStationSearch" class="sourceStationSearch">
 
             </select>
 
             <label for="destinationStationSearch"><strong>Destination Station</strong></label>
             
-            <select class="form-control" name="destinationStationSearch" id="destinationStationSearch" class="destinationStationSearch">
+            <select class="list-train-form" name="destinationStationSearch" id="destinationStationSearch" class="destinationStationSearch">
 
             </select>
             <button type="submit">Search</button>
         </form>
         </div>
-    </div>
+    <!-- </div> -->
         <br><br>
         <section class="user-admin-table">
             <div style="overflow-x:auto;">
                 <table class="table table-bordered  table-hover">
                 <caption><strong> Train List</strong></caption>
                 <thead>
-                    <tr>
+                    <tr class="table-primary">
                         <th id="sno">S.No</th>
                         <th id="trainNo">Train No</th>
                         <th id="name">Train Name</th>

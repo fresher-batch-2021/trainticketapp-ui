@@ -31,6 +31,18 @@ let formValues = {
 console.log(formValues);
 
 
+ValidatorCheck.trainNoValidation(trainNo).then(res => {
+    console.table(res.data);
+    let data = res.data.docs;
+    
+    if (data != "") {
+        alert("trainNo already exist enter different trainNo")
+        //window.location.reload();
+        return;
+        // throw new Error("email already exist")
+    }
+
+
 let userData = localStorage.getItem("Logged_in_users");
 let user = JSON.parse(userData);
 console.log(user);
@@ -41,8 +53,9 @@ if (user == null) {
 }
 else {
   console.log("user : ", user);
-  alert("done");
-     
+    
+  
+
 
 try{
     Validator.isValidTrainNo(trainNo, "Invalid Train no");
@@ -64,7 +77,12 @@ catch(err){
     alert("Error: " + err.message);
 }
 
-
 }
+
+}).catch(err => {
+    console.log(err.response.data)
+});
+
+
 
 }

@@ -149,7 +149,9 @@ hr {
 .list-train-user-section button a {
   color: #FFFFFF;
 }
-
+h2 {
+  text-align: center;
+}
 
 /* --------------------booking----------------- */
 
@@ -253,7 +255,10 @@ hr {
 .list-train-admin-section .first-btn a {
   color: #FFFFFF;
 }
-
+.list-train-form {
+  margin-right: 2%;
+  margin-top: 2%;
+}
 
 /* ----------------list user admin---------------- */
 
@@ -301,3 +306,6 @@ hr {
 .edit-train-section .second-btn a {
   color: #FFFFFF;
 }
+
+/* ----------------Table for booking list-------------- */
+

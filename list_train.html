@@ -23,18 +23,18 @@
     <main>
         <section class="list-train-user-section">
 
-            <div class="form-container">
-                <div class="form-title">
+            <!-- <div class="form-container"> -->
+                <!-- <div class="form-title"> -->
         <h2>List Trains</h2>
-    </div>
+    <!-- </div> -->
 
-        <div>
+        <!-- <div> -->
 
             <form onsubmit="abc()">
            
             <label for="sourceStationSearch"><strong>Source Station</strong></label>
             <!-- <input type="text" name="sourceStationSearch" id="sourceStationSearch" autofocus required value='kerala'> -->
-            <select class="form-control" name="sourceStationSearch" id="sourceStationSearch" class="sourceStationSearch">
+            <select class="list-train-form" name="sourceStationSearch" id="sourceStationSearch" class="sourceStationSearch">
                 <!-- <option value="">Select a location...</option>
                 <option value="chengalpattu">Chengalpattu</option>
                 <option value="Chennai">Chennai</option>
@@ -52,7 +52,7 @@
 
             <label for="destinationStationSearch"><strong>Destination Station</strong></label>
             <!-- <input type="text" name="destinationStationSearch" id="destinationStationSearch" value="chennai" required> -->
-            <select class="form-control" name="destinationStationSearch" id="destinationStationSearch" class="destinationStationSearch">
+            <select class="list-train-form" name="destinationStationSearch" id="destinationStationSearch" class="destinationStationSearch">
                 <!-- <option value="">Select a location...</option>
                 <option value="chengalpattu">Chengalpattu</option>
                 <option value="chennai">Chennai</option>
@@ -78,7 +78,7 @@
                 <table class="table table-bordered  table-hover">
                 <caption><strong> Train List</strong></caption>
                 <thead>
-                    <tr>
+                    <tr class="table-primary">
                         <th id="sno">S.No</th>
                         <th id="trainNo">Train No</th>
                         <th id="name">Train Name</th>

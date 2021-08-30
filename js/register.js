@@ -57,7 +57,7 @@ function checkConf(){
     console.log(formValues);
 
     
-    bussinessValidation(email).then(res => {
+    ValidatorCheck.emailValidation(email).then(res => {
             console.table(res.data);
             let data = res.data.docs;
             

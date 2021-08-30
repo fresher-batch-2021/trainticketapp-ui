@@ -11,13 +11,19 @@ function bookList() {
     
     //     axios.get(url, { headers: { Authorization: basicAuth } }).then(res=>{
         
+    
     BookService.listBooking().then(res=>{
                 let data = res.data.rows;
                 let book_list = data.map(obj=>obj.doc);
 
 
+                let myBookings = book_list.filter(obj=>obj.status!=='INACTIVE');
+
                 
-                console.log(book_list);
+                console.log(JSON.stringify(myBookings));
+                console.table(myBookings);
+        
+                
         
                 // localStorage.setItem("Added_Train",JSON.stringify(res.data));
                 // alert("added in local storage");
@@ -25,13 +31,13 @@ function bookList() {
                 let i=0;
         
 
-        for (let booklistObj of book_list)
+        for (let booklistObj of myBookings)
         {
             console.log(booklistObj);
         }
 
         let content="";
-        for (let booklistObj of book_list)
+        for (let booklistObj of myBookings)
         {
             i++;
 
@@ -57,12 +63,22 @@ function cancel_booking(id,rev){
     alert("Do you want to delete this data?");
     console.log(id);
     console.log(rev);
-    let url ="https://b4af4ef2-55e1-4a9b-9b02-8168e5964652-bluemix.cloudantnosqldb.appdomain.cloud/trainticketapp_book/";
+    let url ="https://b4af4ef2-55e1-4a9b-9b02-8168e5964652-bluemix.cloudantnosqldb.appdomain.cloud/trainticketapp_book/"+id ;
         const dbusername = "apikey-v2-15a2mog1stn0kv0gjnidlq2eoth4psp58f8ov9zs42i6";
         const dbpassword = "aabcfd48d07fe38f4760f6cd11b83b4a";
     const basicAuth = 'Basic '  + btoa(dbusername+ ":" +dbpassword);
 
-    axios.delete(url+id+"?rev="+rev, { headers: {'Authorization': basicAuth}}).then(res => {
+    // axios.delete(url+id+"?rev="+rev, { headers: {'Authorization': basicAuth}}).then(res => {
+
+    
+   axios.get(url, { headers: {'Authorization': basicAuth}}).then(res=>{
+
+    let product  = res.data;
+    console.log(product);
+    product.status ="INACTIVE";
+
+    axios.put(url, product,  { headers: {'Authorization': basicAuth}}).then(res => {
+
     alert("Deleted succesfully");
 
     bookList();
@@ -70,6 +86,6 @@ function cancel_booking(id,rev){
         alert("error in deleting");
 
     })
-    
+})
 }
 
