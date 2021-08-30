@@ -8,6 +8,7 @@ const routes = [
     { path: 'edit_train_adm.html', role: ["admin"] },
     { path: 'aboutus.html' },
     { path: 'login.html' },
+    { path: 'profile_user.html' , role: ["admin","user"] },
     { path: 'register.html' },
     { path: 'list_train.html',role: ["user"] },
     { path: 'booking.html',role: ["user"] },

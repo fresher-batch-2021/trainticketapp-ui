@@ -7,16 +7,18 @@ function checkConf(){
     const email = document.querySelector("#email").value;
     const password1 = document.querySelector("#password").value;
     const confirmPassword = document.querySelector("#confirmPassword").value;
-    const roles = document.querySelectorAll("#role");
+    // const roles = document.querySelectorAll("#role");
 
-    let role ;
+    // let role ;
     
-    roles.forEach(roleRadio=>{
-      if (roleRadio.checked){
-          role = roleRadio.value;
-      }
-    });
-    console.log(role);
+    // roles.forEach(roleRadio=>{
+    //   if (roleRadio.checked){
+    //       role = roleRadio.value;
+    //   }
+    // });
+    // console.log(role);
+
+    const role= "user";
 
     const firstName = document.querySelector("#firstName").value;
     const middleName = document.querySelector("#middleName").value;
