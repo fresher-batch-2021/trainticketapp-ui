@@ -20,13 +20,17 @@
         <!--append-->
     </header>
     <main>
+        <section class="booking-list-admin-section">
         <h2>Booking Details</h2>
         
         <section>
-            <table class="booking_list">                
+            
+            <div style="overflow-x:auto;">
+
+            <table class="table table-bordered table-hover">                
                 <caption><strong> Booking List</strong></caption><br><br>
                 <thead>
-                    <tr>
+                    <tr class="table-primary">
                         <th id="sno">#</th>
                         <th id="trainNo">Train No</th>
                         <th id="trainName">Train Name</th>
@@ -55,11 +59,11 @@
                     </tr> -->
                 </tbody>
             </table>
+        </div>
 
-            <br>
-            <br>
 
         </section>
+    </section>
     </main>
     <script src="js/jquery.min.js"></script>
     <script src="js/bookservice.js"></script>

@@ -1,12 +1,23 @@
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://project-themes.netlify.app/boot-theme/style.css">
 <link rel="stylesheet" href="css/style.css">
 
 <header>
-    <nav class="navbar">
+    <nav class="navbar nav-local">
+
+        <div class="navbar-brand">
+            <div class="navbar-brand-logo">
+                <a href="index.html"> <img class="logo" src="images/logo.png" alt="logo-icon"></a>
+
+            </div>
+        </div>
+
+        <ul class="navbar-nav">
         <a class="brand nav-item" href="index.html" style="text-decoration:none;">Home</a>
-
-        <a class="nav-item" href="login.html" style="text-decoration:none;"  data-loggedin="false"> Login</a>
-
-        <a class="nav-item" href="register.html" style="text-decoration:none;" data-loggedin="false"> Register</a>
 
         <a class="nav-item" href="add_train_adm.html" style="text-decoration:none;" data-loggedin="true" data-role="admin"> Add Trains</a>
 
@@ -21,14 +32,21 @@
         <a class="nav-item" href="booking.html" style="text-decoration:none;" data-loggedin="true" data-role="user">Booking</a>
 
         <a class="nav-item" href="booking_list.html" style="text-decoration:none;" data-loggedin="true" data-role="user">Booking List</a>
-        <!-- <a class="nav-item" href="addtask.html" style="text-decoration:none;"> Tasks</a>
-        <a class="nav-item" href="list_task.html" style="text-decoration:none;">Task-List</a>
-        <a class="nav-item" href="edit_task.html" style="text-decoration:none;">Task-Edit</a> -->
+       
         <a class="nav-item" href="aboutus.html" style="text-decoration:none;"> About Us</a>
+        
+    </ul>
+
+    <ul class="navbar-pull-right">
+        <a class="nav-item" href="login.html" style="text-decoration:none;" data-loggedin="false"> Login</a>
+
+        <a class="nav-item" href="register.html" style="text-decoration:none;" data-loggedin="false"> Register</a>
+
+    </ul>
+
        
         <a class="welcome nav-item" id="loggedIn" data-loggedin="true"></a>
         <a class="logout nav-item" href="#" style="text-decoration:none; margin-right: 0;" onclick="logout()" data-loggedin="true"> LogOut</a>
-
         
         
     </nav>

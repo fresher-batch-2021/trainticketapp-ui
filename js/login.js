@@ -64,12 +64,12 @@
 
                     // localStorage.setItem("Logged_in_users",JSON.stringify(users));
                     
-                    if(users.role == "admin"){
-                        window.location.href="add_train_adm.html";
-                    }
-                    else{
-                    window.location.href="list_train.html";
-                    }
+                    // if(users.role == "admin"){
+                    //     window.location.href="add_train_adm.html";
+                    // }
+                    // else{
+                    // window.location.href="list_train.html";
+                    // }
                 }).catch(err=>{
                      console.log(err.response.data);
                     alert("login failed");

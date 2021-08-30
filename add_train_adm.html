@@ -14,55 +14,52 @@
 <body>
     <header id="header"></header>
     <main>
+        <section class="add-train-admin-section form-container">
+            <div class="form-title">
         <h2>Add Trains</h2>
+    </div>
+
         <form onsubmit="addTrain();">
             <div class="row">
                 <label for="trainNo">Train No</label>
-                <input type="number" name="trainNo" id="trainNo" pattern="[0-9]{5}" autocomplete="off" required autofocus>
-                <br />
-                <br />
+                <input class="form-control" type="number" name="trainNo" id="trainNo" pattern="[0-9]{5}" autocomplete="off" required autofocus>
+                
                 <label for="name">Train Name</label>
-                <input type="text" name="name" id="name" pattern="[A-Za-z ]{1,50}" required>
-                <br />
-                <br />
+                <input class="form-control" type="text" name="name" id="name" pattern="[A-Za-z ]{1,50}" required>
+                
                 <label for="noPassenger">No of Passengers Allowed</label>
-                <input type="number" name="noPassenger" id="noPassenger" required>
-                <br />
-                <br />
+                <input class="form-control" type="number" name="noPassenger" id="noPassenger" required>
+                
                 <label for="source">Source Station</label>
-                <input type="text" name="source" id="source" pattern="[A-Za-z ]{1,50}" required>
-                <br />
-                <br />
+                <input class="form-control" type="text" name="source" id="source" pattern="[A-Za-z ]{1,50}" required>
+                
                 <label for="destination">Destination Station</label>
-                <input type="text" name="destination" id="destination" pattern="[A-Za-z ]{1,50}" required>
-                <br />
-                <br />
+                <input class="form-control" type="text" name="destination" id="destination" pattern="[A-Za-z ]{1,50}" required>
+                
                 <label for="stations">Stations</label>
-                <input type="text" name="stations" id="stations" pattern="[A-Za-z, ]{1,200}" required>
-                <br />
-                <br />
+                <input class="form-control" type="text" name="stations" id="stations" pattern="[A-Za-z, ]{1,200}" required>
+                
                 <label for="price">Ticket Price</label>
-                <input type="number" name="price" id="price" required>
-                <br />
-                <br />
+                <input class="form-control" type="number" name="price" id="price" required>
+                
                 <label for="startTime">Start Time</label>
-                <input type="time" name="startTime" id="startTime" required>
-                <br />
-                <br />
+                <input class="form-control" type="time" name="startTime" id="startTime" required>
+                
                 <label for="endTime">End Time</label>
-                <input type="time" name="endTime" id="endTime" required>
-                <br />
-                <br />
+                <input class="form-control" type="time" name="endTime" id="endTime" required>
+                
                 <label for="duration">Duration</label>
-                <input type="time" name="duration" id="duration" required>
-                <br />
-                <br />
-                <button type="submit">Submit</button>
-                <button type="reset">Reset</button>
-                <button><a href="list_train_adm.html" style="text-decoration:none;">List Trains</a> </button>&nbsp;
-                <button><a href="index.html" style="text-decoration:none;">Home</a></button>
+                <input class="form-control" type="time" name="duration" id="duration" required>
+                
+                <button class="btn btn-primary" type="submit">Submit</button>
+                
             </div>
-        </form><br><br>
+        </form>
+
+                <button class="btn btn-info"><a href="list_train_adm.html" style="text-decoration:none;">List Trains</a> </button>&nbsp;
+                <button class="btn btn-light"><a href="index.html" style="text-decoration:none;">Home</a></button>
+            </section>
+            
 
         <script src="js/jquery.min.js"></script>
         <script src="js/trainservice.js"></script>
