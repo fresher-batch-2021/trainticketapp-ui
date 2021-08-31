@@ -8,8 +8,8 @@ function bookList() {
             console.log("USer Id:" , userid);
 
 
-             BookService.listBooking().then(res=>{
-                let data = res.data.rows;
+             BookService.listBooking().then(res1=>{
+                let data = res1.data.rows;
                 let book_list = data.map(obj=>obj.doc);
                 console.table(book_list);
 

@@ -10,8 +10,7 @@
             let destinationStation = params.get("destination");
             document.querySelector("#toStation").value=destinationStation;
             let ticketPrice = params.get("price");
-            let journeyDate = document.querySelector("#journeyDate").value;
-            document.querySelector("#ticketAmount").value=ticketPrice;
+             document.querySelector("#ticketAmount").value=ticketPrice;
 
             
         function bookingForm() {

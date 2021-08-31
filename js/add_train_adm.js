@@ -60,8 +60,8 @@ try{
     Validator.isValidTrainNo(trainNo, "Invalid Train no");
             
 
-    TrainService.addTrains(formValues).then(res=>{
-        let train_list = res.data;
+    TrainService.addTrains(formValues).then(res1=>{
+        let train_list = res1.data;
         console.log(train_list);
         alert("Train Added successful");
         window.location.href="list_train_adm.html";
