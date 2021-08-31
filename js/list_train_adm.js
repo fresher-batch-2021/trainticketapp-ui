@@ -8,7 +8,6 @@ var content="";
         let train_list = data.map(obj=>obj.doc);
         let trains = train_list.filter(obj=>obj.status!=='INACTIVE');
 
-        
         console.log(train_list);
         
 let i=0;
@@ -79,11 +78,12 @@ function displaysearchTrains(results) {
     for (let result of results) {
         i = i + 1;
 
-        let trainEdit =`<button><a href='edit_train_adm.html?id=${listTrain._id}' style="text-decoration:none;">Edit</a></button>`;
+            let trainEdit =`<button><a href='edit_train_adm.html?id=${result._id}' style="text-decoration:none;">Edit</a></button>`;
 
-        let trainDelete =`<button type='button'  onclick = "cancel_train('${listTrain._id}','${listTrain._rev}');"> Cancel </button>`;
+            let trainDelete =`<button type='button'  onclick = "cancel_train('${result._id}','${result._rev}');"> Cancel </button>`;
 
-        content1  = content1 + "<tr><td>" + i + "</td>" + "<td>" + result.trainNo + "</td>" + "<td>" + result.name + "</td>" + "<td>" + result.noPassenger + "</td>" + "<td>" + result.source + "</td>" + "<td>" + result.destination + "</td>" + "<td>" + result.startTime + "</td>" + "<td>" + result.endTime + "</td>" + "<td>" + result.duration + "</td>" + "<td>" + result.price + "</td>" + "<td>" + result.stations + "</td>" + "<td>" + trainEdit + trainDelete + "</td></tr>";
+
+        content1  = content1 + "<tr><td>" + i + "</td>" + "<td>" + result.trainNo + "</td>" + "<td>" + result.name + "</td>" + "<td>" + result.noPassenger + "</td>" + "<td>" + result.source + "</td>" + "<td>" + result.destination + "</td>" + "<td>" + result.startTime + "</td>" + "<td>" + result.endTime + "</td>" + "<td>" + result.duration + "</td>" + "<td>" + result.price + "</td>" + "<td>" + result.stations + "</td>" + "<td>" + trainEdit + " " + trainDelete + "</td></tr>";
         
     }
 
@@ -91,6 +91,7 @@ function displaysearchTrains(results) {
 }
 
 function getStationList() {
+    let i = 0;
     let content = [];
     let value="";
     
