@@ -34,7 +34,10 @@ function bookList() {
 
             const abc = (booklistObj.noTicket)*(booklistObj.individualPrice);
 
-            content= content + "<tr><td>" + i + "</td>" + "<td>" + booklistObj.trainNo + "</td>" + "<td>" + booklistObj.name + "</td>" + "<td>" + booklistObj.source + "</td>" + "<td>" + booklistObj.destination + "</td>" + "<td>" + booklistObj.noTicket + "</td>" + "<td>" + booklistObj.journeyDate + "</td>" + "<td>" + "Rs." + booklistObj.individualPrice + "</td>" + "<td>" + "Rs." + abc + "</td>" + "<td>" + booklistObj.user.name + "</td>" + "<td>" + booklistObj.user.email + "</td>" + "<td>" + cancelBook + "</td></tr>";
+            let orderedDate = new Date(booklistObj.journeyDate).toJSON(); //.substr(0, 10);
+        let date = moment(new Date(orderedDate)).format("DD-MM-YYYY");
+
+            content= content + "<tr><td>" + i + "</td>" + "<td>" + booklistObj.trainNo + "</td>" + "<td>" + booklistObj.name + "</td>" + "<td>" + booklistObj.source + "</td>" + "<td>" + booklistObj.destination + "</td>" + "<td>" + booklistObj.noTicket + "</td>" + "<td>" + date + "</td>" + "<td>" + "Rs." + booklistObj.individualPrice + "</td>" + "<td>" + "Rs." + abc + "</td>" + "<td>" + booklistObj.user.name + "</td>" + "<td>" + booklistObj.user.email + "</td>" + "<td>" + cancelBook + "</td></tr>";
         
        
         
@@ -42,13 +45,21 @@ function bookList() {
         }
     }).catch(err=>{
         console.log(err.response.data);
-        alert("Booking failed");
+        toastr.error("Booking failed");
     });
 }
 bookList();
 
 function cancel_booking(id,rev){
-    alert("Do you want to delete this data?");
+
+    swal({  
+        title: " Do you want to delete this data? ",  
+        text: " If you delete this the data will remove from the List!",  
+        icon: "error",  
+        button: "Ok Delete!",  
+      });    
+
+    // alert("Do you want to delete this data?");
     console.log(id);
     console.log(rev);
     let url ="https://b4af4ef2-55e1-4a9b-9b02-8168e5964652-bluemix.cloudantnosqldb.appdomain.cloud/trainticketapp_book/"+id ;
@@ -67,11 +78,12 @@ function cancel_booking(id,rev){
 
     axios.put(url, product,  { headers: {'Authorization': basicAuth}}).then(res2 => {
 
-    alert("Deleted succesfully");
+        toastr.success("Deleted succesfully");
 
     bookList();
     }).catch(err =>{
-        alert("error in deleting");
+        
+        toastr.error("error in deleting");
 
     })
 })

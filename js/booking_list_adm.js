@@ -32,8 +32,11 @@ function bookList() {
             let cancelBook =`<button type='button'  onclick = "cancel_booking('${booklistObj._id}','${booklistObj._rev}');"> Cancel </button>`;
 
             const abc = (booklistObj.noTicket)*(booklistObj.individualPrice);
+            
+            let orderedDate = new Date(booklistObj.journeyDate).toJSON(); //.substr(0, 10);
+        let date = moment(new Date(orderedDate)).format("DD-MM-YYYY");
 
-            content= content + "<tr><td>" + i + "</td>" + "<td>" + booklistObj.trainNo + "</td>" + "<td>" + booklistObj.name + "</td>" + "<td>" + booklistObj.source + "</td>" + "<td>" + booklistObj.destination + "</td>" + "<td>" + booklistObj.noTicket + "</td>" + "<td>" + booklistObj.journeyDate + "</td>" + "<td>" + "Rs." + booklistObj.individualPrice + "</td>" + "<td>" + "Rs." + abc + "</td>" + "<td>" + booklistObj.user.name + "</td>" + "<td>" + booklistObj.user.email + "</td>" + "<td>" + cancelBook + "</td></tr>";
+            content= content + "<tr><td>" + i + "</td>" + "<td>" + booklistObj.trainNo + "</td>" + "<td>" + booklistObj.name + "</td>" + "<td>" + booklistObj.source + "</td>" + "<td>" + booklistObj.destination + "</td>" + "<td>" + booklistObj.noTicket + "</td>" + "<td>" + date + "</td>" + "<td>" + "Rs." + booklistObj.individualPrice + "</td>" + "<td>" + "Rs." + abc + "</td>" + "<td>" + booklistObj.user.name + "</td>" + "<td>" + booklistObj.user.email + "</td>" + "<td>" + cancelBook + "</td></tr>";
         
         console.log(content);
         
@@ -42,7 +45,7 @@ function bookList() {
         
     }).catch(err=>{
         console.log(err.response.data);
-        alert("Booking failed");
+        toastr.error("Booking failed");
     });
 }
 bookList();
@@ -67,11 +70,12 @@ function cancel_booking(id,rev){
 
     axios.put(url, product,  { headers: {'Authorization': basicAuth}}).then(res2 => {
 
-    alert("Deleted succesfully");
+    toastr.success("Deleted succesfully");
 
     bookList();
     }).catch(err =>{
-        alert("error in deleting");
+        
+        toastr.error("error in deleting");
 
     })
 })

@@ -52,12 +52,16 @@
             console.log(user.email);
             if (user == null) {
               console.log("user : ", user);
-              alert("please login");
-              window.location.href = "login.html";
+              
+            toastr.error("please login");
+
+            setTimeout(function () {
+                window.location.href = "login.html"
+            }, 3000);
+
             }
             else {
               console.log("user : ", user);
-              alert("done");
 
         try{
         Validator.isValidTrainTicket(noTicket, "Tickets Must be more than zero");
@@ -66,11 +70,16 @@
         BookService.addBooking(formValues).then(res=>{
             let users=res.data;
             console.log(users);
-            alert("book successful");
-            window.location.href="booking_list.html";
+
+            
+            toastr.success("book successful");
+            setTimeout(function () {
+                window.location.href = "booking_list.html"
+            }, 3000);
+
         }).catch(err=>{
             console.log(err.response.data);
-            alert("Booking failed");
+            toastr.error("Booking failed");
         });
        
 
@@ -79,7 +88,9 @@
               
             catch(err){
                 console.error(err.message);
-                alert("Error: " + err.message);
+                
+            toastr.error("Error: " + err.message);
+
             }
                 }
 

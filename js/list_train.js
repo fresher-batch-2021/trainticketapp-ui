@@ -32,7 +32,8 @@ function listData() {
         }
     }).catch(err => {
         console.log(err.response.data);
-        alert("Error on getting the values");
+        toastr.error("Error on getting the values");
+        
     });
 
 
@@ -79,14 +80,19 @@ function getStationList() {
     let content = [];
     let value="";
     
-    TrainService.getTrains().then(res => {
-        let data = res.data.rows;
+    TrainService.getTrains().then(res2 => {
+        let data = res2.data.rows;
         let trains = data.map(obj => obj.doc);    
 
     for (let trainObj of trains) {
         let stations= trainObj.stations.split(",");
         content.push(...stations);
-            for(let station of stations){
+    }
+
+        let sortedStations = _.uniq(content, true).sort();
+        console.log(sortedStations);
+
+            for(let station of sortedStations){
                 value+=`
                 <option value="${station}">${station}</option>
                 `;
@@ -97,7 +103,7 @@ function getStationList() {
         
         
     
-    }
+    
     console.log(content);
 
     });

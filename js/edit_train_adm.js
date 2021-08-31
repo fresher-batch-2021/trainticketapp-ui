@@ -71,7 +71,8 @@ function editTrain() {
     console.log(formValues);
 
     if(trainNo.length != 5){
-        alert("Invalid Train no");
+        
+        toastr.error("Invalid Train no");
     }
     else{
     
@@ -79,11 +80,16 @@ function editTrain() {
         TrainService.updateTrain(formValues).then(res=>{
         let users=res.data;
         console.log(users);
-        alert("Update successful");
-        window.location.href="list_train_adm.html";
+        
+        toastr.success("Update successful");
+
+        setTimeout(function () {
+            window.location.href = "list_train_adm.html"
+        }, 3000);
+
     }).catch(err=>{
         console.log(err.response.data);
-        alert("update failed");
+        toastr.error("update failed");
     });
    
     }

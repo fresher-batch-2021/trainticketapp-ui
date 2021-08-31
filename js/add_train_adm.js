@@ -36,7 +36,7 @@ ValidatorCheck.trainNoValidation(trainNo).then(res => {
     let data = res.data.docs;
     
     if (data != "") {
-        alert("trainNo already exist enter different trainNo")
+        toastr.error("Train No already exist enter different Train No");
         
         return;
     }
@@ -47,8 +47,14 @@ let user = JSON.parse(userData);
 console.log(user);
 if (user == null) {
   console.log("user : ", user);
-  alert("please login");
-  window.location.href = "login.html";
+  
+  toastr.error("please login");
+
+setTimeout(function () {
+    window.location.href = "login.html"
+}, 3000);
+
+//   window.location.href = "login.html";
 }
 else {
   console.log("user : ", user);
@@ -63,18 +69,24 @@ try{
     TrainService.addTrains(formValues).then(res1=>{
         let train_list = res1.data;
         console.log(train_list);
-        alert("Train Added successful");
-        window.location.href="list_train_adm.html";
+        
+        toastr.success("Train Added successful");
+        
+        setTimeout(function () {
+            window.location.href = "list_train_adm.html"
+        }, 3000);
+
     }).catch(err=>{
         console.log(err.response.data);
-        alert("Failed to add Train");
+        toastr.error("Failed to add Train");
     });
    
 }
 
 catch(err){
     console.error(err.message);
-    alert("Error: " + err.message);
+    toastr.error("Error: " + err.message);
+    
 }
 
 }

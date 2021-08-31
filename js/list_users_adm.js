@@ -26,7 +26,7 @@ let i=0;
       }
   }).catch(err=>{
       console.log(err.response.data);
-      alert("Register failed");
+      toastr.error("Failed to getting Data");
   });
  
 }

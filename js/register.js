@@ -52,7 +52,7 @@ function checkConf(){
             let data = res.data.docs;
             
             if (data != "") {
-                alert("email already exist enter different email")
+                toastr.error("Email already exist enter different Email");
                 
                 return;
             }
@@ -68,11 +68,16 @@ function checkConf(){
                     UserService.register(formValues).then(res1=>{
                         let users=res1.data;
                         console.log(users);
-                        alert("Register successful");
-                        window.location.href="login.html";
+                        toastr.success("Register successful");
+
+                        setTimeout(function () {
+                            window.location.href = "login.html"
+                        }, 3000);
+
+                        // window.location.href="login.html";
                     }).catch(err=>{
                         console.log(err.response.data);
-                        alert("Register failed");
+                        toastr.error("Register failed");
                     });
                    
             
@@ -80,7 +85,7 @@ function checkConf(){
             }
             catch(err){
                 console.error(err.message);
-                alert("Error: " + err.message);
+                toastr.error("Error: " + err.message);
             }
 
 
