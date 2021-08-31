@@ -8,8 +8,8 @@ function bookList() {
             console.log("USer Id:" , userid);
 
 
-             BookService.listBooking().then(res1=>{
-                let data = res1.data.rows;
+             BookService.listBooking().then(res=>{
+                let data = res.data.rows;
                 let book_list = data.map(obj=>obj.doc);
                 console.table(book_list);
 
@@ -59,13 +59,13 @@ function cancel_booking(id,rev){
     // axios.delete(url+id+"?rev="+rev, { headers: {'Authorization': basicAuth}}).then(res => {
 
     
-   axios.get(url, { headers: {'Authorization': basicAuth}}).then(res=>{
+   axios.get(url, { headers: {'Authorization': basicAuth}}).then(res1=>{
 
-    let product  = res.data;
+    let product  = res1.data;
     console.log(product);
     product.status ="INACTIVE";
 
-    axios.put(url, product,  { headers: {'Authorization': basicAuth}}).then(res => {
+    axios.put(url, product,  { headers: {'Authorization': basicAuth}}).then(res2 => {
 
     alert("Deleted succesfully");
 
