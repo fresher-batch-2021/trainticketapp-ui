@@ -7,9 +7,9 @@
             document.querySelector("#trainName").value=Nametrain;
             let sourceStation = params.get("source");
             document.querySelector("#fromStation").value=sourceStation;
-            destinationStation = params.get("destination");
+            let destinationStation = params.get("destination");
             document.querySelector("#toStation").value=destinationStation;
-            ticketPrice = params.get("price");
+            let ticketPrice = params.get("price");
             let journeyDate = document.querySelector("#journeyDate").value;
             document.querySelector("#ticketAmount").value=ticketPrice;
 
@@ -27,7 +27,6 @@
             
             let userData = localStorage.getItem("Logged_in_users");
             let user = JSON.parse(userData);
-            const userid = user._id;
             const email = user.email;
 
             console.log(trainNo + "+" + trainName + "+" + fromStation + "+" + toStation + "+" + noTicket + "+" +journeyDate + "+" + ticketAmount);
@@ -67,7 +66,7 @@
                 
         BookService.addBooking(formValues).then(res=>{
             let users=res.data;
-            // localStorage.setItem("register_in_users",JSON.stringify(users));
+            console.log(users);
             alert("book successful");
             window.location.href="booking_list.html";
         }).catch(err=>{

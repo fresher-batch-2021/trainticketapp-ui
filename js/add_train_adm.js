@@ -37,9 +37,8 @@ ValidatorCheck.trainNoValidation(trainNo).then(res => {
     
     if (data != "") {
         alert("trainNo already exist enter different trainNo")
-        //window.location.reload();
+        
         return;
-        // throw new Error("email already exist")
     }
 
 
@@ -63,6 +62,7 @@ try{
 
     TrainService.addTrains(formValues).then(res=>{
         let train_list = res.data;
+        console.log(train_list);
         alert("Train Added successful");
         window.location.href="list_train_adm.html";
     }).catch(err=>{

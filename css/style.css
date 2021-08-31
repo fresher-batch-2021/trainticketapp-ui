@@ -263,14 +263,16 @@ h2 {
 /* ----------------list user admin---------------- */
 
 .list-user-admin-section {
-  margin-top: 10%;
+  margin-top: 1%;
   margin-left: 19%;
 }
 
 .list-user-admin-section caption {
   margin-bottom: 1%;
 }
-
+.profile-h2 {
+  margin-top: 10%;
+}
 
 /* ------------booking list admin-------------- */
 

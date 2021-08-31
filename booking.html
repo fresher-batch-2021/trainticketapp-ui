@@ -23,16 +23,16 @@
         <form onsubmit="bookingForm();">
             <div class="row">
                 <label for="trainNo">Train No: </label>
-                <input class="form-control" type="number" name="trainNo" id="trainNo" pattern="[0-9]{5}" required autofocus>
+                <input class="form-control" type="number" name="trainNo" id="trainNo" pattern="[0-9]{5}" required readonly>
 
                 <label for="trainName">Train Name: </label>
-                <input class="form-control" type="text" name="trainName" id="trainName" pattern="[A-Za-z ]{1,50}" required>
+                <input class="form-control" type="text" name="trainName" id="trainName" pattern="[A-Za-z ]{1,50}" required readonly>
                 
                 <label for="fromStation">From Station: </label>
-                <input class="form-control" type="text" name="fromStation" id="fromStation" pattern="[A-Za-z ]{1,50}" required>
+                <input class="form-control" type="text" name="fromStation" id="fromStation" pattern="[A-Za-z ]{1,50}" required readonly>
                 
                 <label for="toStation">To Station: </label>
-                <input class="form-control" type="text" name="toStation" id="toStation" pattern="[A-Za-z ]{1,50}" required>
+                <input class="form-control" type="text" name="toStation" id="toStation" pattern="[A-Za-z ]{1,50}" required readonly>
                 
 
                 <label for="noTicket">No of Tickets: </label>
@@ -42,7 +42,7 @@
                 <input class="form-control" type="date" name="journeyDate" id="journeyDate" required>
                 
                 <label for="ticketAmount">Ticket Amount: </label>
-                <input class="form-control" type="number" name="ticketAmount" id="ticketAmount" required>
+                <input class="form-control" type="number" name="ticketAmount" id="ticketAmount" required readonly>
                 
                 <button class="btn btn-primary ">Submit</button>
                 <button class="btn btn-success" type="reset">Reset</button>

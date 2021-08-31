@@ -5,18 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header id="header"> </header>
-
-    <section id="profile">
-        <h2>My Profile </h2>
-        <table class="profile-table" style="text-align:center;">  
+</header>
+<main>
+    <h2 class="profile-h2">My Profile </h2>
+    <section class="list-user-admin-section" id="profile">
+        
+        <table class="table table-bordered  table-hover">  
             <caption><strong> Profile Details</strong></caption><br><br>
             <thead>
+                <tr  class="table-primary">
                 <th id="fields">Fields</th>
                 <th id="values">Values</th>
+                </tr>
             </thead>
             <tbody>
                 <tr>
@@ -35,6 +39,7 @@
             
         </table>
     </section>
+    </main>
     <script src="https://code.jquery.com/jquery-3.6.0.js"
     integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
