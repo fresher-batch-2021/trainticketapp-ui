@@ -65,8 +65,8 @@ function checkConf(){
                 Validator.isValidMobile(mobile, "Invalid Mobile Number");
                 
                     
-                    UserService.register(formValues).then(res=>{
-                        let users=res.data;
+                    UserService.register(formValues).then(res1=>{
+                        let users=res1.data;
                         console.log(users);
                         alert("Register successful");
                         window.location.href="login.html";

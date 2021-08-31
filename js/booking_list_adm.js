@@ -59,13 +59,13 @@ function cancel_booking(id,rev){
     // axios.delete(url+id+"?rev="+rev, { headers: {'Authorization': basicAuth}}).then(res => {
 
     
-   axios.get(url, { headers: {'Authorization': basicAuth}}).then(res=>{
+   axios.get(url, { headers: {'Authorization': basicAuth}}).then(res1=>{
 
-    let product  = res.data;
+    let product  = res1.data;
     console.log(product);
     product.status ="INACTIVE";
 
-    axios.put(url, product,  { headers: {'Authorization': basicAuth}}).then(res => {
+    axios.put(url, product,  { headers: {'Authorization': basicAuth}}).then(res2 => {
 
     alert("Deleted succesfully");
 
