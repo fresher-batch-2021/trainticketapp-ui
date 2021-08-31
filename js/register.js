@@ -7,17 +7,7 @@ function checkConf(){
     const email = document.querySelector("#email").value;
     const password1 = document.querySelector("#password").value;
     const confirmPassword = document.querySelector("#confirmPassword").value;
-    // const roles = document.querySelectorAll("#role");
-
-    // let role ;
     
-    // roles.forEach(roleRadio=>{
-    //   if (roleRadio.checked){
-    //       role = roleRadio.value;
-    //   }
-    // });
-    // console.log(role);
-
     const role= "user";
 
     const firstName = document.querySelector("#firstName").value;
@@ -63,9 +53,8 @@ function checkConf(){
             
             if (data != "") {
                 alert("email already exist enter different email")
-                //window.location.reload();
+                
                 return;
-                // throw new Error("email already exist")
             }
 
             try{
@@ -75,21 +64,10 @@ function checkConf(){
                 Validator.isValidPassword(password1, confirmPassword, "Invalid Password");
                 Validator.isValidMobile(mobile, "Invalid Mobile Number");
                 
-                // if(email == "" || email == null || email.trim() == ""){
-                //     alert("Invalid Email");
-                // }
-                // else if(password1.length < 4 || confirmPassword.length < 4 || password1 != confirmPassword){
-                //     alert("Invalid Password");
-                // }
-                // else if(mobile.length != 10){
-                //     alert("Invalid Mobile Number");
-                // }
-            
-                // else{
                     
                     UserService.register(formValues).then(res=>{
                         let users=res.data;
-                        // localStorage.setItem("register_in_users",JSON.stringify(users));
+                        console.log(users);
                         alert("Register successful");
                         window.location.href="login.html";
                     }).catch(err=>{
@@ -123,13 +101,3 @@ function setDate(){
 
 }
 setDate();
-
-// <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.6/dayjs.min.js" integrity="sha512-bwD3VD/j6ypSSnyjuaURidZksoVx3L1RPvTkleC48SbHCZsemT3VKMD39KknPnH728LLXVMTisESIBOAb5/W0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-// function setDate() {
-//     let todayObj = new Date();
-//     let previousDay = dayjs().subtract(1, 'day').toDate();
-//     let today = previousDay.toJSON().substr(0, 10);
-//     document.querySelector("#dob").setAttribute("max", today);
-
-// }
-

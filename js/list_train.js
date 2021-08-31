@@ -12,8 +12,6 @@ function listData() {
         
         let trainsList = train_list.filter(obj=>obj.status!=='INACTIVE');
 
-        // localStorage.setItem("Added_Train",JSON.stringify(res.data));
-        // //alert("added in local storage");
 
         let i = 0;
 
@@ -22,7 +20,6 @@ function listData() {
 
             let trainLink = `<a href='booking.html?name=${listTrain.name}&trainNo=${listTrain.trainNo}&source=${listTrain.source}&destination=${listTrain.destination}&price=${listTrain.price}'>${listTrain.name}</a>`;
 
-            // let trainview = `<input type="button" id="bookButton" value="Book" onclick="bookTrain()" />`;
 
 
             let trainEdit = ``;
@@ -33,10 +30,9 @@ function listData() {
 
             document.querySelector("#listTrainData").innerHTML = content;
         }
-        // window.location.href="list.html";
     }).catch(err => {
         console.log(err.response.data);
-        //alert("Register failed");
+        alert("Error on getting the values");
     });
 
 
@@ -68,12 +64,11 @@ function displaysearchTrains(results) {
    `;
     for (let result of trainsList) {
         i = i + 1;
-        trainLink = `<a href='booking.html?name=${result.name}&trainNo=${result.trainNo}&source=${sourceSearch}&destination=${destinationSearch}&price=${result.price}'>${result.name}</a>`;
+        let trainLink = `<a href='booking.html?name=${result.name}&trainNo=${result.trainNo}&source=${sourceSearch}&destination=${destinationSearch}&price=${result.price}'>${result.name}</a>`;
 
-        trainEdit = ``;
-        trainview = `<a href='booking.html?name=${result.name}&trainNo=${result.trainNo}&source=${sourceSearch}&destination=${destinationSearch}&price=${result.price}'>Book</a>`;
+        let trainview = `<a href='booking.html?name=${result.name}&trainNo=${result.trainNo}&source=${sourceSearch}&destination=${destinationSearch}&price=${result.price}'>Book</a>`;
 
-        content1  = content1 + "<tr><td>" + i + "</td>" + "<td>" + result.trainNo + "</td>" + "<td>" + trainLink + "</td>" + "<td>" + result.noPassenger + "</td>" + "<td>" + result.source + "</td>" + "<td>" + result.destination + "</td>" + "<td>" + result.startTime + "</td>" + "<td>" + result.endTime + "</td>" + "<td>" + result.duration + "</td>" + "<td>" + result.price + "</td>" + "<td>" + result.stations + "</td>" + "<td>" + trainEdit + " " + trainview + "</td></tr>";
+        content1  = content1 + "<tr><td>" + i + "</td>" + "<td>" + result.trainNo + "</td>" + "<td>" + trainLink + "</td>" + "<td>" + result.noPassenger + "</td>" + "<td>" + result.source + "</td>" + "<td>" + result.destination + "</td>" + "<td>" + result.startTime + "</td>" + "<td>" + result.endTime + "</td>" + "<td>" + result.duration + "</td>" + "<td>" + result.price + "</td>" + "<td>" + result.stations + "</td>" + "<td>" + trainview + "</td></tr>";
         
     }
 
@@ -81,7 +76,6 @@ function displaysearchTrains(results) {
 }
 
 function getStationList() {
-    let i = 0;
     let content = [];
     let value="";
     
@@ -105,7 +99,6 @@ function getStationList() {
     
     }
     console.log(content);
-//    document.querySelector("#listTrainData").innerHTML = content;
 
     });
 }

@@ -32,16 +32,6 @@
             
             Validator.isValidString(password1, "Password is Mandatory");
 
-            // if(email == "" || email == null || email.trim() == ""){
-            //     alert("Invalid email");
-            // }
-            // else{
-                
-            // if(password1.length < 4){
-            //     alert("Invalid Password");
-            // }
-            // else{
-                // axios.post(url, requestData, { headers : { Authorization : basicAuth } }).then((res) => {
                     UserService.login(email,password1,role).then(res=>{
                     let data = res.data.docs;
                     console.log(data);
@@ -49,6 +39,7 @@
                         alert("Invalid login credentials");
 
                     }
+                    
                     else{
 
                         const user = data[0];
@@ -62,14 +53,7 @@
                         }
                     }
 
-                    // localStorage.setItem("Logged_in_users",JSON.stringify(users));
                     
-                    // if(users.role == "admin"){
-                    //     window.location.href="add_train_adm.html";
-                    // }
-                    // else{
-                    // window.location.href="list_train.html";
-                    // }
                 }).catch(err=>{
                      console.log(err.response.data);
                     alert("login failed");

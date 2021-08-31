@@ -78,7 +78,7 @@ function editTrain() {
    
         TrainService.updateTrain(formValues).then(res=>{
         let users=res.data;
-        // localStorage.setItem("register_in_users",JSON.stringify(users));
+        console.log(users);
         alert("Update successful");
         window.location.href="list_train_adm.html";
     }).catch(err=>{

@@ -1,7 +1,7 @@
 $("#header").load("_header.html");
 
 function listData() {
-  // alert("Train Listed successful 11");
+  
 var content="";
 
 UserService.getUsers().then(res=>{
@@ -9,11 +9,9 @@ UserService.getUsers().then(res=>{
       let user_list = data.map(obj=>obj.doc);
       let users = user_list.filter(obj=>obj.role!=='admin');
 
-      // alert("Train Listed successful");
+      
       console.log(user_list);
-     // alert("yes");
-      //localStorage.setItem("Added_Train",JSON.stringify(res.data));
-      //alert("added in local storage");
+      
 let i=0;
       for(let listUser of users)
       {
@@ -26,7 +24,6 @@ let i=0;
           
       document.querySelector("#listUserDataAdm").innerHTML=content;
       }
-      // window.location.href="list.html";
   }).catch(err=>{
       console.log(err.response.data);
       alert("Register failed");
