@@ -16,7 +16,7 @@ function listData() {
 
             let trainEdit = `<button><a href='edit_train_adm.html?id=${listTrain._id}' style="text-decoration:none;">Edit</a></button>`;
 
-            let trainDelete = `<button type='button'  onclick = "cancel_train('${listTrain._id}','${listTrain._rev}');"> Cancel </button>`;
+            let trainDelete = `<button type='button'  onclick = "cancel_train('${listTrain._id}','${listTrain._rev}','${listTrain.name}');"> Cancel </button>`;
 
             content = content + "<tr><td>" + i + "</td>" + "<td>" + listTrain.trainNo + "</td>" + "<td>" + listTrain.name + "</td>" + "<td>" + listTrain.noPassenger + "</td>" + "<td>" + listTrain.source + "</td>" + "<td>" + listTrain.destination + "</td>" + "<td>" + listTrain.startTime + "</td>" + "<td>" + listTrain.endTime + "</td>" + "<td>" + listTrain.duration + "</td>" + "<td>" + listTrain.price + "</td>" + "<td>" + listTrain.stations + "</td>" + "<td>" + trainEdit + trainDelete + "</td></tr>";
 
@@ -31,7 +31,7 @@ function listData() {
 }
 listData();
 
-function cancel_train(id, rev) {
+function cancel_train(id, rev, trainName) {
 
 
     console.log(id);
@@ -45,7 +45,7 @@ function cancel_train(id, rev) {
 
     
         Swal.fire({
-            title: 'Are you sure?',
+            title: 'Are you sure to delete ' + trainName + '?',
             text: "You won't be able to revert this!",
             icon: 'warning',
             showCancelButton: true,

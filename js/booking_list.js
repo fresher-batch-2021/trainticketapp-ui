@@ -30,7 +30,7 @@ function bookList() {
         {
             i++;
 
-            let cancelBook =`<button type='button'  onclick = "cancel_booking('${booklistObj._id}','${booklistObj._rev}');"> Cancel </button>`;
+            let cancelBook =`<button type='button'  onclick = "cancel_booking('${booklistObj._id}','${booklistObj._rev}','${booklistObj.name}');"> Cancel </button>`;
 
             const abc = (booklistObj.noTicket)*(booklistObj.individualPrice);
 
@@ -50,7 +50,7 @@ function bookList() {
 }
 bookList();
 
-function cancel_booking(id,rev){
+function cancel_booking(id,rev,trainName){
 
     
     console.log(id);
@@ -64,7 +64,7 @@ function cancel_booking(id,rev){
 
     
         Swal.fire({
-            title: 'Are you sure?',
+            title: 'Are you sure to delete ' + trainName + ' Tickets?',
             text: "You won't be able to revert this!",
             icon: 'warning',
             showCancelButton: true,
