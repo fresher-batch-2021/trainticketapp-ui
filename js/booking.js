@@ -1,17 +1,33 @@
             $("#header").load("_header.html");
 
+function displayValues(){
             let params = new URLSearchParams(window.location.search.substr(1));
-            let trainNumber = params.get("trainNo");
-            document.querySelector("#trainNo").value=trainNumber;
-            let Nametrain = params.get("name");
-            document.querySelector("#trainName").value=Nametrain;
+
+            
+let _id = params.get("id");
+TrainService.getTrain(_id).then(res=>{
+    let train = res.data;
+    console.log(train);
+
+            document.querySelector("#trainNo").value=train.trainNo;
+            // $("#trainNo").val(train.trainNo);
+            document.querySelector("#trainName").value=train.name;
+            document.querySelector("#ticketAmount").value=train.price;
+
             let sourceStation = params.get("source");
             document.querySelector("#fromStation").value=sourceStation;
             let destinationStation = params.get("destination");
             document.querySelector("#toStation").value=destinationStation;
-            let ticketPrice = params.get("price");
-             document.querySelector("#ticketAmount").value=ticketPrice;
+            
+});
+}
+displayValues();
 
+function resetValue(){
+
+    displayValues();
+
+}
             
         function bookingForm() {
             event.preventDefault();

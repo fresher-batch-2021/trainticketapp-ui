@@ -1,5 +1,6 @@
 $("#header").load("_header.html");
 
+function displayValues(){
 let params = new URLSearchParams(window.location.search.substr(1));
 
 let _id = params.get("id");
@@ -35,7 +36,14 @@ document.querySelector("#_id").value=train._id;
 document.querySelector("#_rev").value=train._rev;
 
 });
+}
+displayValues();
 
+function resetValue(){
+
+    displayValues();
+
+}
 
 function editTrain() {
     event.preventDefault();

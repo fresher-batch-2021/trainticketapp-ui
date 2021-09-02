@@ -18,7 +18,7 @@ function listData() {
         for (let listTrain of trainsList) {
             i++;
 
-            let trainLink = `<a href='booking.html?name=${listTrain.name}&trainNo=${listTrain.trainNo}&source=${listTrain.source}&destination=${listTrain.destination}&price=${listTrain.price}'>${listTrain.name}</a>`;
+            let trainLink = `<a href='booking.html?id=${listTrain._id}&source=${listTrain.source}&destination=${listTrain.destination}'>${listTrain.name}</a>`;
 
 
 

@@ -225,6 +225,25 @@ h2 {
 .add-train-admin-section button a {
   color: #325B80;
 }
+.add-train {
+  margin-left: 40.8%;
+  
+}
+.add-train button {
+  margin-right: 8%;
+  margin-top:1%;
+  margin-bottom: 2%;
+}
+
+.edit_train_adm {
+  margin-left: 45%;
+}
+.edit_train_adm button{
+  
+  margin-right: 8%;
+  margin-top:1%;
+  margin-bottom: 2%;
+}
 
 
 /* -------------list train admin----------- */
@@ -297,12 +316,17 @@ h2 {
 
 .edit-train-section .first-btn {
   margin-top: 10%;
-  margin-left: 30%;
+  margin-left: 10%;
 }
 
 .edit-train-section .second-btn {
-  margin-top: 5%;
+  margin-top: 10%;
   margin-left: 25%;
+}
+ .third-btn{
+  margin-top: 10%;
+  margin-left: 30%;
+
 }
 
 .edit-train-section .second-btn a {
