@@ -32,7 +32,8 @@ function listData() {
 listData();
 
 function cancel_train(id, rev) {
-    alert("Do you want to delete this data?");
+
+
     console.log(id);
     console.log(rev);
     let url = "https://b4af4ef2-55e1-4a9b-9b02-8168e5964652-bluemix.cloudantnosqldb.appdomain.cloud/trainticketapp_trains/" + id;
@@ -42,6 +43,23 @@ function cancel_train(id, rev) {
 
     // axios.delete(url+id+"?rev="+rev, { headers: {'Authorization': basicAuth}})
 
+    
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+              )
+
     axios.get(url, { headers: { 'Authorization': basicAuth } }).then(res1 => {
 
         let product = res1.data;
@@ -50,8 +68,6 @@ function cancel_train(id, rev) {
 
         axios.put(url, product, { headers: { 'Authorization': basicAuth } }).then(res2 => {
 
-            toastr.success("Deleted succesfully");
-            listData();
 
         }).catch(err => {
             toastr.error("error in deleting");
@@ -59,6 +75,8 @@ function cancel_train(id, rev) {
         })
 
     })
+}
+          })
 
 }
 

@@ -51,7 +51,12 @@ function checkAccess(pageName, role) {
    
 
     if (!allowedAccess) {
-        alert("You are not authorized to access this page. Redirecting to login page");
-        window.location.href = "login.html";
+
+        toastr.error("You are not authorized to access this page. Redirecting to login page");
+        
+        setTimeout(function () {
+            window.location.href = "login.html"
+        }, 2000);
+
     }
 })();

@@ -51,7 +51,6 @@ function bookList() {
 bookList();
 
 function cancel_booking(id,rev){
-    alert("Do you want to delete this data?");
     console.log(id);
     console.log(rev);
     let url ="https://b4af4ef2-55e1-4a9b-9b02-8168e5964652-bluemix.cloudantnosqldb.appdomain.cloud/trainticketapp_book/"+id ;
@@ -61,6 +60,21 @@ function cancel_booking(id,rev){
 
     // axios.delete(url+id+"?rev="+rev, { headers: {'Authorization': basicAuth}}).then(res => {
 
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+              )
     
    axios.get(url, { headers: {'Authorization': basicAuth}}).then(res1=>{
 
@@ -70,7 +84,6 @@ function cancel_booking(id,rev){
 
     axios.put(url, product,  { headers: {'Authorization': basicAuth}}).then(res2 => {
 
-    toastr.success("Deleted succesfully");
 
     bookList();
     }).catch(err =>{
@@ -79,5 +92,10 @@ function cancel_booking(id,rev){
 
     })
 })
+
 }
 
+})
+
+
+}

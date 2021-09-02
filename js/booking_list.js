@@ -52,14 +52,7 @@ bookList();
 
 function cancel_booking(id,rev){
 
-    swal({  
-        title: " Do you want to delete this data? ",  
-        text: " If you delete this the data will remove from the List!",  
-        icon: "error",  
-        button: "Ok Delete!",  
-      });    
-
-    // alert("Do you want to delete this data?");
+    
     console.log(id);
     console.log(rev);
     let url ="https://b4af4ef2-55e1-4a9b-9b02-8168e5964652-bluemix.cloudantnosqldb.appdomain.cloud/trainticketapp_book/"+id ;
@@ -70,23 +63,43 @@ function cancel_booking(id,rev){
     // axios.delete(url+id+"?rev="+rev, { headers: {'Authorization': basicAuth}}).then(res => {
 
     
-   axios.get(url, { headers: {'Authorization': basicAuth}}).then(res1=>{
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+              )
 
-    let product  = res1.data;
-    console.log(product);
-    product.status ="INACTIVE";
+              axios.get(url, { headers: {'Authorization': basicAuth}}).then(res1=>{
 
-    axios.put(url, product,  { headers: {'Authorization': basicAuth}}).then(res2 => {
+                let product  = res1.data;
+                console.log(product);
+                product.status ="INACTIVE";
+            
+                axios.put(url, product,  { headers: {'Authorization': basicAuth}}).then(res2 => {
+            
+            
+                bookList();
+                }).catch(err =>{
+                    
+                    toastr.error("error in deleting");
+            
+                })
+            })
+            }
+          })
 
-        toastr.success("Deleted succesfully");
 
-    bookList();
-    }).catch(err =>{
-        
-        toastr.error("error in deleting");
 
-    })
-})
     
 }
 

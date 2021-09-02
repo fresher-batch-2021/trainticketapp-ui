@@ -59,10 +59,9 @@
     let userStatus = JSON.parse(localStorage.getItem("Logged_in_users"));
     
 if (userStatus != null) {
-    // localStorage.setItem("isLoggedIn",JSON.stringify(true))
+    
     $(".nav-item[data-loggedin='true']").show();
     $(".nav-item[data-loggedin='false']").hide();
-    // $("#profile").html("Welcome " + user.email + "!!!");
 
     if (userStatus.role == 'user') {
             $(".nav-item[data-role='admin']").hide();
@@ -74,8 +73,7 @@ if (userStatus.role == 'admin') {
 } 
 
 else {
-    // alert("hi")
-    // localStorage.setItem("isLoggedIn",JSON.stringify(false))
+    
     $(".nav-item[data-loggedin='true'] ").hide();
     $(".nav-item[data-loggedin='false']").show();
     $(".nav-item[data-role='user']").hide();
@@ -85,7 +83,6 @@ else {
 function logout() {
     localStorage.removeItem("Logged_in_users");
 
-    // localStorage.clear();
     window.location.href = "login.html";
 }
 
@@ -96,9 +93,7 @@ function checkLogin() {
             if (user != null) {
                 document.querySelector("#loggedIn").innerHTML = "Welcome <a href = 'profile_user.html' class='user'  data-loggedin='true'>" + user.name + "</a> &nbsp;";
             }
-            // else{
-
-            // }
+           
 
         }
         checkLogin();
