@@ -40,7 +40,7 @@ function bookList() {
         
         console.log(content);
         
-        document.querySelector("#abc").innerHTML=content;
+        $("#abc").html(content);
         }
         
     }).catch(err=>{

@@ -51,9 +51,10 @@ $("#header").load("_header.html");
         let userStr = localStorage.getItem("Logged_in_users");
                         let user = userStr != null ? JSON.parse(userStr):null;
                         if (user != null){
-                           document.querySelector("#name").innerHTML = user.name;
-                           document.querySelector("#email").innerHTML = user.email;
-                           document.querySelector("#role").innerHTML = user.role;
+
+                            $("#name").html(user.name);
+                            $("#email").html(user.email);
+                            $("#role").html(user.role);
                         }
                         // else{
                                                

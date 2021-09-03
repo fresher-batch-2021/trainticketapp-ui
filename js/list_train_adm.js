@@ -21,7 +21,7 @@ function listData() {
             content = content + "<tr><td>" + i + "</td>" + "<td>" + listTrain.trainNo + "</td>" + "<td>" + listTrain.name + "</td>" + "<td>" + listTrain.noPassenger + "</td>" + "<td>" + listTrain.source + "</td>" + "<td>" + listTrain.destination + "</td>" + "<td>" + listTrain.startTime + "</td>" + "<td>" + listTrain.endTime + "</td>" + "<td>" + listTrain.duration + "</td>" + "<td>" + listTrain.price + "</td>" + "<td>" + listTrain.stations + "</td>" + "<td>" + trainEdit + trainDelete + "</td></tr>";
 
 
-            document.querySelector("#listTrainDataAdm").innerHTML = content;
+            $("#listTrainDataAdm").html(content);
         }
     }).catch(err => {
         console.log(err.response.data);
@@ -105,7 +105,7 @@ function displaysearchTrains(results) {
 
     }
 
-    document.querySelector("#listTrainDataAdm").innerHTML = content1;
+    $("#listTrainDataAdm").html(content1);
 }
 
 function getStationList() {
@@ -131,8 +131,8 @@ function getStationList() {
 
 
         }
-        document.querySelector("#sourceStationSearch").innerHTML = value;
-        document.querySelector("#destinationStationSearch").innerHTML = value;
+        $("#sourceStationSearch").html(value);
+        $("#destinationStationSearch").html(value);
 
 
 

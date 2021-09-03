@@ -91,7 +91,7 @@ function checkConf(){
 
 function setDate(){
     let today = new Date().toJSON().substr(0,10);
-    document.querySelector("#dob").setAttribute("max", today);
 
+    $("#dob").attr("max", today);
 }
 setDate();

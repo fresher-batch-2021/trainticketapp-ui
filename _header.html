@@ -51,7 +51,6 @@
         
     </nav>
     <script src="js/jquery.min.js"></script>
-    <script src="js/_header.js"></script>
 
     
 <script>
@@ -91,7 +90,9 @@ function checkLogin() {
             let userStr = localStorage.getItem("Logged_in_users");
             let user = userStr != null ? JSON.parse(userStr) : null;
             if (user != null) {
-                document.querySelector("#loggedIn").innerHTML = "Welcome <a href = 'profile_user.html' class='user'  data-loggedin='true'>" + user.name + "</a> &nbsp;";
+
+               const content = "Welcome <a href = 'profile_user.html' class='user'  data-loggedin='true'>" + user.name + "</a> &nbsp;";
+               $("#loggedIn").html(content);
             }
            
 

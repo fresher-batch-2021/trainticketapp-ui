@@ -41,7 +41,7 @@ function bookList() {
         
        
         
-        document.querySelector("#abc").innerHTML=content;
+        $("#abc").html(content);
         }
     }).catch(err=>{
         console.log(err.response.data);

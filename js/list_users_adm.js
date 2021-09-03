@@ -22,7 +22,7 @@ let i=0;
           content= content + "<tr><td>" + i + "</td>" + "<td>" + listUser.email + "</td>" + "<td>" + listUser.name + "</td>" + "<td>" + listUser.gender + "</td>" + "<td>" + listUser.mobile + "</td></tr>";
 
           
-      document.querySelector("#listUserDataAdm").innerHTML=content;
+      $("#listUserDataAdm").html(content);
       }
   }).catch(err=>{
       console.log(err.response.data);

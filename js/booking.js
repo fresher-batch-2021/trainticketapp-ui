@@ -10,7 +10,6 @@ TrainService.getTrain(_id).then(res=>{
     console.log(train);
 
             $("#trainNo").val(train.trainNo);
-            // $("#trainNo").val(train.trainNo);
             $("#trainName").val(train.name);
             $("#ticketAmount").val(train.price);
 
@@ -123,7 +122,8 @@ axios.post(url,formValues,{ headers: { 'Authorization': basicAuth } }).then(res=
     
 function setDate(){
     let today = new Date().toJSON().substr(0,10);
-    document.querySelector("#journeyDate").setAttribute("min", today);
+
+    $("#journeyDate").attr("min", today);
 
 }
 setDate();

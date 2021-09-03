@@ -18,6 +18,8 @@ function listData() {
         for (let listTrain of trainsList) {
             i++;
 
+            $("#listTrainData tbody").empty();
+            
             let trainLink = `<a href='booking.html?id=${listTrain._id}&source=${listTrain.source}&destination=${listTrain.destination}'>${listTrain.name}</a>`;
 
 
@@ -28,7 +30,7 @@ function listData() {
             content = content + "<tr><td>" + i + "</td>" + "<td>" + listTrain.trainNo + "</td>" + "<td>" + trainLink + "</td>" + "<td>" + listTrain.noPassenger + "</td>" + "<td>" + listTrain.source + "</td>" + "<td>" + listTrain.destination + "</td>" + "<td>" + listTrain.startTime + "</td>" + "<td>" + listTrain.endTime + "</td>" + "<td>" + listTrain.duration + "</td>" + "<td>" + listTrain.price + "</td>" + "<td>" + listTrain.stations + "</td>" + "<td>" + trainEdit + " " + trainview + "</td></tr>";
 
 
-            document.querySelector("#listTrainData").innerHTML = content;
+            $("#listTrainData tbody").append(content);
         }
     }).catch(err => {
         console.log(err.response.data);
@@ -75,7 +77,7 @@ function displaysearchTrains(results) {
         
     }
 
-    document.querySelector("#listTrainData").innerHTML = content1;
+    $("#listTrainData").html(content1);
 }
 
 function getStationList() {
@@ -99,8 +101,8 @@ function getStationList() {
                 <option value="${station}">${station}</option>
                 `;
             }
-            document.querySelector("#sourceStationSearch").innerHTML = value;
-            document.querySelector("#destinationStationSearch").innerHTML = value;
+            $("#sourceStationSearch").html(value);
+            $("#destinationStationSearch").html(value);
 
         
         
