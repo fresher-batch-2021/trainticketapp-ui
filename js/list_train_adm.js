@@ -159,8 +159,8 @@ function abc() {
 
     event.preventDefault();
 
-    const sourceSearch = document.querySelector("#sourceStationSearch").value;
-    const destinationSearch = document.querySelector("#destinationStationSearch").value;
+    const sourceSearch = $("#sourceStationSearch").val();
+    const destinationSearch = $("#destinationStationSearch").val();
     console.log(sourceSearch + "-" + destinationSearch);
 
     TrainService.getTrains().then(res4 => {

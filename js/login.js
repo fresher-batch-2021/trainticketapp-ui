@@ -3,19 +3,12 @@ $("#header").load("_header.html");
 
 function loginPage() {
     event.preventDefault();
-    const email = document.querySelector("#email").value;
+    const email = $("#email").val();
     console.log(email);
-    const password1 = document.querySelector("#password").value;
+    const password1 = $("#password").val();
     console.log(password1);
-    const roles = document.querySelectorAll("#role");
-
-    let role;
-
-    roles.forEach(roleRadio => {
-        if (roleRadio.checked) {
-            role = roleRadio.value;
-        }
-    });
+    const role = $("#role:checked").val();
+    
     console.log(role);
 
     console.log(email + ":" + password1 + ":" + role);

@@ -3,16 +3,16 @@ $("#header").load("_header.html");
 
 function addTrain() {
 event.preventDefault();
-const trainNo = document.querySelector("#trainNo").value;
-const name = document.querySelector("#name").value;
-const noPassenger = document.querySelector("#noPassenger").value;
-const source = document.querySelector("#source").value;
-const destination = document.querySelector("#destination").value;
-const price = document.querySelector("#price").value;
-const startTime = document.querySelector("#startTime").value;
-const endTime = document.querySelector("#endTime").value;
-const duration = document.querySelector("#duration").value;
-const stations = document.querySelector("#stations").value;
+const trainNo = $("#trainNo").val();
+const name = $("#name").val();
+const noPassenger = $("#noPassenger").val();
+const source = $("#source").val();
+const destination = $("#destination").val();
+const price = $("#price").val();
+const startTime = $("#startTime").val();
+const endTime = $("#endTime").val();
+const duration = $("#duration").val();
+const stations = $("#stations").val();
 
 console.log(trainNo + "+" + name + "+" + noPassenger + "+" + source + "+" + destination + "+" + price + "+" + startTime + "+" + endTime + "+" + duration + "+" + stations);
 

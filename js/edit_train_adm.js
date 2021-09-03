@@ -10,30 +10,21 @@ TrainService.getTrain(_id).then(res=>{
 
 
 
+$("#trainNo").val(train.trainNo);
+$("#name").val(train.name);
+$("#source").val(train.source);
+$("#destination").val(train.destination);
+$("#price").val(train.price);
+$("#startTime").val(train.startTime);
+$("#endTime").val(train.endTime)
+$("#noPassenger").val(train.noPassenger);
 
-document.querySelector("#trainNo").value=train.trainNo;
+$("#duration").val(train.duration);
 
-document.querySelector("#name").value=train.name;
+$("#stations").val(train.stations);
 
-
-document.querySelector("#source").value=train.source;
-
-document.querySelector("#destination").value=train.destination;
-
-document.querySelector("#price").value=train.price;
-
-document.querySelector("#startTime").value=train.startTime;
-
-document.querySelector("#endTime").value=train.endTime;
-
-document.querySelector("#noPassenger").value=train.noPassenger;
-
-document.querySelector("#duration").value=train.duration;
-
-document.querySelector("#stations").value=train.stations;
-
-document.querySelector("#_id").value=train._id;
-document.querySelector("#_rev").value=train._rev;
+$("#_id").val(train._id);
+$("#_rev").val(train._rev);
 
 });
 }
@@ -47,18 +38,18 @@ function resetValue(){
 
 function editTrain() {
     event.preventDefault();
-    const trainNo = document.querySelector("#trainNo").value;
-    const name = document.querySelector("#name").value;
-    const id = document.querySelector("#_id").value;
-    const rev = document.querySelector("#_rev").value;
-    const noPassenger = document.querySelector("#noPassenger").value;
-    const source = document.querySelector("#source").value;
-    const destination = document.querySelector("#destination").value;
-    const stations = document.querySelector("#stations").value;
-    const price = document.querySelector("#price").value;
-    const startTime = document.querySelector("#startTime").value;
-    const endTime = document.querySelector("#endTime").value;
-    const duration = document.querySelector("#duration").value;
+    const trainNo = $("#trainNo").val();
+    const name = $("#name").val();
+    const id = $("#_id").val();
+    const rev = $("#_rev").val();
+    const noPassenger = $("#noPassenger").val();
+    const source = $("#source").val();
+    const destination = $("#destination").val();
+    const stations = $("#stations").val();
+    const price = $("#price").val();
+    const startTime = $("#startTime").val();
+    const endTime = $("#endTime").val();
+    const duration = $("#duration").val();
 
 
     let formValues = {

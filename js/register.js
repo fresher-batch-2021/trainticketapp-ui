@@ -1,34 +1,23 @@
 $("#header").load("_header.html")
-$("#footer").load("footer.html")
 
 function checkConf(){
 
     event.preventDefault();
-    const email = document.querySelector("#email").value;
-    const password1 = document.querySelector("#password").value;
-    const confirmPassword = document.querySelector("#confirmPassword").value;
+    const email = $("#email").val();
+    const password1 = $("#password").val();
+    const confirmPassword = $("#confirmPassword").val();
     
     const role= "user";
 
-    const firstName = document.querySelector("#firstName").value;
-    const middleName = document.querySelector("#middleName").value;
-    const lastName = document.querySelector("#lastName").value;
-    const dob = document.querySelector("#dob").value;
+    const firstName = $("#firstName").val();
+    const middleName = $("#middleName").val();
+    const lastName = $("#lastName").val();
+    const dob = $("#dob").val();
 
 
-    const mobile = document.querySelector("#mobile").value;
+    const mobile = $("#mobile").val();
+    const gender = $("#gender:checked").val();
     
-    const genders = document.querySelectorAll("#gender");
-    
-    let gender ;
-    
-    genders.forEach(genderRadio=>{
-      if (genderRadio.checked){
-        gender = genderRadio.value;
-      }
-    });
-    console.log(gender);
-
 
     console.log(email + "+" + password1 + "+" + confirmPassword + "+" + role + "+" + firstName + "+" + middleName + "+" + lastName + "+" + gender + "+" + dob +"+" + mobile);
 

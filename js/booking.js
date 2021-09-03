@@ -1,4 +1,4 @@
-            $("#header").load("_header.html");
+$("#header").load("_header.html");
 
 function displayValues(){
             let params = new URLSearchParams(window.location.search.substr(1));
@@ -9,15 +9,15 @@ TrainService.getTrain(_id).then(res=>{
     let train = res.data;
     console.log(train);
 
-            document.querySelector("#trainNo").value=train.trainNo;
+            $("#trainNo").val(train.trainNo);
             // $("#trainNo").val(train.trainNo);
-            document.querySelector("#trainName").value=train.name;
-            document.querySelector("#ticketAmount").value=train.price;
+            $("#trainName").val(train.name);
+            $("#ticketAmount").val(train.price);
 
             let sourceStation = params.get("source");
-            document.querySelector("#fromStation").value=sourceStation;
+            $("#fromStation").val(sourceStation);
             let destinationStation = params.get("destination");
-            document.querySelector("#toStation").value=destinationStation;
+            $("#toStation").val(destinationStation);
             
 });
 }
@@ -31,13 +31,13 @@ function resetValue(){
             
         function bookingForm() {
             event.preventDefault();
-            const trainNo = document.querySelector("#trainNo").value;
-            const trainName = document.querySelector("#trainName").value;
-            const fromStation = document.querySelector("#fromStation").value;
-            const toStation = document.querySelector("#toStation").value;
-            const noTicket = document.querySelector("#noTicket").value;
-            const journeyDate = document.querySelector("#journeyDate").value;
-            const ticketAmount = document.querySelector("#ticketAmount").value;
+            const trainNo = $("#trainNo").val();
+            const trainName = $("#trainName").val();
+            const fromStation = $("#fromStation").val();
+            const toStation = $("#toStation").val();
+            const noTicket = $("#noTicket").val();
+            const journeyDate = $("#journeyDate").val();
+            const ticketAmount = $("#ticketAmount").val();
 
             
             let userData = localStorage.getItem("Logged_in_users");
@@ -83,7 +83,14 @@ function resetValue(){
         Validator.isValidTrainTicket(noTicket, "Tickets Must be more than zero");
 
                 
-        BookService.addBooking(formValues).then(res=>{
+const dbUsername = "apikey-v2-15a2mog1stn0kv0gjnidlq2eoth4psp58f8ov9zs42i6";
+const dbPassword = "aabcfd48d07fe38f4760f6cd11b83b4a";
+
+const basicAuth = 'Basic ' + btoa(dbUsername + ':' + dbPassword);
+
+const url="https://b4af4ef2-55e1-4a9b-9b02-8168e5964652-bluemix.cloudantnosqldb.appdomain.cloud/trainticketapp_book";
+
+axios.post(url,formValues,{ headers: { 'Authorization': basicAuth } }).then(res=>{
             let users=res.data;
             console.log(users);
 
