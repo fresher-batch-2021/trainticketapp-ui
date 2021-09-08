@@ -1,5 +1,14 @@
 $("#header").load("_header.html");
 
+
+$(document).ready (function(){
+
+    console.log("Jquery Loaded");
+
+    $("#editTrainForm").submit(editTrain);
+
+});
+
 function displayValues(){
 let params = new URLSearchParams(window.location.search.substr(1));
 
@@ -71,7 +80,7 @@ function editTrain() {
 
     if(trainNo.length != 5){
         
-        toastr.error("Invalid Train no");
+        toastr.error(ErrorMessage.INVALID_TRAIN_NO);
     }
     else{
     
@@ -88,7 +97,7 @@ function editTrain() {
 
     }).catch(err=>{
         console.log(err.response.data);
-        toastr.error("update failed");
+        toastr.error(ErrorMessage.UPDATE_TRAIN_FAILED);
     });
    
     }

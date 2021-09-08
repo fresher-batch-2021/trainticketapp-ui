@@ -1,6 +1,15 @@
 
 $("#header").load("_header.html");
 
+
+$(document).ready (function(){
+
+    console.log("Jquery Loaded");
+
+    $("#addTrainForm").submit(addTrain);
+
+});
+
 function addTrain() {
 event.preventDefault();
 const trainNo = $("#trainNo").val();
@@ -36,7 +45,7 @@ ValidatorCheck.trainNoValidation(trainNo).then(res => {
     let data = res.data.docs;
     
     if (data != "") {
-        toastr.error("Train No already exist enter different Train No");
+        toastr.error(ErrorMessage.TRAIN_NO_ALREADY);
         
         return;
     }
@@ -48,7 +57,7 @@ console.log(user);
 if (user == null) {
   console.log("user : ", user);
   
-  toastr.error("please login");
+  toastr.error(ErrorMessage.LOGIN_MUST);
 
 setTimeout(function () {
     window.location.href = "login.html"
@@ -63,7 +72,7 @@ else {
 
 
 try{
-    Validator.isValidTrainNo(trainNo, "Invalid Train no");
+    Validator.isValidTrainNo(trainNo, ErrorMessage.INVALID_TRAIN_NO);
             
 
     TrainService.addTrains(formValues).then(res1=>{
@@ -78,7 +87,7 @@ try{
 
     }).catch(err=>{
         console.log(err.response.data);
-        toastr.error("Failed to add Train");
+        toastr.error(ErrorMessage.ADD_TRAIN_FAILED);
     });
    
 }

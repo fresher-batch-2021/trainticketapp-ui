@@ -23,14 +23,15 @@
     <header id="header"></header>
     <section class="login-section form-container">
         <div class="form-title">
-            <h2>User Login Page</h2>
+            <h2>Login Page</h2>
         </div>
 
-    <form onsubmit="loginPage();">
+    <form id="loginForm" method="POST">
+    <!-- <form onsubmit="loginPage();"> -->
 
         <div class="row">
         <label for="email">Email: <span style="color:red">*</span></label>
-        <input class="form-control" type="email" name="email" id="email" placeholder="Enter email" pattern="[a-z0-9._]+@[a-z.]+\.[a-z]{2,3}$" required>
+        <input class="form-control" type="email" name="email" id="email" placeholder="Enter email" pattern="[a-z0-9._]+@[a-z.]+\.[a-z]{2,3}$" autocomplete="off" autofocus required>
         
         <label for="password">Password: <span style="color:red">*</span></label>
         <input class="form-control" type="password" name="password" id="password" placeholder="Enter password" required>
@@ -48,8 +49,10 @@
     </form>
 
     <script src="js/jquery.min.js"></script>
+    <script src="js/env.js"></script>
     <script src="js/userservice.js"></script>
     <script src="js/validator.js"></script>
     <script src="js/login.js"></script>
+    <script src="js/errormessage.js"></script>
     
 </body>

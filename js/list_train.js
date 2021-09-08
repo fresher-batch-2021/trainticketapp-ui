@@ -34,7 +34,7 @@ function listData() {
         }
     }).catch(err => {
         console.log(err.response.data);
-        toastr.error("Error on getting the values");
+        toastr.error(ErrorMessage.TRAIN_LIST_FAILED);
         
     });
 
@@ -63,11 +63,13 @@ function displaysearchTrains(results) {
     const sourceSearch = $("#sourceStationSearch").val();
     const destinationSearch = $("#destinationStationSearch").val();
 
-    let content1 = `<table>
-   `;
+    let content1 = ``;
     for (let result of trainsList) {
+
+        
         i = i + 1;
 
+        $("#listTrainData tbody").empty();
         
         let trainLink = `<a href='booking.html?id=${result._id}&source=${sourceSearch}&destination=${destinationSearch}'>${result.name}</a>`;
 
@@ -75,9 +77,9 @@ function displaysearchTrains(results) {
 
         content1  = content1 + "<tr><td>" + i + "</td>" + "<td>" + result.trainNo + "</td>" + "<td>" + trainLink + "</td>" + "<td>" + result.noPassenger + "</td>" + "<td>" + result.source + "</td>" + "<td>" + result.destination + "</td>" + "<td>" + result.startTime + "</td>" + "<td>" + result.endTime + "</td>" + "<td>" + result.duration + "</td>" + "<td>" + result.price + "</td>" + "<td>" + result.stations + "</td>" + "<td>" + trainview + "</td></tr>";
         
+    $("#listTrainData tbody").append(content1);
     }
 
-    $("#listTrainData").html(content1);
 }
 
 function getStationList() {
@@ -117,6 +119,8 @@ getStationList();
 
 
 function searchTrains(trains, sourceSearch, destinationSearch) {
+    
+  
 
     let results = trains.filter(obj => (obj.source == sourceSearch && obj.destination == destinationSearch) || (isStationContains(obj, sourceSearch) && isStationContains(obj, destinationSearch)));
     
@@ -125,6 +129,14 @@ function searchTrains(trains, sourceSearch, destinationSearch) {
 }
 
 
+$(document).ready (function(){
+
+    console.log("Jquery Loaded");
+
+    $("#listTrainForm").submit(abc);
+
+});
+
 function abc() {
 
     event.preventDefault();
@@ -132,6 +144,15 @@ function abc() {
     const sourceSearch = $("#sourceStationSearch").val();
     const destinationSearch = $("#destinationStationSearch").val();
     console.log(sourceSearch + "-" + destinationSearch);
+    if (sourceSearch == destinationSearch) {
+    
+        toastr.error(ErrorMessage.CHECK_CONDITION);
+        
+        setTimeout(function () {
+          console.log("toastr completed");
+        }, 3000);
+        return false;
+      }
 
     TrainService.getTrains().then(res => {
         let data = res.data.rows;

@@ -27,7 +27,8 @@
                 <div class="form-title">
         <h2>Bookings</h2>
     </div>
-        <form onsubmit="bookingForm();">
+    <form id="bookingForm" method="POST">
+        <!-- <form onsubmit="bookingForm();"> -->
             <div class="row">
                 <label for="trainNo">Train No: </label>
                 <input class="form-control" type="number" name="trainNo" id="trainNo" pattern="[0-9]{5}" required readonly>
@@ -61,10 +62,12 @@
     </section>
 
         <script src="js/jquery.min.js"></script>
+        <script src="js/env.js"></script>
         <script src="js/trainservice.js"></script>
     <script src="js/bookservice.js"></script>
     <script src="js/validator.js"></script>
         <script src="js/booking.js"></script>
+        <script src="js/errormessage.js"></script>
 
     </main>
 </body>

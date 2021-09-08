@@ -27,6 +27,16 @@ function resetValue(){
     displayValues();
 
 }
+
+
+
+$(document).ready (function(){
+
+    console.log("Jquery Loaded");
+
+    $("#bookingForm").submit(bookingForm);
+
+});
             
         function bookingForm() {
             event.preventDefault();
@@ -68,7 +78,7 @@ function resetValue(){
             if (user == null) {
               console.log("user : ", user);
               
-            toastr.error("please login");
+            toastr.error(ErrorMessage.LOGIN_MUST);
 
             setTimeout(function () {
                 window.location.href = "login.html"
@@ -79,7 +89,7 @@ function resetValue(){
               console.log("user : ", user);
 
         try{
-        Validator.isValidTrainTicket(noTicket, "Tickets Must be more than zero");
+        Validator.isValidTrainTicket(noTicket, ErrorMessage.TICKET_COUNT);
 
                 
 const dbUsername = "apikey-v2-15a2mog1stn0kv0gjnidlq2eoth4psp58f8ov9zs42i6";
@@ -101,7 +111,7 @@ axios.post(url,formValues,{ headers: { 'Authorization': basicAuth } }).then(res=
 
         }).catch(err=>{
             console.log(err.response.data);
-            toastr.error("Booking failed");
+            toastr.error(ErrorMessage.BOOKING_FAILED);
         });
        
 

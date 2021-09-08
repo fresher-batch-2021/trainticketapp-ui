@@ -27,7 +27,7 @@
         <h2>Add Trains</h2>
     </div>
 
-        <form onsubmit="addTrain();">
+        <form id="addTrainForm" method="POST">
             <div class="row">
                 <label for="trainNo">Train No</label>
                 <input class="form-control" type="number" name="trainNo" id="trainNo" pattern="[0-9]{5}" autocomplete="off" required autofocus>
@@ -73,10 +73,12 @@
             
 
         <script src="js/jquery.min.js"></script>
+        <script src="js/env.js"></script>
         <script src="js/trainservice.js"></script>
         <script src="js/validator.js"></script>
         <script src="js/add_train_adm.js"></script>
         <script src="js/bussinessValidation.js"></script>
+        <script src="js/errormessage.js"></script>
       
     </main>
 </body>

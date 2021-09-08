@@ -28,6 +28,7 @@ function bookList() {
         for (let booklistObj of myBookings)
         {
             i++;
+            $("#abc tbody").empty();
 
             let cancelBook =`<button type='button'  onclick = "cancel_booking('${booklistObj._id}','${booklistObj._rev}');"> Cancel </button>`;
 
@@ -40,12 +41,12 @@ function bookList() {
         
         console.log(content);
         
-        $("#abc").html(content);
+        $("#abc tbody").append(content);
         }
         
     }).catch(err=>{
         console.log(err.response.data);
-        toastr.error("Booking failed");
+        toastr.error(ErrorMessage.BOOKING_LIST_FAILED);
     });
 }
 bookList();
@@ -88,7 +89,7 @@ function cancel_booking(id,rev){
     bookList();
     }).catch(err =>{
         
-        toastr.error("error in deleting");
+        toastr.error(ErrorMessage.DELETE_ERROR);
 
     })
 })

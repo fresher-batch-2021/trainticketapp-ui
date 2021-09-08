@@ -13,6 +13,8 @@ function listData() {
         let i = 0;
         for (let listTrain of trains) {
             i = i + 1;
+            
+            $("#listTrainDataAdm tbody").empty();
 
             let trainEdit = `<button><a href='edit_train_adm.html?id=${listTrain._id}' style="text-decoration:none;">Edit</a></button>`;
 
@@ -20,12 +22,14 @@ function listData() {
 
             content = content + "<tr><td>" + i + "</td>" + "<td>" + listTrain.trainNo + "</td>" + "<td>" + listTrain.name + "</td>" + "<td>" + listTrain.noPassenger + "</td>" + "<td>" + listTrain.source + "</td>" + "<td>" + listTrain.destination + "</td>" + "<td>" + listTrain.startTime + "</td>" + "<td>" + listTrain.endTime + "</td>" + "<td>" + listTrain.duration + "</td>" + "<td>" + listTrain.price + "</td>" + "<td>" + listTrain.stations + "</td>" + "<td>" + trainEdit + trainDelete + "</td></tr>";
 
+            
+            $("#listTrainDataAdm tbody").append(content);
 
-            $("#listTrainDataAdm").html(content);
+            
         }
     }).catch(err => {
         console.log(err.response.data);
-        toastr.error("Register failed");
+        toastr.error(ErrorMessage.TRAIN_LIST_FAILED);
     });
 
 }
@@ -70,7 +74,7 @@ function cancel_train(id, rev, trainName) {
 
 
         }).catch(err => {
-            toastr.error("error in deleting");
+            toastr.error(ErrorMessage.DELETE_ERROR);
 
         })
 
@@ -91,10 +95,11 @@ function isStationContains(trains, stationName) {
 
 function displaysearchTrains(results) {
     let i = 0;
-    let content1 = `<table>
-   `;
+    let content1 = ``;
     for (let result of results) {
         i = i + 1;
+
+        $("#listTrainDataAdm tbody").empty();
 
         let trainEdit = `<button><a href='edit_train_adm.html?id=${result._id}' style="text-decoration:none;">Edit</a></button>`;
 
@@ -103,9 +108,9 @@ function displaysearchTrains(results) {
 
         content1 = content1 + "<tr><td>" + i + "</td>" + "<td>" + result.trainNo + "</td>" + "<td>" + result.name + "</td>" + "<td>" + result.noPassenger + "</td>" + "<td>" + result.source + "</td>" + "<td>" + result.destination + "</td>" + "<td>" + result.startTime + "</td>" + "<td>" + result.endTime + "</td>" + "<td>" + result.duration + "</td>" + "<td>" + result.price + "</td>" + "<td>" + result.stations + "</td>" + "<td>" + trainEdit + " " + trainDelete + "</td></tr>";
 
+        $("#listTrainDataAdm tbody").append(content1);
     }
 
-    $("#listTrainDataAdm").html(content1);
 }
 
 function getStationList() {
@@ -148,12 +153,21 @@ getStationList();
 
 function searchTrains(trains, sourceSearch, destinationSearch) {
 
+
     let results = trains.filter(obj => (obj.source == sourceSearch && obj.destination == destinationSearch) || (isStationContains(obj, sourceSearch) && isStationContains(obj, destinationSearch)));
 
     return results;
 
 }
 
+
+$(document).ready (function(){
+
+    console.log("Jquery Loaded");
+
+    $("#admListTrainForm").submit(abc);
+
+});
 
 function abc() {
 

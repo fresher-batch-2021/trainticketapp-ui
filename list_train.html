@@ -32,7 +32,8 @@
 
         <h2>List Trains</h2>
 
-            <form onsubmit="abc()">
+        <form id="listTrainForm" method="POST">
+            <!-- <form onsubmit="abc()"> -->
            
             <label for="sourceStationSearch"><strong>Source Station</strong></label>
             <select class="list-train-form" name="sourceStationSearch" id="sourceStationSearch" class="sourceStationSearch">
@@ -81,9 +82,12 @@
     </section>
     </main>
     <script src="js/jquery.min.js"></script>
+    <script src="js/env.js"></script>
     <script src="js/trainservice.js"></script>
    
     <script src="js/list_train.js"></script>
+
+    <script src="js/errormessage.js"></script>
 </body>
 
 </html>

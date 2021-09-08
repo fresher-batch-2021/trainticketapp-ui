@@ -1,5 +1,14 @@
 $("#header").load("_header.html")
 
+
+$(document).ready (function(){
+
+    console.log("Jquery Loaded");
+
+    $("#regForm").submit(checkConf);
+
+});
+
 function checkConf(){
 
     event.preventDefault();
@@ -41,7 +50,7 @@ function checkConf(){
             let data = res.data.docs;
             
             if (data != "") {
-                toastr.error("Email already exist enter different Email");
+                toastr.error(ErrorMessage.EMAIL_ALREADY);
                 
                 return;
             }
@@ -49,9 +58,11 @@ function checkConf(){
             try{
 
      
-                Validator.isValidString(email, "Email is Mandatory");
-                Validator.isValidPassword(password1, confirmPassword, "Invalid Password");
-                Validator.isValidMobile(mobile, "Invalid Mobile Number");
+                Validator.isValidString(email, ErrorMessage.EMAIL_MANDATORY);
+
+                Validator.isValidPassword(password1, confirmPassword, ErrorMessage.INVALID_PASSWORD);
+
+                Validator.isValidMobile(mobile, ErrorMessage.INVALID_MOBILE);
                 
                     
                     UserService.register(formValues).then(res1=>{
@@ -66,7 +77,7 @@ function checkConf(){
                         // window.location.href="login.html";
                     }).catch(err=>{
                         console.log(err.response.data);
-                        toastr.error("Register failed");
+                        toastr.error(ErrorMessage.REGIS_FAILED);
                     });
                    
             

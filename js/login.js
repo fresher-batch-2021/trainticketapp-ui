@@ -1,6 +1,16 @@
 
 $("#header").load("_header.html");
 
+
+$(document).ready (function(){
+
+    console.log("Jquery Loaded");
+
+    $("#loginForm").submit(loginPage);
+
+});
+
+
 function loginPage() {
     event.preventDefault();
     const email = $("#email").val();
@@ -21,15 +31,15 @@ function loginPage() {
     };
     console.log(formvalues);
     try {
-        Validator.isValidString(email, "Email is Mandatory");
+        Validator.isValidString(email, ErrorMessage.EMAIL_MANDATORY);
 
-        Validator.isValidString(password1, "Password is Mandatory");
+        Validator.isValidString(password1, ErrorMessage.PASSWORD_MANDATORY);
 
         UserService.login(email, password1, role).then(res => {
             let data = res.data.docs;
             console.log(data);
             if (data.length == 0) {
-                toastr.error("Invalid login credentials");
+                toastr.error(ErrorMessage.INVALID_LOGIN);
 
             }
 
@@ -58,7 +68,7 @@ function loginPage() {
 
         }).catch(err => {
             console.log(err.response.data);
-            toastr.error("login failed");
+            toastr.error(ErrorMessage.LOGIN_FAILED);
             
         });
     }

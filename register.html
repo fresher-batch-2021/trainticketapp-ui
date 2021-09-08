@@ -24,7 +24,8 @@
     <h2>Registration with User Details</h2>
 </div>
 
-    <form onsubmit="checkConf();">
+    <form id="regForm" method="POST">
+        <!-- <form onsubmit="checkConf();"> g-->
         
         <div class="row">
         <label for="email">Email: <span style="color:red">*</span></label>
@@ -52,7 +53,7 @@
         <label for="mobile">Mobile No: <span style="color:red">*</span></label>
         <input class="form-control" type="number" name="mobile" id="mobile" placeholder="Enter your Mobile No" pattern="[6789][0-9]{9}" required> <br />
         <br />
-        <button class="btn btn-primary">Submit</button>
+        <button id="registerBtn" class="btn btn-primary">Submit</button>
         <button type="reset" class="btn btn-danger">Reset</button>
         <button class="btn btn-light home"><a href="index.html" style="text-decoration:none;">Home</a></button>
         </div>
@@ -63,11 +64,14 @@
     <script src="js/jquery.min.js"></script>
    
 
+    <script src="js/env.js"></script>
     <script src="js/userservice.js"></script>
     <script src="js/validator.js"></script>
     <script src="js/register.js"></script>
     
     <script src="js/bussinessValidation.js"></script>
+
+    <script src="js/errormessage.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.6/dayjs.min.js" integrity="sha512-bwD3VD/j6ypSSnyjuaURidZksoVx3L1RPvTkleC48SbHCZsemT3VKMD39KknPnH728LLXVMTisESIBOAb5/W0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>

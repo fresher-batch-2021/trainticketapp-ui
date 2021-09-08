@@ -5,7 +5,7 @@ function bookList() {
         let userData = localStorage.getItem("Logged_in_users");
             let user = JSON.parse(userData);
             const userid = user._id;
-            console.log("USer Id:" , userid);
+            console.log("User Id:" , userid);
 
 
              BookService.listBooking().then(res=>{
@@ -30,6 +30,8 @@ function bookList() {
         {
             i++;
 
+            $("#abc tbody").empty();
+
             let cancelBook =`<button type='button'  onclick = "cancel_booking('${booklistObj._id}','${booklistObj._rev}','${booklistObj.name}');"> Cancel </button>`;
 
             const abc = (booklistObj.noTicket)*(booklistObj.individualPrice);
@@ -41,11 +43,11 @@ function bookList() {
         
        
         
-        $("#abc").html(content);
+        $("#abc tbody").append(content);
         }
     }).catch(err=>{
         console.log(err.response.data);
-        toastr.error("Booking failed");
+        toastr.error(ErrorMessage.BOOKING_LIST_FAILED);
     });
 }
 bookList();
@@ -91,7 +93,7 @@ function cancel_booking(id,rev,trainName){
                 bookList();
                 }).catch(err =>{
                     
-                    toastr.error("error in deleting");
+                    toastr.error(ErrorMessage.DELETE_ERROR);
             
                 })
             })

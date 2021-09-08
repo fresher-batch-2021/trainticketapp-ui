@@ -17,16 +17,17 @@ let i=0;
       {
           i=i+1;
 
-
+          
+      $("#listUserDataAdm tbody").empty();
 
           content= content + "<tr><td>" + i + "</td>" + "<td>" + listUser.email + "</td>" + "<td>" + listUser.name + "</td>" + "<td>" + listUser.gender + "</td>" + "<td>" + listUser.mobile + "</td></tr>";
 
           
-      $("#listUserDataAdm").html(content);
+      $("#listUserDataAdm tbody").append(content);
       }
   }).catch(err=>{
       console.log(err.response.data);
-      toastr.error("Failed to getting Data");
+      toastr.error(ErrorMessage.USER_LIST_FAILED);
   });
  
 }
