@@ -27,17 +27,20 @@ function bookList() {
         let content="";
         for (let booklistObj of myBookings)
         {
+
+            var booklistObj1 = booklistObj.user;
+
             i++;
             $("#abc tbody").empty();
 
-            let cancelBook =`<button type='button'  onclick = "cancel_booking('${booklistObj._id}','${booklistObj._rev}');"> Cancel </button>`;
+            let cancelBook =`<button type='button'  onclick = "cancel_booking('${booklistObj._id}','${booklistObj._rev}','${booklistObj1.name}','${booklistObj1.email}');"> Cancel </button>`;
 
             const abc = (booklistObj.noTicket)*(booklistObj.individualPrice);
             
             let orderedDate = new Date(booklistObj.journeyDate).toJSON(); //.substr(0, 10);
         let date = moment(new Date(orderedDate)).format("DD-MM-YYYY");
 
-            content= content + "<tr><td>" + i + "</td>" + "<td>" + booklistObj.trainNo + "</td>" + "<td>" + booklistObj.name + "</td>" + "<td>" + booklistObj.source + "</td>" + "<td>" + booklistObj.destination + "</td>" + "<td>" + booklistObj.noTicket + "</td>" + "<td>" + date + "</td>" + "<td>" + "Rs." + booklistObj.individualPrice + "</td>" + "<td>" + "Rs." + abc + "</td>" + "<td>" + booklistObj.user.name + "</td>" + "<td>" + booklistObj.user.email + "</td>" + "<td>" + cancelBook + "</td></tr>";
+            content= content + "<tr><td>" + i + "</td>" + "<td>" + booklistObj.trainNo + "</td>" + "<td>" + booklistObj.name + "</td>" + "<td>" + booklistObj.source + "</td>" + "<td>" + booklistObj.destination + "</td>" + "<td>" + booklistObj.noTicket + "</td>" + "<td>" + date + "</td>" + "<td>" + "Rs." + booklistObj.individualPrice + "</td>" + "<td>" + "Rs." + abc + "</td>" + "<td>" + booklistObj1.name + "</td>" + "<td>" + booklistObj1.email + "</td>" + "<td>" + cancelBook + "</td></tr>";
         
         console.log(content);
         
@@ -51,7 +54,7 @@ function bookList() {
 }
 bookList();
 
-function cancel_booking(id,rev){
+function cancel_booking(id,rev,name,email){
     console.log(id);
     console.log(rev);
     let url ="https://b4af4ef2-55e1-4a9b-9b02-8168e5964652-bluemix.cloudantnosqldb.appdomain.cloud/trainticketapp_book/"+id ;
@@ -62,18 +65,18 @@ function cancel_booking(id,rev){
     // axios.delete(url+id+"?rev="+rev, { headers: {'Authorization': basicAuth}}).then(res => {
 
         Swal.fire({
-            title: 'Are you sure?',
+            title: 'Are you sure to Cancel ' + name +'('+email +') Tickets?',
             text: "You won't be able to revert this!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Yes, Cancel it!'
           }).then((result) => {
             if (result.isConfirmed) {
               Swal.fire(
-                'Deleted!',
-                'Your file has been deleted.',
+                'Cancelled!',
+                'Your file has been cancelled.',
                 'success'
               )
     

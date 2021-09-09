@@ -107,3 +107,7 @@ catch(err){
 
 
 }
+
+function list_train(){
+    window.location.href = "list_train_adm.html"
+}

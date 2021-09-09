@@ -30,22 +30,22 @@
     <!-- <form onsubmit="loginPage();"> -->
 
         <div class="row">
-        <label for="email">Email: <span style="color:red">*</span></label>
+        <label for="email">Email: <span>*</span></label>
         <input class="form-control" type="email" name="email" id="email" placeholder="Enter email" pattern="[a-z0-9._]+@[a-z.]+\.[a-z]{2,3}$" autocomplete="off" autofocus required>
         
-        <label for="password">Password: <span style="color:red">*</span></label>
+        <label for="password">Password: <span>*</span></label>
         <input class="form-control" type="password" name="password" id="password" placeholder="Enter password" required>
         
-        <label for="role">Role: <span style="color:red">*</span></label>
+        <label for="role">Role: <span>*</span></label>
         <input type="radio" name="role" id="role" value="admin" required>Admin
         <input type="radio" name="role" id="role" value="user" required>User<br>
 
         <button class="btn btn-primary">Submit</button>
         <button type="reset" class="btn btn-danger">Reset</button>
-        <button class="btn btn-light"><a href="index.html" style="text-decoration:none;">Home</a></button>
+        
         </div>
         
-        <p style="text-align: center;">Don't Have an Account? <a class="a-link a-secondary-hover" href="register.html">Sign-Up</a></p>
+        <p class="login-paragraph">Don't Have an Account? <a class="a-link a-secondary-hover" href="register.html">Sign-Up</a></p>
     </form>
 
     <script src="js/jquery.min.js"></script>

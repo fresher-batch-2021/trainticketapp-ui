@@ -29,34 +29,34 @@
 
         <form id="addTrainForm" method="POST">
             <div class="row">
-                <label for="trainNo">Train No</label>
-                <input class="form-control" type="number" name="trainNo" id="trainNo" pattern="[0-9]{5}" autocomplete="off" required autofocus>
+                <label for="trainNo">Train No <span>*</span></label>
+                <input class="form-control" type="number" name="trainNo" id="trainNo" pattern="[0-9]{5}" autocomplete="off" required autofocus min=1>
                 
-                <label for="name">Train Name</label>
+                <label for="name">Train Name <span>*</span></label>
                 <input class="form-control" type="text" name="name" id="name" pattern="[A-Za-z ]{1,50}" required>
                 
-                <label for="noPassenger">No of Passengers Allowed</label>
-                <input class="form-control" type="number" name="noPassenger" id="noPassenger" required>
+                <label for="noPassenger">No of Passengers Allowed <span>*</span></label>
+                <input class="form-control" type="number" name="noPassenger" id="noPassenger" min=1 required>
                 
-                <label for="source">Source Station</label>
+                <label for="source">Source Station <span>*</span></label>
                 <input class="form-control" type="text" name="source" id="source" pattern="[A-Za-z ]{1,50}" required>
                 
-                <label for="destination">Destination Station</label>
+                <label for="destination">Destination Station <span>*</span></label>
                 <input class="form-control" type="text" name="destination" id="destination" pattern="[A-Za-z ]{1,50}" required>
                 
-                <label for="stations">Stations</label>
+                <label for="stations">Stations <span>*</span></label>
                 <textarea class="form-control" name="stations" id="stations" pattern="[A-Za-z, ]{1,200}" required rows="10" cols="40"></textarea>
                 
-                <label for="price">Ticket Price</label>
-                <input class="form-control" type="number" name="price" id="price" required>
+                <label for="price">Ticket Price <span>*</span></label>
+                <input class="form-control" type="number" name="price" id="price" min=1 required>
                 
-                <label for="startTime">Start Time</label>
+                <label for="startTime">Start Time <span>*</span></label>
                 <input class="form-control" type="time" name="startTime" id="startTime" required>
                 
-                <label for="endTime">End Time</label>
+                <label for="endTime">End Time <span>*</span></label>
                 <input class="form-control" type="time" name="endTime" id="endTime" required>
                 
-                <label for="duration">Duration</label>
+                <label for="duration">Duration <span>*</span></label>
                 <input class="form-control" type="time" name="duration" id="duration" required>
                 
                 <button class="btn btn-primary" type="submit">Submit</button>
@@ -67,8 +67,7 @@
 
     </section>
     <div class="add-train">
-                <button class="btn btn-info"><a href="list_train_adm.html" style="text-decoration:none;">List Trains</a> </button>&nbsp;
-                <button class="btn btn-light"><a href="index.html" style="text-decoration:none;">Home</a></button>
+                <button class="btn btn-info" onclick="list_train();">List Trains</button>
             </div>
             
 

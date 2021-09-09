@@ -66,18 +66,18 @@ function cancel_booking(id,rev,trainName){
 
     
         Swal.fire({
-            title: 'Are you sure to delete ' + trainName + ' Tickets?',
+            title: 'Are you sure to Cancel ' + trainName + ' Tickets?',
             text: "You won't be able to revert this!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Yes, Cancel it!'
           }).then((result) => {
             if (result.isConfirmed) {
               Swal.fire(
-                'Deleted!',
-                'Your file has been deleted.',
+                'Cancelled!',
+                'Your booking has been Cancelled.',
                 'success'
               )
 

@@ -43,10 +43,10 @@
                 <input class="form-control" type="text" name="toStation" id="toStation" pattern="[A-Za-z ]{1,50}" required readonly>
                 
 
-                <label for="noTicket">No of Tickets: </label>
-                <input class="form-control" type="number" name="noTicket" id="noTicket" required>
+                <label for="noTicket">No of Tickets: <span>*</span></label>
+                <input class="form-control" type="number" name="noTicket" id="noTicket" required autofocus>
                 
-                <label for="journeyDate">Journey Date: </label>
+                <label for="journeyDate">Journey Date: <span>*</span></label>
                 <input class="form-control" type="date" name="journeyDate" id="journeyDate" required>
                 
                 <label for="ticketAmount">Ticket Amount: </label>
@@ -57,8 +57,7 @@
             </div>
         </form>
         </div>
-        <button class="btn btn-primary first-btn"><a href="list_train.html" style="text-decoration:none;">List Trains</a> </button>&nbsp;
-        <button class="btn btn-secondary"><a href="index.html" style="text-decoration:none;">Home</a></button>
+        <button class="btn btn-primary first-btn" onclick="list_train();">List Trains</button>
     </section>
 
         <script src="js/jquery.min.js"></script>

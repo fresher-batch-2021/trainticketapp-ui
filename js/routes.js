@@ -10,7 +10,7 @@ const routes = [
     { path: 'login.html' },
     { path: 'profile_user.html' , role: ["admin","user"] },
     { path: 'register.html' },
-    { path: 'list_train.html',role: ["user"] },
+    { path: 'list_train.html' },
     { path: 'booking.html',role: ["user"] },
     { path: 'booking_list.html',role: ["user"] },
     { path: 'ordernow.html',role: ["user"] }

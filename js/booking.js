@@ -137,3 +137,7 @@ function setDate(){
 
 }
 setDate();
+
+function list_train(){
+    window.location.href="list_train.html"
+}

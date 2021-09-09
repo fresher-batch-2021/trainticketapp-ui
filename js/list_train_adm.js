@@ -16,7 +16,7 @@ function listData() {
             
             $("#listTrainDataAdm tbody").empty();
 
-            let trainEdit = `<button><a href='edit_train_adm.html?id=${listTrain._id}' style="text-decoration:none;">Edit</a></button>`;
+            let trainEdit = `<button onclick="edit_train_detail('${listTrain._id}')">Edit</button>`;
 
             let trainDelete = `<button type='button'  onclick = "cancel_train('${listTrain._id}','${listTrain._rev}','${listTrain.name}');"> Cancel </button>`;
 
@@ -101,7 +101,7 @@ function displaysearchTrains(results) {
 
         $("#listTrainDataAdm tbody").empty();
 
-        let trainEdit = `<button><a href='edit_train_adm.html?id=${result._id}' style="text-decoration:none;">Edit</a></button>`;
+        let trainEdit = `<button onclick="edit_train_detail('${result._id}')">Edit</button>`;
 
         let trainDelete = `<button type='button'  onclick = "cancel_train('${result._id}','${result._rev}');"> Cancel </button>`;
 
@@ -186,4 +186,12 @@ function abc() {
         displaysearchTrains(filteredTrains);
 
     });
+}
+
+function add_train(){
+    window.location.href = "add_train_adm.html";
+}
+
+function edit_train_detail(id_detail){
+    window.location.href = `edit_train_adm.html?id=${id_detail}`;
 }
