@@ -30,20 +30,20 @@ function bookList() {
         {
             i++;
 
-            $("#abc tbody").empty();
+            $("#BOOKINGLIST tbody").empty();
 
             let cancelBook =`<button type='button'  onclick = "cancel_booking('${booklistObj._id}','${booklistObj._rev}','${booklistObj.name}');"> Cancel </button>`;
 
-            const abc = (booklistObj.noTicket)*(booklistObj.individualPrice);
+            const ticketAmount = (booklistObj.noTicket)*(booklistObj.individualPrice);
 
             let orderedDate = new Date(booklistObj.journeyDate).toJSON(); //.substr(0, 10);
         let date = moment(new Date(orderedDate)).format("DD-MM-YYYY");
 
-            content= content + "<tr><td>" + i + "</td>" + "<td>" + booklistObj.trainNo + "</td>" + "<td>" + booklistObj.name + "</td>" + "<td>" + booklistObj.source + "</td>" + "<td>" + booklistObj.destination + "</td>" + "<td>" + booklistObj.noTicket + "</td>" + "<td>" + date + "</td>" + "<td>" + "Rs." + booklistObj.individualPrice + "</td>" + "<td>" + "Rs." + abc + "</td>" + "<td>" + booklistObj.user.name + "</td>" + "<td>" + booklistObj.user.email + "</td>" + "<td>" + cancelBook + "</td></tr>";
+            content= content + "<tr><td>" + i + "</td>" + "<td>" + booklistObj.trainNo + "</td>" + "<td>" + booklistObj.name + "</td>" + "<td>" + booklistObj.source + "</td>" + "<td>" + booklistObj.destination + "</td>" + "<td>" + booklistObj.noTicket + "</td>" + "<td>" + date + "</td>" + "<td>" + "Rs." + booklistObj.individualPrice + "</td>" + "<td>" + "Rs." + ticketAmount + "</td>" + "<td>" + booklistObj.user.name + "</td>" + "<td>" + booklistObj.user.email + "</td>" + "<td>" + cancelBook + "</td></tr>";
         
        
         
-        $("#abc tbody").append(content);
+        $("#BOOKINGLIST tbody").append(content);
         }
     }).catch(err=>{
         console.log(err.response.data);
@@ -83,11 +83,11 @@ function cancel_booking(id,rev,trainName){
 
               axios.get(url, { headers: {'Authorization': basicAuth}}).then(res1=>{
 
-                let product  = res1.data;
-                console.log(product);
-                product.status ="INACTIVE";
+                let ListBook  = res1.data;
+                console.log(ListBook);
+                ListBook.status ="INACTIVE";
             
-                axios.put(url, product,  { headers: {'Authorization': basicAuth}}).then(res2 => {
+                axios.put(url, ListBook,  { headers: {'Authorization': basicAuth}}).then(res2 => {
             
             
                 bookList();
