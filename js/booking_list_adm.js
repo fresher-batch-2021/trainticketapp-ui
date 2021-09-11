@@ -40,7 +40,7 @@ function bookList() {
             let orderedDate = new Date(booklistObj.journeyDate).toJSON(); //.substr(0, 10);
         let date = moment(new Date(orderedDate)).format("DD-MM-YYYY");
 
-            content= content + "<tr><td>" + i + "</td>" + "<td>" + booklistObj.trainNo + "</td>" + "<td>" + booklistObj.name + "</td>" + "<td>" + booklistObj.source + "</td>" + "<td>" + booklistObj.destination + "</td>" + "<td>" + booklistObj.noTicket + "</td>" + "<td>" + date + "</td>" + "<td>" + "Rs." + booklistObj.individualPrice + "</td>" + "<td>" + "Rs." + ticketAmount + "</td>" + "<td>" + booklistObj1.name + "</td>" + "<td>" + booklistObj1.email + "</td>" + "<td>" + cancelBook + "</td></tr>";
+            content= content + "<tr><td>" + i + "</td>" + "<td>" + booklistObj.trainNo + "</td>" + "<td>" + booklistObj.name + "</td>" + "<td>" + booklistObj.source + "</td>" + "<td>" + booklistObj.destination + "</td>" + "<td>" + booklistObj.noTicket + "</td>" + "<td>" + date + "</td>" + "<td>" + '₹' + booklistObj.individualPrice + "</td>" + "<td>" + '₹' + + ticketAmount + "</td>" + "<td>" + booklistObj1.name + "</td>" + "<td>" + booklistObj1.email + "</td>" + "<td>" + cancelBook + "</td></tr>";
         
         console.log(content);
         

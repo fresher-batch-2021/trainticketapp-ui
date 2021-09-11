@@ -20,7 +20,7 @@ function listData() {
 
             let trainDelete = `<button type='button'  onclick = "cancel_train('${listTrain._id}','${listTrain._rev}','${listTrain.name}');"> Cancel </button>`;
 
-            content = content + "<tr><td>" + i + "</td>" + "<td>" + listTrain.trainNo + "</td>" + "<td>" + listTrain.name + "</td>" + "<td>" + listTrain.noPassenger + "</td>" + "<td>" + listTrain.source + "</td>" + "<td>" + listTrain.destination + "</td>" + "<td>" + listTrain.startTime + "</td>" + "<td>" + listTrain.endTime + "</td>" + "<td>" + listTrain.duration + "</td>" + "<td>" + listTrain.price + "</td>" + "<td>" + listTrain.stations + "</td>" + "<td>" + trainEdit + trainDelete + "</td></tr>";
+            content = content + "<tr><td>" + i + "</td>" + "<td>" + listTrain.trainNo + "</td>" + "<td>" + listTrain.name + "</td>" + "<td>" + listTrain.noPassenger + "</td>" + "<td>" + listTrain.source + "</td>" + "<td>" + listTrain.destination + "</td>" + "<td>" + listTrain.startTime + "</td>" + "<td>" + listTrain.endTime + "</td>" + "<td>" + listTrain.duration + "</td>" + "<td>" + '₹' + listTrain.price + "</td>" + "<td>" + listTrain.stations + "</td>" + "<td>" + trainEdit + trainDelete + "</td></tr>";
 
             
             $("#listTrainDataAdm tbody").append(content);
@@ -106,7 +106,7 @@ function displaysearchTrains(results) {
         let trainDelete = `<button type='button'  onclick = "cancel_train('${result._id}','${result._rev}');"> Cancel </button>`;
 
 
-        content1 = content1 + "<tr><td>" + i + "</td>" + "<td>" + result.trainNo + "</td>" + "<td>" + result.name + "</td>" + "<td>" + result.noPassenger + "</td>" + "<td>" + result.source + "</td>" + "<td>" + result.destination + "</td>" + "<td>" + result.startTime + "</td>" + "<td>" + result.endTime + "</td>" + "<td>" + result.duration + "</td>" + "<td>" + result.price + "</td>" + "<td>" + result.stations + "</td>" + "<td>" + trainEdit + " " + trainDelete + "</td></tr>";
+        content1 = content1 + "<tr><td>" + i + "</td>" + "<td>" + result.trainNo + "</td>" + "<td>" + result.name + "</td>" + "<td>" + result.noPassenger + "</td>" + "<td>" + result.source + "</td>" + "<td>" + result.destination + "</td>" + "<td>" + result.startTime + "</td>" + "<td>" + result.endTime + "</td>" + "<td>" + result.duration + "</td>" + "<td>" + '₹' + result.price + "</td>" + "<td>" + result.stations + "</td>" + "<td>" + trainEdit + " " + trainDelete + "</td></tr>";
 
         $("#listTrainDataAdm tbody").append(content1);
     }

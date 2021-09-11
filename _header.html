@@ -1,4 +1,3 @@
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -17,90 +16,87 @@
         </div>
 
         <ul class="navbar-nav">
-        <a class="brand nav-item" href="index.html">Home</a>
+            <a class="brand nav-item" href="index.html">Home</a>
 
-        <a class="nav-item" href="add_train_adm.html" data-loggedin="true" data-role="admin"> Add Trains</a>
+            <a class="nav-item" href="add_train_adm.html" data-loggedin="true" data-role="admin"> Add Trains</a>
 
-        <a class="nav-item" href="list_train_adm.html" data-loggedin="true" data-role="admin"> List Train</a>
+            <a class="nav-item" href="list_train_adm.html" data-loggedin="true" data-role="admin"> List Train</a>
 
-        <a class="nav-item" href="list_users_adm.html" data-loggedin="true" data-role="admin"> List Users</a>
+            <a class="nav-item" href="list_users_adm.html" data-loggedin="true" data-role="admin"> List Users</a>
 
-        <a class="nav-item" href="booking_list_adm.html" data-loggedin="true" data-role="admin"> Booking List</a>
+            <a class="nav-item" href="booking_list_adm.html" data-loggedin="true" data-role="admin"> Booking List</a>
 
-        <a class="nav-item" href="list_train.html"> List Train</a>
+            <a class="nav-item" href="list_train.html"> List Train</a>
 
-        <a class="nav-item" href="booking.html" data-loggedin="true" data-role="user">Booking</a>
+            <a class="nav-item" href="booking.html" data-loggedin="true" data-role="user">Booking</a>
 
-        <a class="nav-item" href="booking_list.html" data-loggedin="true" data-role="user">Booking List</a>
-       
-        <a class="nav-item" href="aboutus.html"> About Us</a>
-        
-    </ul>
+            <a class="nav-item" href="booking_list.html" data-loggedin="true" data-role="user">Booking List</a>
 
-    <ul class="navbar-pull-right">
-        <a class="nav-item" href="login.html" data-loggedin="false"> Login</a>
+            <a class="nav-item" href="aboutus.html"> About Us</a>
 
-        <a class="nav-item" href="register.html" data-loggedin="false"> Register</a>
+        </ul>
 
-    </ul>
+        <ul class="navbar-pull-right">
+            <a class="nav-item" href="login.html" data-loggedin="false"> Login</a>
 
-       
+            <a class="nav-item" href="register.html" data-loggedin="false"> Register</a>
+
+        </ul>
+
+
         <a class="welcome nav-item" id="loggedIn" data-loggedin="true"></a>
         <a class="logout nav-item" href="#" margin-right: 0;" onclick="logout()" data-loggedin="true"> LogOut</a>
-        
-        
+
+
     </nav>
     <script src="js/jquery.min.js"></script>
 
-    
-<script>
 
-    let userStatus = JSON.parse(localStorage.getItem("Logged_in_users"));
-    
-if (userStatus != null) {
-    
-    $(".nav-item[data-loggedin='true']").show();
-    $(".nav-item[data-loggedin='false']").hide();
+    <script>
+        let userStatus = JSON.parse(localStorage.getItem("Logged_in_users"));
 
-    if (userStatus.role == 'user') {
+        if (userStatus != null) {
+
+            $(".nav-item[data-loggedin='true']").show();
+            $(".nav-item[data-loggedin='false']").hide();
+
+            if (userStatus.role == 'user') {
+                $(".nav-item[data-role='admin']").hide();
+            }
+
+            if (userStatus.role == 'admin') {
+                $(".nav-item[data-role='user']").hide();
+            }
+        } else {
+
+            $(".nav-item[data-loggedin='true'] ").hide();
+            $(".nav-item[data-loggedin='false']").show();
+            $(".nav-item[data-role='user']").hide();
             $(".nav-item[data-role='admin']").hide();
         }
 
-if (userStatus.role == 'admin') {
-    $(".nav-item[data-role='user']").hide();
-}
-} 
+        function logout() {
+            localStorage.removeItem("Logged_in_users");
 
-else {
-    
-    $(".nav-item[data-loggedin='true'] ").hide();
-    $(".nav-item[data-loggedin='false']").show();
-    $(".nav-item[data-role='user']").hide();
-    $(".nav-item[data-role='admin']").hide();
-}
-
-function logout() {
-    localStorage.removeItem("Logged_in_users");
-
-    window.location.href = "login.html";
-}
+            window.location.href = "login.html";
+        }
 
 
-function checkLogin() {
+        function checkLogin() {
             let userStr = localStorage.getItem("Logged_in_users");
             let user = userStr != null ? JSON.parse(userStr) : null;
             if (user != null) {
 
-               const content = "Welcome <a href = 'profile_user.html' class='user'  data-loggedin='true'>" + user.name + "</a> &nbsp;";
-               $("#loggedIn").html(content);
+                const content = "Welcome <a href = 'profile_user.html' class='user'  data-loggedin='true'>" + user
+                    .name + "</a> &nbsp;";
+                $("#loggedIn").html(content);
             }
-           
+
 
         }
         checkLogin();
+    </script>
 
-</script>
+    <script src="js/routes.js"></script>
 
-<script src="js/routes.js"></script>
-
-    </header>
+</header>
