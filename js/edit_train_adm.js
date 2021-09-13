@@ -1,7 +1,7 @@
 $("#header").load("_header.html");
 
 
-$(document).ready (function(){
+$(document).ready(function () {
 
     console.log("Jquery Loaded");
 
@@ -9,37 +9,37 @@ $(document).ready (function(){
 
 });
 
-function displayValues(){
-let params = new URLSearchParams(window.location.search.substr(1));
+function displayValues() {
+    let params = new URLSearchParams(window.location.search.substr(1));
 
-let _id = params.get("id");
-TrainService.getTrain(_id).then(res=>{
-    let train = res.data;
-    console.log(train);
+    let _id = params.get("id");
+    TrainService.getTrain(_id).then(res => {
+        let train = res.data;
+        console.log(train);
 
 
 
-$("#trainNo").val(train.trainNo);
-$("#name").val(train.name);
-$("#source").val(train.source);
-$("#destination").val(train.destination);
-$("#price").val(train.price);
-$("#startTime").val(train.startTime);
-$("#endTime").val(train.endTime)
-$("#noPassenger").val(train.noPassenger);
+        $("#trainNo").val(train.trainNo);
+        $("#name").val(train.name);
+        $("#source").val(train.source);
+        $("#destination").val(train.destination);
+        $("#price").val(train.price);
+        $("#startTime").val(train.startTime);
+        $("#endTime").val(train.endTime)
+        $("#noPassenger").val(train.noPassenger);
 
-$("#duration").val(train.duration);
+        $("#duration").val(train.duration);
 
-$("#stations").val(train.stations);
+        $("#stations").val(train.stations);
 
-$("#_id").val(train._id);
-$("#_rev").val(train._rev);
+        $("#_id").val(train._id);
+        $("#_rev").val(train._rev);
 
-});
+    });
 }
 displayValues();
 
-function resetValue(){
+function resetValue() {
 
     displayValues();
 
@@ -78,28 +78,27 @@ function editTrain() {
 
     console.log(formValues);
 
-    if(trainNo.length != 5){
-        
+    if (trainNo.length != 5) {
+
         toastr.error(ErrorMessage.INVALID_TRAIN_NO);
-    }
-    else{
-    
-   
-        TrainService.updateTrain(formValues).then(res=>{
-        let users=res.data;
-        console.log(users);
-        
-        toastr.success("Update successful");
+    } else {
 
-        setTimeout(function () {
-            window.location.href = "list_train_adm.html"
-        }, 3000);
 
-    }).catch(err=>{
-        console.log(err.response.data);
-        toastr.error(ErrorMessage.UPDATE_TRAIN_FAILED);
-    });
-   
+        TrainService.updateTrain(formValues).then(res => {
+            let users = res.data;
+            console.log(users);
+
+            toastr.success("Update successful");
+
+            setTimeout(function () {
+                window.location.href = "list_train_adm.html"
+            }, 3000);
+
+        }).catch(err => {
+            console.log(err.response.data);
+            toastr.error(ErrorMessage.UPDATE_TRAIN_FAILED);
+        });
+
     }
 
 
@@ -107,6 +106,6 @@ function editTrain() {
 
 }
 
-function list_train(){
-    window.location.href="list_train_adm.html";
+function list_train() {
+    window.location.href = "list_train_adm.html";
 }

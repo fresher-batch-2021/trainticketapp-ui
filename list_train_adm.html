@@ -8,16 +8,21 @@
     <title>List Trains</title>
     <link rel="stylesheet" href="css/style.css">
 
-    
-     <!-- axios -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-     <!-- Sorting lodash -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    
+    <!-- Sorting lodash -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
+        integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
     <!-- Toaster -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
@@ -30,61 +35,63 @@
     </header>
     <main>
         <section class="list-train-admin-section">
-            
-        <h2>List Trains</h2>
-        
-        <div>
-            <form id="admListTrainForm" method="POST">
-            <!-- <form onsubmit="abc()"> -->
 
-            <label for="sourceStationSearch"><strong>Source Station</strong></label>
-            <select class="list-train-form" name="sourceStationSearch" id="sourceStationSearch" class="sourceStationSearch">
+            <h2>List Trains</h2>
 
-            </select>
+            <div>
+                <form id="admListTrainForm" method="POST">
+                    <!-- <form onsubmit="abc()"> -->
 
-            <label for="destinationStationSearch"><strong>Destination Station</strong></label>
-            
-            <select class="list-train-form" name="destinationStationSearch" id="destinationStationSearch" class="destinationStationSearch">
+                    <label for="sourceStationSearch"><strong>Source Station</strong></label>
+                    <select class="list-train-form" name="sourceStationSearch" id="sourceStationSearch"
+                        class="sourceStationSearch">
 
-            </select>
-            <button type="submit">Search</button>
-        </form>
-        </div>
-        
-        <br><br>
-        <section class="user-admin-table">
-            <div class="table-list">
-                <table class="table table-bordered  table-hover" id="listTrainDataAdm">
-                <caption><strong> Train List</strong></caption>
-                <thead>
-                    <tr class="table-primary">
-                        <th id="sno">S.No</th>
-                        <th id="trainNo">Train No</th>
-                        <th id="name">Train Name</th>
-                        <th id="noPassengers">No of passengers Allowed</th>
-                        <th id="source">Source Station</th>
-                        <th id="destination">Destination Station</th>
-                        <th id="startTime">Start Time</th>
-                        <th id="endTime">End Time</th>
-                        <th id="duration">Duration</th>
-                        <th id="price">Ticket Price</th>
-                        <th id="stations">Stations</th>
-                        <th id="action">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
-                </tbody>
-            </table>
+                    </select>
+
+                    <label for="destinationStationSearch"><strong>Destination Station</strong></label>
+
+                    <select class="list-train-form" name="destinationStationSearch" id="destinationStationSearch"
+                        class="destinationStationSearch">
+
+                    </select>
+                    <button type="submit">Search</button>
+                </form>
             </div>
-            <br>
-            <br>
+
+            <br><br>
+            <section class="user-admin-table">
+                <div class="table-list">
+                    <table class="table table-bordered  table-hover" id="listTrainDataAdm">
+                        <caption><strong> Train List</strong></caption>
+                        <thead>
+                            <tr class="table-primary">
+                                <th id="sno">S.No</th>
+                                <th id="trainNo">Train No</th>
+                                <th id="name">Train Name</th>
+                                <th id="noPassengers">No of passengers Allowed</th>
+                                <th id="source">Source Station</th>
+                                <th id="destination">Destination Station</th>
+                                <th id="startTime">Start Time</th>
+                                <th id="endTime">End Time</th>
+                                <th id="duration">Duration</th>
+                                <th id="price">Ticket Price</th>
+                                <th id="stations">Stations</th>
+                                <th id="action">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+                <br>
+                <br>
 
 
-            <button class="btn btn-primary first-btn" onclick="add_train();">Add Trains</button>
+                <button class="btn btn-primary first-btn" onclick="add_train();">Add Trains</button>
 
+            </section>
         </section>
-    </section>
     </main>
 
     <script src="js/jquery.min.js"></script>

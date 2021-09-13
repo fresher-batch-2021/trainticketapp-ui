@@ -1,8 +1,7 @@
-
 $("#header").load("_header.html");
 
 
-$(document).ready (function(){
+$(document).ready(function () {
 
     console.log("Jquery Loaded");
 
@@ -18,7 +17,7 @@ function loginPage() {
     const password1 = $("#password").val();
     console.log(password1);
     const role = $("#role:checked").val();
-    
+
     console.log(role);
 
     console.log(email + ":" + password1 + ":" + role);
@@ -41,22 +40,19 @@ function loginPage() {
             if (data.length == 0) {
                 toastr.error(ErrorMessage.INVALID_LOGIN);
 
-            }
-
-            else {
+            } else {
 
                 const user = data[0];
                 localStorage.setItem("Logged_in_users", JSON.stringify(user));
                 console.log("Role:", role);
-                
+
                 if (role == "admin") {
                     toastr.success("login succesful");
                     console.log("toastr completed");
                     setTimeout(function () {
                         window.location.href = "add_train_adm.html"
                     }, 3000);
-                }
-                else if (role == "user") {
+                } else if (role == "user") {
                     toastr.success("login succesful");
                     setTimeout(function () {
                         window.location.href = "list_train.html"
@@ -69,13 +65,11 @@ function loginPage() {
         }).catch(err => {
             console.log(err.response.data);
             toastr.error(ErrorMessage.LOGIN_FAILED);
-            
-        });
-    }
 
-    catch (err) {
+        });
+    } catch (err) {
         console.error(err.message);
         toastr.error("Error: " + err.message);
-        
+
     }
 }

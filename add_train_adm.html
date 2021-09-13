@@ -8,15 +8,18 @@
     <title>Add Trains</title>
     <link rel="stylesheet" href="css/style.css">
 
-     <!-- axios -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-     
+
     <!-- Toaster -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    
+
 </head>
 
 <body>
@@ -24,52 +27,56 @@
     <main>
         <section class="add-train-admin-section form-container">
             <div class="form-title">
-        <h2>Add Trains</h2>
-    </div>
-
-        <form id="addTrainForm" method="POST">
-            <div class="row">
-                <label for="trainNo">Train No <span>*</span></label>
-                <input class="form-control" type="number" name="trainNo" id="trainNo" pattern="[0-9]{5}" autocomplete="off" required autofocus min=1>
-                
-                <label for="name">Train Name <span>*</span></label>
-                <input class="form-control" type="text" name="name" id="name" pattern="[A-Za-z ]{1,50}" required>
-                
-                <label for="noPassenger">No of Passengers Allowed <span>*</span></label>
-                <input class="form-control" type="number" name="noPassenger" id="noPassenger" min=1 required>
-                
-                <label for="source">Source Station <span>*</span></label>
-                <input class="form-control" type="text" name="source" id="source" pattern="[A-Za-z ]{1,50}" required>
-                
-                <label for="destination">Destination Station <span>*</span></label>
-                <input class="form-control" type="text" name="destination" id="destination" pattern="[A-Za-z ]{1,50}" required>
-                
-                <label for="stations">Stations <span>*</span></label>
-                <textarea class="form-control" name="stations" id="stations" pattern="[A-Za-z, ]{1,200}" required rows="10" cols="40"></textarea>
-                
-                <label for="price">Ticket Price <span>*</span></label>
-                <input class="form-control" type="number" name="price" id="price" min=1 required>
-                
-                <label for="startTime">Start Time <span>*</span></label>
-                <input class="form-control" type="time" name="startTime" id="startTime" required>
-                
-                <label for="endTime">End Time <span>*</span></label>
-                <input class="form-control" type="time" name="endTime" id="endTime" required>
-                
-                <label for="duration">Duration <span>*</span></label>
-                <input class="form-control" type="time" name="duration" id="duration" required>
-                
-                <button class="btn btn-primary" type="submit">Submit</button>
-                <button type="reset" class="btn btn-danger">Reset</button>
-                
+                <h2>Add Trains</h2>
             </div>
-        </form>
 
-    </section>
-    <div class="add-train">
-                <button class="btn btn-info" onclick="list_train();">List Trains</button>
-            </div>
-            
+            <form id="addTrainForm" method="POST">
+                <div class="row">
+                    <label for="trainNo">Train No <span>*</span></label>
+                    <input class="form-control" type="number" name="trainNo" id="trainNo" pattern="[0-9]{5}"
+                        autocomplete="off" required autofocus min=1>
+
+                    <label for="name">Train Name <span>*</span></label>
+                    <input class="form-control" type="text" name="name" id="name" pattern="[A-Za-z ]{1,50}" required>
+
+                    <label for="noPassenger">No of Passengers Allowed <span>*</span></label>
+                    <input class="form-control" type="number" name="noPassenger" id="noPassenger" min=1 required>
+
+                    <label for="source">Source Station <span>*</span></label>
+                    <input class="form-control" type="text" name="source" id="source" pattern="[A-Za-z ]{1,50}"
+                        required>
+
+                    <label for="destination">Destination Station <span>*</span></label>
+                    <input class="form-control" type="text" name="destination" id="destination"
+                        pattern="[A-Za-z ]{1,50}" required>
+
+                    <label for="stations">Stations <span>*</span></label>
+                    <textarea class="form-control" name="stations" id="stations" pattern="[A-Za-z, ]{1,200}" required
+                        rows="10" cols="40"></textarea>
+
+                    <label for="price">Ticket Price <span>*</span></label>
+                    <input class="form-control" type="number" name="price" id="price" min=1 required>
+
+                    <label for="startTime">Start Time <span>*</span></label>
+                    <input class="form-control" type="time" name="startTime" id="startTime" required>
+
+                    <label for="endTime">End Time <span>*</span></label>
+                    <input class="form-control" type="time" name="endTime" id="endTime" required>
+
+                    <label for="duration">Duration <span>*</span></label>
+                    <input class="form-control" type="time" name="duration" id="duration" required>
+
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                    <button type="reset" class="btn btn-danger">Reset</button>
+
+                </div>
+            </form>
+
+        </section>
+        <div class="add-train">
+            <button class="btn btn-info" onclick="list_train();">List Trains</button>
+        </div>
+
 
         <script src="js/jquery.min.js"></script>
         <script src="js/env.js"></script>
@@ -78,7 +85,7 @@
         <script src="js/add_train_adm.js"></script>
         <script src="js/bussinessValidation.js"></script>
         <script src="js/errormessage.js"></script>
-      
+
     </main>
 </body>
 

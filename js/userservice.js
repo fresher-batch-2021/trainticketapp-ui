@@ -1,6 +1,13 @@
 class UserService {
 
-    static login(email, password1,role) {
+    /**
+     * This is is for login function
+     * @param {*} email 
+     * @param {*} password1 
+     * @param {*} role 
+     * @returns 
+     */
+    static login(email, password1, role) {
 
 
         const url = endPoint + "trainticketapp_users/_find";
@@ -14,26 +21,46 @@ class UserService {
             fields: ["_id", "name", "email", "role"],
         };
 
-        return axios.post(url, requestData, { headers: { Authorization: basicAuth } });
+        return axios.post(url, requestData, {
+            headers: {
+                Authorization: basicAuth
+            }
+        });
     }
-    
+
+    /**
+     * this is register function
+     * @param {*} formValues 
+     * @returns 
+     */
     static register(formValues) {
 
 
 
-        const url= endPoint + "trainticketapp_users";
+        const url = endPoint + "trainticketapp_users";
 
-        return   axios.post(url,formValues,{ headers: { 'Authorization': basicAuth } });
+        return axios.post(url, formValues, {
+            headers: {
+                'Authorization': basicAuth
+            }
+        });
 
     }
 
-    
-    static getUsers(){
-        
-        const url= endPoint + "trainticketapp_users/_all_docs?include_docs=true";
-    
-    
-        return axios.get(url, { headers: { Authorization: basicAuth } });
+    /**
+     * List of user's function
+     * @returns 
+     */
+    static getUsers() {
+
+        const url = endPoint + "trainticketapp_users/_all_docs?include_docs=true";
+
+
+        return axios.get(url, {
+            headers: {
+                Authorization: basicAuth
+            }
+        });
     }
 
 

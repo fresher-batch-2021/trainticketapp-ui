@@ -13,7 +13,7 @@ function listData() {
         let i = 0;
         for (let listTrain of trains) {
             i = i + 1;
-            
+
             $("#listTrainDataAdm tbody").empty();
 
             let trainEdit = `<button onclick="edit_train_detail('${listTrain._id}')">Edit</button>`;
@@ -22,10 +22,10 @@ function listData() {
 
             content = content + "<tr><td>" + i + "</td>" + "<td>" + listTrain.trainNo + "</td>" + "<td>" + listTrain.name + "</td>" + "<td>" + listTrain.noPassenger + "</td>" + "<td>" + listTrain.source + "</td>" + "<td>" + listTrain.destination + "</td>" + "<td>" + listTrain.startTime + "</td>" + "<td>" + listTrain.endTime + "</td>" + "<td>" + listTrain.duration + "</td>" + "<td>" + '₹' + listTrain.price + "</td>" + "<td>" + listTrain.stations + "</td>" + "<td>" + trainEdit + trainDelete + "</td></tr>";
 
-            
+
             $("#listTrainDataAdm tbody").append(content);
 
-            
+
         }
     }).catch(err => {
         console.log(err.response.data);
@@ -40,47 +40,46 @@ function cancel_train(id, rev, trainName) {
 
     console.log(id);
     console.log(rev);
-    let url = "https://b4af4ef2-55e1-4a9b-9b02-8168e5964652-bluemix.cloudantnosqldb.appdomain.cloud/trainticketapp_trains/" + id;
-    const dbusername = "apikey-v2-15a2mog1stn0kv0gjnidlq2eoth4psp58f8ov9zs42i6";
-    const dbpassword = "aabcfd48d07fe38f4760f6cd11b83b4a";
-    const basicAuth = 'Basic ' + btoa(dbusername + ":" + dbpassword);
 
     // axios.delete(url+id+"?rev="+rev, { headers: {'Authorization': basicAuth}})
 
-    
-        Swal.fire({
-            title: 'Are you sure to delete ' + trainName + '?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-          }).then((result) => {
-            if (result.isConfirmed) {
-              Swal.fire(
+
+    Swal.fire({
+        title: 'Are you sure to delete ' + trainName + '?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
                 'Deleted!',
                 'Your file has been deleted.',
                 'success'
-              )
-
-    axios.get(url, { headers: { 'Authorization': basicAuth } }).then(res1 => {
-
-        let product = res1.data;
-        console.log(product);
-        product.status = "INACTIVE";
-
-        axios.put(url, product, { headers: { 'Authorization': basicAuth } }).then(res2 => {
+            )
 
 
-        }).catch(err => {
-            toastr.error(ErrorMessage.DELETE_ERROR);
+            TrainService.getTrain(id).then(res1 => {
 
-        })
+                let product = res1.data;
+                console.log(product);
+                product.status = "INACTIVE";
 
+                TrainService.updateTrain(product).then(res2 => {
+
+
+                    listData();
+
+                }).catch(err => {
+                    toastr.error(ErrorMessage.DELETE_ERROR);
+
+                })
+
+            })
+        }
     })
-}
-          })
 
 }
 
@@ -161,7 +160,7 @@ function searchTrains(trains, sourceSearch, destinationSearch) {
 }
 
 
-$(document).ready (function(){
+$(document).ready(function () {
 
     console.log("Jquery Loaded");
 
@@ -188,10 +187,10 @@ function abc() {
     });
 }
 
-function add_train(){
+function add_train() {
     window.location.href = "add_train_adm.html";
 }
 
-function edit_train_detail(id_detail){
+function edit_train_detail(id_detail) {
     window.location.href = `edit_train_adm.html?id=${id_detail}`;
 }

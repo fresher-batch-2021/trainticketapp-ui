@@ -26,7 +26,7 @@
 
             <a class="nav-item" href="booking_list_adm.html" data-loggedin="true" data-role="admin"> Booking List</a>
 
-            <a class="nav-item" href="list_train.html"> List Train</a>
+            <a class="nav-item" data-role="guest,user" href="list_train.html"> List Train</a>
 
             <a class="nav-item" href="booking.html" data-loggedin="true" data-role="user">Booking</a>
 
@@ -62,10 +62,12 @@
 
             if (userStatus.role == 'user') {
                 $(".nav-item[data-role='admin']").hide();
+                $(".nav-item[data-role='guest,user']").show();
             }
 
             if (userStatus.role == 'admin') {
                 $(".nav-item[data-role='user']").hide();
+                $(".nav-item[data-role='guest,user']").hide();
             }
         } else {
 

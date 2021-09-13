@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,58 +8,60 @@
     <title>Profile</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
     <header id="header"> </header>
-</header>
-<main>
-    <h2 class="profile-h2">My Profile </h2>
-    <section class="list-user-admin-section" id="profile">
-        
-        <table class="table table-bordered  table-hover">  
-            <caption><strong> Profile Details</strong></caption><br><br>
-            <thead>
-                <tr  class="table-primary">
-                <th id="fields">Fields</th>
-                <th id="values">Values</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Name</td>
-                    <td id="name"></td>
-                </tr>
-                <tr>
-                    <td>Email</td>
-                    <td id="email"></td>
-                </tr>
-                <tr>
-                    <td>Role</td>
-                    <td id="role"></td>
-                </tr>
-            </tbody>
-            
-        </table>
-    </section>
+    </header>
+    <main>
+        <h2 class="profile-h2">My Profile </h2>
+        <section class="list-user-admin-section" id="profile">
+
+            <table class="table table-bordered  table-hover">
+                <caption><strong> Profile Details</strong></caption><br><br>
+                <thead>
+                    <tr class="table-primary">
+                        <th id="fields">Fields</th>
+                        <th id="values">Values</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Name</td>
+                        <td id="name"></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td id="email"></td>
+                    </tr>
+                    <tr>
+                        <td>Role</td>
+                        <td id="role"></td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </section>
     </main>
     <script src="https://code.jquery.com/jquery-3.6.0.js"
-    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
-    <script src= "index.js"></script>
-    
+    <script src="index.js"></script>
+
     <script>
-$("#header").load("_header.html");
+        $("#header").load("_header.html");
 
         let userStr = localStorage.getItem("Logged_in_users");
-                        let user = userStr != null ? JSON.parse(userStr):null;
-                        if (user != null){
+        let user = userStr != null ? JSON.parse(userStr) : null;
+        if (user != null) {
 
-                            $("#name").html(user.name);
-                            $("#email").html(user.email);
-                            $("#role").html(user.role);
-                        }
-                        // else{
-                                               
-                        // }
+            $("#name").html(user.name);
+            $("#email").html(user.email);
+            $("#role").html(user.role);
+        }
+        // else{
+
+        // }
     </script>
 </body>
+
 </html>
