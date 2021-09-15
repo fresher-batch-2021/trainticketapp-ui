@@ -9,6 +9,9 @@ $(document).ready(function () {
 
 });
 
+
+
+
 function addTrain() {
     event.preventDefault();
     const trainNo = $("#trainNo").val();
@@ -22,9 +25,8 @@ function addTrain() {
     const duration = $("#duration").val();
     const stations = $("#stations").val();
 
-    console.log(trainNo + "+" + name + "+" + noPassenger + "+" + source + "+" + destination + "+" + price + "+" + startTime + "+" + endTime + "+" + duration + "+" + stations);
 
-    let formValues = {
+    const formValues = {
         "trainNo": trainNo,
         "name": name,
         "noPassenger": noPassenger,
@@ -38,69 +40,53 @@ function addTrain() {
     };
     console.log(formValues);
 
+    try {
 
-    ValidatorCheck.trainNoValidation(trainNo).then(res => {
-        console.table(res.data);
-        let data = res.data.docs;
+        //1. Check train No digits
+        Validator.isValidTrainNo(trainNo, ErrorMessage.INVALID_TRAIN_NO);
 
-        if (data != "") {
-            toastr.error(ErrorMessage.TRAIN_NO_ALREADY);
+        //2. Check if trainNo already registered
+        ValidatorCheck.trainNoValidation(trainNo).then(res => {
+            console.table(res.data);
+            let data = res.data.docs;
 
-            return;
-        }
-
-
-        let userData = localStorage.getItem("Logged_in_users");
-        let user = JSON.parse(userData);
-        console.log(user);
-        if (user == null) {
-            console.log("user : ", user);
-
-            toastr.error(ErrorMessage.LOGIN_MUST);
-
-            setTimeout(function () {
-                window.location.href = "login.html"
-            }, 3000);
-
-            //   window.location.href = "login.html";
-        } else {
-            console.log("user : ", user);
-
-
-
-
-            try {
-                Validator.isValidTrainNo(trainNo, ErrorMessage.INVALID_TRAIN_NO);
-
-
-                TrainService.addTrains(formValues).then(res1 => {
-                    let train_list = res1.data;
-                    console.log(train_list);
-
-                    toastr.success("Train Added successful");
-
-                    setTimeout(function () {
-                        window.location.href = "list_train_adm.html"
-                    }, 3000);
-
-                }).catch(err => {
-                    console.log(err.response.data);
-                    toastr.error(ErrorMessage.ADD_TRAIN_FAILED);
-                });
-
-            } catch (err) {
-                console.error(err.message);
-                toastr.error("Error: " + err.message);
-
+            //2.1 Throw error if trainNo already exists
+            if (data.length != 0) {
+                throw new Error(ErrorMessage.TRAIN_NO_ALREADY);
             }
 
-        }
+            //3. Call API to add Trains
+            TrainService.addTrains(formValues).then(res1 => {
+                let train_list = res1.data;
+                console.log(train_list);
 
-    }).catch(err => {
-        console.log(err.response.data)
-    });
+                toastr.success("Train Added successful");
 
+                setTimeout(function () {
+                    window.location.href = "list_train_adm.html"
+                }, 3000);
 
+            }).catch(err => {
+                console.log(err.response.data);
+                //toastr.error(ErrorMessage.ADD_TRAIN_FAILED);
+                throw new Error(ErrorMessage.ADD_TRAIN_FAILED);
+            });
+
+        }).catch(err => {
+            console.error(err)
+            if (err.message){
+                toastr.error(err.message);
+            }
+            else{
+                toastr.error("Unable to validate train No");
+            }
+        });
+
+    } catch (err) {
+        console.error(err.message);
+        toastr.error("Error: " + err.message);
+
+    }
 
 }
 

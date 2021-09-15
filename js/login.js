@@ -30,10 +30,13 @@ function loginPage() {
     };
     console.log(formvalues);
     try {
+        // 1. Check Email is filled or not
         Validator.isValidString(email, ErrorMessage.EMAIL_MANDATORY);
 
+        // 2. Check Password is filled or not
         Validator.isValidString(password1, ErrorMessage.PASSWORD_MANDATORY);
 
+        // 3. Call API to check login details
         UserService.login(email, password1, role).then(res => {
             let data = res.data.docs;
             console.log(data);
@@ -64,7 +67,8 @@ function loginPage() {
 
         }).catch(err => {
             console.log(err.response.data);
-            toastr.error(ErrorMessage.LOGIN_FAILED);
+            // toastr.error(ErrorMessage.LOGIN_FAILED);
+            throw new Error(ErrorMessage.LOGIN_FAILED);
 
         });
     } catch (err) {

@@ -47,13 +47,14 @@ function bookingForm() {
     const noTicket = $("#noTicket").val();
     const journeyDate = $("#journeyDate").val();
     const ticketAmount = $("#ticketAmount").val();
+    const status = "ACTIVE";
 
 
     let userData = localStorage.getItem("Logged_in_users");
     let user = JSON.parse(userData);
     const email = user.email;
 
-    console.log(trainNo + "+" + trainName + "+" + fromStation + "+" + toStation + "+" + noTicket + "+" + journeyDate + "+" + ticketAmount);
+    console.log(trainNo + "+" + trainName + "+" + fromStation + "+" + toStation + "+" + noTicket + "+" + journeyDate + "+" + ticketAmount + "+" + status);
 
     const totalPrice = (noTicket * ticketAmount);
 
@@ -67,7 +68,8 @@ function bookingForm() {
         "individualPrice": ticketAmount,
         "totalPrice": totalPrice,
         "user": user,
-        "email": email
+        "email": email,
+        "status": status
     };
     console.log(formValues);
 

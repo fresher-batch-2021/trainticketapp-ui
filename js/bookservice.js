@@ -33,6 +33,28 @@ class BookService {
         });
     }
 
+     /**
+     * This function is for list bookings
+     * @returns 
+     */
+      static listMyBooking(userId) {
+
+        const url = endPoint + "trainticketapp_book/_find";
+
+        const selector = {
+            selector : {
+                user : {
+                    _id: userId
+                }
+            }
+        }
+        return axios.post(url, selector,{
+            headers: {
+                Authorization: basicAuth
+            }
+        });
+    }
+
     /**
      * This function is for cancel bookings
      * @param {*} id 

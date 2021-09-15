@@ -8,14 +8,10 @@ function bookList() {
     console.log("User Id:", userid);
 
 
-    BookService.listBooking().then(res => {
-        let data = res.data.rows;
-        let book_list = data.map(obj => obj.doc);
-        console.table(book_list);
+    BookService.listMyBooking(userid).then(res => {
+        let myBookings = res.data.docs;
 
-        let myBookings1 = book_list.filter(obj => obj.user._id == userid);
-
-        let myBookings = myBookings1.filter(obj => obj.status !== 'INACTIVE');
+        //let myBookings = myBookings1.filter(obj => obj.status !== 'INACTIVE');
 
 
         console.log(JSON.stringify(myBookings));
@@ -28,21 +24,63 @@ function bookList() {
         let content = "";
         for (let booklistObj of myBookings) {
             i++;
-
+            let status_name = "";
+            let cancelBook= "";
             $("#BOOKINGLIST tbody").empty();
 
-            let cancelBook = `<button type='button'  onclick = "cancel_booking('${booklistObj._id}','${booklistObj._rev}','${booklistObj.name}');"> Cancel </button>`;
 
+            if(booklistObj.status == "ACTIVE"){
+
+
+                status_name = "Booked";
+
+                
+            cancelBook = `<button type='button'  onclick = "cancel_booking('${booklistObj._id}','${booklistObj._rev}','${booklistObj.name}');"> Cancel </button>`;
+
+            
             const ticketAmount = (booklistObj.noTicket) * (booklistObj.individualPrice);
 
             let orderedDate = new Date(booklistObj.journeyDate).toJSON(); //.substr(0, 10);
             let date = moment(new Date(orderedDate)).format("DD-MM-YYYY");
 
-            content = content + "<tr><td>" + i + "</td>" + "<td>" + booklistObj.trainNo + "</td>" + "<td>" + booklistObj.name + "</td>" + "<td>" + booklistObj.source + "</td>" + "<td>" + booklistObj.destination + "</td>" + "<td>" + booklistObj.noTicket + "</td>" + "<td>" + date + "</td>" + "<td>" + '₹' + booklistObj.individualPrice + "</td>" + "<td>" + '₹' + ticketAmount + "</td>" + "<td>" + booklistObj.user.name + "</td>" + "<td>" + booklistObj.user.email + "</td>" + "<td>" + cancelBook + "</td></tr>";
-
-
+            content = content + "<tr><td>" + i + "</td>" + "<td>" + booklistObj.trainNo + "</td>" + "<td>" + booklistObj.name + "</td>" + "<td>" + booklistObj.source + "</td>" + "<td>" + booklistObj.destination + "</td>" + "<td>" + booklistObj.noTicket + "</td>" + "<td>" + date + "</td>" + "<td>" + '₹' + booklistObj.individualPrice + "</td>" + "<td>" + '₹' + ticketAmount + "</td>" + "<td>" + booklistObj.user.email + "</td>" + "<td>" + booklistObj.user.name + "</td>" + "<td>" + status_name + "</td>" + "<td>" + cancelBook + "</td></tr>";
+            
 
             $("#BOOKINGLIST tbody").append(content);
+
+            }
+        }
+
+        for (let booklistObj of myBookings) {
+            i++;
+            let status_name = "";
+            let cancelBook= "";
+            $("#BOOKINGLIST tbody").empty();
+
+
+            if(booklistObj.status == "INACTIVE"){
+                status_name = "Cancelled";
+
+                cancelBook = ``;
+
+                
+            const ticketAmount = (booklistObj.noTicket) * (booklistObj.individualPrice);
+
+            let orderedDate = new Date(booklistObj.journeyDate).toJSON(); //.substr(0, 10);
+            let date = moment(new Date(orderedDate)).format("DD-MM-YYYY");
+
+            content = content + "<tr><td>" + i + "</td>" + "<td>" + booklistObj.trainNo + "</td>" + "<td>" + booklistObj.name + "</td>" + "<td>" + booklistObj.source + "</td>" + "<td>" + booklistObj.destination + "</td>" + "<td>" + booklistObj.noTicket + "</td>" + "<td>" + date + "</td>" + "<td>" + '₹' + booklistObj.individualPrice + "</td>" + "<td>" + '₹' + ticketAmount + "</td>" + "<td>" + booklistObj.user.email + "</td>" + "<td>" + booklistObj.user.name + "</td>" + "<td>" + status_name + "</td>" + "<td>" + cancelBook + "</td></tr>";
+
+            
+
+            $("#BOOKINGLIST tbody").append(content);
+            }
+
+            
+
+
+
+            // $("#BOOKINGLIST tbody").append(content);
         }
     }).catch(err => {
         console.log(err.response.data);
